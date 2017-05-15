@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Hours" max_length="40" name="x_snc_guide_hours" type="collection">
+        <element label="Close" max_length="40" name="close" type="glide_time"/>
+        <element label="Close hour" max_length="40" name="close_hour" type="integer"/>
+        <element label="Close minute" max_length="40" name="close_minute" type="integer"/>
+        <element choice="1" default="Sunday" label="Day" max_length="40" name="day" type="choice">
+            <choice>
+                <element label="Sunday" sequence="0" value="Sunday"/>
+                <element label="Monday" sequence="1" value="Monday"/>
+                <element label="Tuesday" sequence="2" value="Tuesday"/>
+                <element label="Wednesday" sequence="3" value="Wednesday"/>
+                <element label="Thursday" sequence="4" value="Thursday"/>
+                <element label="Friday" sequence="5" value="Friday"/>
+                <element label="Saturday" sequence="6" value="Saturday"/>
+            </choice>
+        </element>
+        <element label="Open" max_length="40" name="open" type="glide_time"/>
+        <element label="Open hour" max_length="40" name="open_hour" type="integer"/>
+        <element label="Open minute" max_length="40" name="open_minute" type="integer"/>
+        <element label="Order" max_length="40" name="order" type="integer"/>
+        <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" type="reference"/>
+        <index name="index">
+            <element name="site"/>
+        </index>
+    </element>
+</database>

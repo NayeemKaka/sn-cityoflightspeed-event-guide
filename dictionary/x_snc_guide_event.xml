@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Event" max_length="40" name="x_snc_guide_event" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Cost" max_length="20" name="cost" type="currency"/>
+        <element label="Description" max_length="1000" name="description" type="string"/>
+        <element label="Dislike" max_length="40" name="dislike" type="integer"/>
+        <element label="End date" max_length="40" name="end_date" type="glide_date_time"/>
+        <element label="Like" max_length="40" name="like" type="integer"/>
+        <element display="true" label="Name" max_length="80" name="name" type="string"/>
+        <element label="Photo" max_length="40" name="photo" type="user_image"/>
+        <element label="Rating ratio" max_length="40" name="rating_ratio" type="float"/>
+        <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" type="reference"/>
+        <element label="Start date" max_length="40" name="start_date" type="glide_date_time"/>
+        <element choice="1" label="Type" max_length="40" name="type" type="choice">
+            <choice/>
+        </element>
+        <element label="URL" max_length="1024" name="url" type="url"/>
+        <index name="index">
+            <element name="site"/>
+        </index>
+    </element>
+</database>
