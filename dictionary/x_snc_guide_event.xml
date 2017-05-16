@@ -13,7 +13,14 @@
         <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" type="reference"/>
         <element label="Start date" max_length="40" name="start_date" type="glide_date_time"/>
         <element choice="1" label="Type" max_length="40" name="type" type="choice">
-            <choice/>
+            <choice>
+                <element label="Exhibitions" sequence="0" value="Exhibitions"/>
+                <element label="Live Music" sequence="1" value="Live Music"/>
+                <element label="Exhibitions &amp; Collections" sequence="2" value="Exhibitions &amp; Collections"/>
+                <element label="Sporting Event" sequence="3" value="Sporting Event"/>
+                <element label="Meet &amp; Mingle" sequence="4" value="Meet &amp; Mingle"/>
+                <element label="Conference" sequence="5" value="Conference"/>
+            </choice>
         </element>
         <element label="URL" max_length="1024" name="url" type="url"/>
         <index name="index">

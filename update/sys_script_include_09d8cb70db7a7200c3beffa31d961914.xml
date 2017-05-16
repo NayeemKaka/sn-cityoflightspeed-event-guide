@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_guide.LocationManager</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>LocationManager</name>
+        <script><![CDATA[var LocationManager = Class.create();
+LocationManager.prototype = {
+	initialize: function(locObj) {
+		if (locObj) {
+			this.street = locObj.street;
+			var city_state = this._parseCityState(locObj.city_state);
+			this.city = city_state.city;
+			this.state = city_state.state;
+			this.zip = locObj.zip;		
+		}
+
+		this.locationTable = 'cmn_location';
+	},
+
+	newLocation : function() {
+
+		var locationID = this._locationExists();
+		if (locationID) {
+			return locationID;
+		}
+
+		gs.info('newLocation(): Creating new location. locationID=' + locationID);
+
+		return this._createNewLocation();
+	},
+
+	_locationExists : function() {
+
+		var loc = new GlideRecord(this.locationTable);
+		loc.addQuery('street', this.street);
+		loc.addQuery('city', this.city);
+		loc.addQuery('state', this.state);
+		loc.addQuery('zip', this.zip);
+		loc.query();
+
+		if (loc.next()) {
+			gs.info('This location exists!');
+			return loc.getValue('sys_id');			
+		}
+
+		gs.info('This looks like a new location');
+
+		return;
+
+	},
+
+	_createNewLocation : function() {
+
+		var loc = new GlideRecord(this.locationTable);
+		loc.newRecord();
+		loc.street = this.street;
+		loc.city = this.city;
+		loc.state = this.state;
+		loc.zip = this.zip;
+
+		var gInfo = this._getGoogleInfo();
+
+		if (gInfo) {
+			loc.name = gInfo.formatted_address;
+			loc.latitude = gInfo.geometry.location.lat;
+			loc.longitude = gInfo.geometry.location.lng;
+		}
+
+		var id = loc.insert();
+		gs.info('New location record created: ' + id);
+
+		return id;
+	},
+
+	_getGoogleInfo : function() {
+
+		var apiKey = gs.getProperty('x_snc_guide.google_maps.api_key', '');
+
+		if (apiKey == '')
+			return;
+
+		var urlLocStr = this.street + ' ' + this.city + ',' + this.state;
+		var urlLoc = gs.urlEncode(urlLocStr);
+		var ep = 'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+			urlLoc + '&key=' + apiKey;
+
+		gs.info('Endpoint=' + ep);
+		var rm = new sn_ws.RESTMessageV2();
+		rm.setHttpMethod('GET');
+		rm.setEndpoint(ep);
+		rm.setRequestHeader('Content-type', 'application/json');
+		var response = rm.execute();
+		var bodyStr = response.getBody();
+		var bodyObj = JSON.parse(bodyStr);
+		gs.info(JSON.stringify(bodyObj, null, 4));
+
+		return bodyObj.results[0];
+	},
+
+	_parseCityState : function(str) {
+		var arr = str.split(', ');
+		var answer = {};
+
+		answer.city = arr[0];
+		answer.state = arr[1];
+
+		return answer;
+	},
+
+	googleEmbedURL : function(locationSysID) {
+
+		var loc = new GlideRecord('cmn_location');
+		if (!loc.get(locationSysID)) {
+			return;
+		}
+
+		gs.debug(loc.getDisplayValue());
+		gs.debug('street=' + loc.getValue('street'));
+
+		var apiKey = gs.getProperty('x_snc_guide.google_maps.api_key', '');
+
+		var urlLocStr = loc.getValue('street') + ' ' +
+			loc.getValue('city') + ',' +
+			loc.getValue('state');
+
+		var urlLoc = gs.urlEncode(urlLocStr);
+
+		var ep = 'https://www.google.com/maps/embed/v1/place?key=' + apiKey +  '&q=' + urlLoc;
+		gs.info('ep=' + ep);
+
+		return ep;
+
+	},
+
+	type: 'LocationManager'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>chuck.tomasi</sys_created_by>
+        <sys_created_on>2017-05-15 21:32:29</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>09d8cb70db7a7200c3beffa31d961914</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>LocationManager</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sys_script_include_09d8cb70db7a7200c3beffa31d961914</sys_update_name>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2017-05-15 21:32:29</sys_updated_on>
+    </sys_script_include>
+</record_update>

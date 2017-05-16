@@ -3,8 +3,11 @@
     <element label="Favorite" max_length="40" name="x_snc_guide_favorite" type="collection">
         <element label="Event" max_length="32" name="event" reference="x_snc_guide_event" type="reference"/>
         <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" type="reference"/>
-        <element choice="1" label="Type" max_length="40" name="type" type="choice">
-            <choice/>
+        <element choice="3" choice_field="type" choice_table="x_snc_guide_like" default="Site" label="Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element label="Site" sequence="0" value="Site"/>
+                <element label="Event" sequence="1" value="Event"/>
+            </choice>
         </element>
         <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
         <index name="index">

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="type" table="x_snc_guide_site_request" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Aquarium</label>
+            <language>en</language>
+            <name>x_snc_guide_site_request</name>
+            <sequence>0</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 18:34:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>810126bcdbf67200c3beffa31d961964</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 18:34:17</sys_updated_on>
+            <value>Aquarium</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Convention Center</label>
+            <language>en</language>
+            <name>x_snc_guide_site_request</name>
+            <sequence>1</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 18:34:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8d0126bcdbf67200c3beffa31d961965</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 18:34:17</sys_updated_on>
+            <value>Convention Center</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Entertainment</label>
+            <language>en</language>
+            <name>x_snc_guide_site_request</name>
+            <sequence>2</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 18:34:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c50126bcdbf67200c3beffa31d961967</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 18:34:17</sys_updated_on>
+            <value>Entertainment</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Historical Monument</label>
+            <language>en</language>
+            <name>x_snc_guide_site_request</name>
+            <sequence>3</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 18:34:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>010126bcdbf67200c3beffa31d961969</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 18:34:17</sys_updated_on>
+            <value>Historical Monument</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Museum</label>
+            <language>en</language>
+            <name>x_snc_guide_site_request</name>
+            <sequence>4</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 18:34:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>490126bcdbf67200c3beffa31d96196a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 18:34:17</sys_updated_on>
+            <value>Museum</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Planetarium</label>
+            <language>en</language>
+            <name>x_snc_guide_site_request</name>
+            <sequence>5</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 18:34:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>810126bcdbf67200c3beffa31d96196c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 18:34:17</sys_updated_on>
+            <value>Planetarium</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Restaurant</label>
+            <language>en</language>
+            <name>x_snc_guide_site_request</name>
+            <sequence>6</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 18:34:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c90126bcdbf67200c3beffa31d96196d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 18:34:17</sys_updated_on>
+            <value>Restaurant</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Scenic</label>
+            <language>en</language>
+            <name>x_snc_guide_site_request</name>
+            <sequence>7</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 18:34:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>050126bcdbf67200c3beffa31d96196f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 18:34:17</sys_updated_on>
+            <value>Scenic</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Sports Arena</label>
+            <language>en</language>
+            <name>x_snc_guide_site_request</name>
+            <sequence>8</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 18:34:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4d0126bcdbf67200c3beffa31d961970</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 18:34:17</sys_updated_on>
+            <value>Sports Arena</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Transportation</label>
+            <language>en</language>
+            <name>x_snc_guide_site_request</name>
+            <sequence>9</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 18:34:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>850126bcdbf67200c3beffa31d961972</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 18:34:17</sys_updated_on>
+            <value>Transportation</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>type</element>
+            <name>x_snc_guide_site_request</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 18:34:17</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>490126bcdbf67200c3beffa31d961965</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>type</sys_name>
+            <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+            <sys_update_name>sys_choice_x_snc_guide_site_request_type</sys_update_name>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 18:34:17</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

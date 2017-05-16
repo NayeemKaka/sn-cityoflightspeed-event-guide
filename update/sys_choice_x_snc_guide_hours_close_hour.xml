@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="close_hour" table="x_snc_guide_hours" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>00</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>0</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c82356b4dbf67200c3beffa31d961975</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>0</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>01</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>1</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>082356b4dbf67200c3beffa31d961976</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>02</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>2</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>802356b4dbf67200c3beffa31d961977</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>2</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>03</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>3</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0c2356b4dbf67200c3beffa31d961977</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>3</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>04</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>4</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>842356b4dbf67200c3beffa31d961978</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>4</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>05</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>5</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>002356b4dbf67200c3beffa31d961979</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>5</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>06</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>6</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>882356b4dbf67200c3beffa31d961979</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>6</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>07</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>7</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>042356b4dbf67200c3beffa31d96197a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>7</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>08</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>8</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8c2356b4dbf67200c3beffa31d96197a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>8</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>09</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>9</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>082356b4dbf67200c3beffa31d96197b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>9</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>10</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>10</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>802356b4dbf67200c3beffa31d96197c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>10</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>11</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>11</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0c2356b4dbf67200c3beffa31d96197c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>11</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>12</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>12</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>842356b4dbf67200c3beffa31d96197d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>12</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>13</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>13</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>002356b4dbf67200c3beffa31d96197e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>13</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>14</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>14</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>882356b4dbf67200c3beffa31d96197e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>14</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>15</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>15</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>042356b4dbf67200c3beffa31d96197f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>15</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>16</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>16</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8c2356b4dbf67200c3beffa31d96197f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>16</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>17</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>17</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>082356b4dbf67200c3beffa31d961980</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>17</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>18</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>18</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>802356b4dbf67200c3beffa31d961981</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>18</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>19</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>19</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0c2356b4dbf67200c3beffa31d961981</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>19</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>20</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>20</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>842356b4dbf67200c3beffa31d961982</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>20</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>21</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>21</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>002356b4dbf67200c3beffa31d961983</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>21</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>22</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>22</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>882356b4dbf67200c3beffa31d961983</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>22</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>close_hour</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>23</label>
+            <language>en</language>
+            <name>x_snc_guide_hours</name>
+            <sequence>23</sequence>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>042356b4dbf67200c3beffa31d961984</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+            <value>23</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>close_hour</element>
+            <name>x_snc_guide_hours</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-15 17:33:36</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>c02356b4dbf67200c3beffa31d961976</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>close_hour</sys_name>
+            <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+            <sys_update_name>sys_choice_x_snc_guide_hours_close_hour</sys_update_name>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-15 17:33:36</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

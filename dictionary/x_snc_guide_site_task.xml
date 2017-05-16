@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <element extends="task" label="Site task" max_length="40" name="x_snc_guide_site_task" type="collection">
-        <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" type="reference"/>
+        <element label="Site request" max_length="32" name="site_request" reference="x_snc_guide_site_request" type="reference"/>
     </element>
 </database>

@@ -8,8 +8,9 @@
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
-	// Add your code here
-	return '';  // return the calculated value
+	var timeStr = current.open_hour + ':' + current.open_minute + ':00';
+	
+	return timeStr;  // return the calculated value
 
 })(current);]]></calculation>
         <choice/>
@@ -37,7 +38,7 @@
         <name>x_snc_guide_hours</name>
         <next_element/>
         <primary>false</primary>
-        <read_only>false</read_only>
+        <read_only>true</read_only>
         <read_roles/>
         <reference/>
         <reference_cascade_rule/>
@@ -54,7 +55,7 @@
         <sys_created_on>2017-05-15 15:50:49</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>e02bf578dbb67200c3beffa31d96198e</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Open</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -62,14 +63,14 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sys_dictionary_x_snc_guide_hours_open</sys_update_name>
         <sys_updated_by>chuck.tomasi</sys_updated_by>
-        <sys_updated_on>2017-05-15 15:50:49</sys_updated_on>
+        <sys_updated_on>2017-05-15 17:40:30</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
         <use_dependent_field>false</use_dependent_field>
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
-        <virtual>false</virtual>
+        <virtual>true</virtual>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>

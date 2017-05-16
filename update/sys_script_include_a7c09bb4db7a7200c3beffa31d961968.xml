@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_guide.HoursManager</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>HoursManager</name>
+        <script><![CDATA[var HoursManager = Class.create();
+HoursManager.prototype = {
+	initialize: function(recID) {
+		this.recID = recID;
+		this.days = [
+			'Monday',
+			'Tuesday',
+			'Wednesday',
+			'Thursday',
+			'Friday',
+			'Saturday',
+			'Sunday'
+		];
+		
+		this.hoursTable = 'x_snc_guide_hours';
+		this.refField   = 'site';
+	},
+
+	createDefaultHours : function() {
+
+		for (var i = 0; i < 7; i++) {
+			var hr = new GlideRecord(this.hoursTable);
+			hr.newRecord();
+			hr.day = this.days[i];
+			hr.order = i + 1;
+			hr.setValue(this.refField, this.recID);
+			hr.insert();
+		}	
+	},
+
+	_getTodaysHoursGr : function() {
+
+		var now = new GlideDateTime();
+		var nowDOW = now.getDayOfWeekLocalTime(); // 1-7 (Mon=1, Sun=7)
+
+		var hours = new GlideRecord(this.hoursTable);
+		hours.addQuery('order', nowDOW); // Happens to align with order ;)
+		hours.addQuery(this.refField, this.recID);
+		hours.query();
+		hours.next();
+
+		return hours;
+	},
+
+	isOpen : function() {
+
+		var todaysHours = this._getTodaysHoursGr();
+		var now = new GlideDateTime();
+		var nowTime = now.getTime();
+
+		if (todaysHours) {
+			if (nowTime > todaysHours.open && nowTime < todaysHours.close)
+				return true;
+
+			return false;
+		}
+
+		return false;
+	},
+
+	/*
+	 * returns object - useful for Service Portal
+	 *
+	 */
+	getTodaysHours : function() {
+
+		var obj = {
+			"isOpen" : this.isOpen()
+		};
+
+		var todaysHours = this._getTodaysHoursGr();
+		var openVal = todaysHours.getValue('open_hour');
+		var closeVal = todaysHours.getValue('close_hour');
+		var open_ampm = 'AM';
+		if (openVal >= 12) {
+			openVal -= 12;
+			open_ampm = 'PM';
+		}
+		var close_ampm = 'AM';
+		if (closeVal >= 12) {
+			closeVal -= 12;
+			close_ampm = 'PM';
+		}
+
+		var openStr = openVal + ':' +
+			todaysHours.open_minute.getDisplayValue() + ' ' + open_ampm;
+		var closeStr = closeVal + ':' +
+			todaysHours.close_minute.getDisplayValue() + ' ' + close_ampm;
+
+		obj.open = openStr;
+		obj.close = closeStr;
+
+		return obj;
+
+	},
+
+	type: 'HoursManager'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>chuck.tomasi</sys_created_by>
+        <sys_created_on>2017-05-15 22:11:38</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>a7c09bb4db7a7200c3beffa31d961968</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>HoursManager</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sys_script_include_a7c09bb4db7a7200c3beffa31d961968</sys_update_name>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2017-05-16 00:04:22</sys_updated_on>
+    </sys_script_include>
+</record_update>

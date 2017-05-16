@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <element label="Hours" max_length="40" name="x_snc_guide_hours" type="collection">
-        <element label="Close" max_length="40" name="close" type="glide_time"/>
-        <element label="Close hour" max_length="40" name="close_hour" type="integer"/>
-        <element label="Close minute" max_length="40" name="close_minute" type="integer"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;var timeStr = current.close_hour + ':' + current.close_minute + ':00';&#13;&#10;&#9;&#13;&#10;&#9;return timeStr;  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Close" max_length="40" name="close" read_only="true" type="glide_time" virtual="true"/>
+        <element choice="3" choice_field="open_hour" choice_table="x_snc_guide_hours" default="17" label="Close hour" max_length="40" name="close_hour" type="integer">
+            <choice>
+                <element label="00" sequence="0" value="0"/>
+                <element label="01" sequence="1" value="1"/>
+                <element label="02" sequence="2" value="2"/>
+                <element label="03" sequence="3" value="3"/>
+                <element label="04" sequence="4" value="4"/>
+                <element label="05" sequence="5" value="5"/>
+                <element label="06" sequence="6" value="6"/>
+                <element label="07" sequence="7" value="7"/>
+                <element label="08" sequence="8" value="8"/>
+                <element label="09" sequence="9" value="9"/>
+                <element label="10" sequence="10" value="10"/>
+                <element label="11" sequence="11" value="11"/>
+                <element label="12" sequence="12" value="12"/>
+                <element label="13" sequence="13" value="13"/>
+                <element label="14" sequence="14" value="14"/>
+                <element label="15" sequence="15" value="15"/>
+                <element label="16" sequence="16" value="16"/>
+                <element label="17" sequence="17" value="17"/>
+                <element label="18" sequence="18" value="18"/>
+                <element label="19" sequence="19" value="19"/>
+                <element label="20" sequence="20" value="20"/>
+                <element label="21" sequence="21" value="21"/>
+                <element label="22" sequence="22" value="22"/>
+                <element label="23" sequence="23" value="23"/>
+            </choice>
+        </element>
+        <element choice="3" choice_field="open_minute" choice_table="x_snc_guide_hours" default="0" label="Close minute" max_length="40" name="close_minute" type="integer">
+            <choice>
+                <element label="00" sequence="0" value="0"/>
+                <element label="15" sequence="1" value="15"/>
+                <element label="30" sequence="2" value="30"/>
+                <element label="45" sequence="3" value="45"/>
+            </choice>
+        </element>
         <element choice="1" default="Sunday" label="Day" max_length="40" name="day" type="choice">
             <choice>
                 <element label="Sunday" sequence="0" value="Sunday"/>
@@ -15,11 +49,46 @@
                 <element label="Saturday" sequence="6" value="Saturday"/>
             </choice>
         </element>
-        <element label="Open" max_length="40" name="open" type="glide_time"/>
-        <element label="Open hour" max_length="40" name="open_hour" type="integer"/>
-        <element label="Open minute" max_length="40" name="open_minute" type="integer"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;var timeStr = current.open_hour + ':' + current.open_minute + ':00';&#13;&#10;&#9;&#13;&#10;&#9;return timeStr;  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Open" max_length="40" name="open" read_only="true" type="glide_time" virtual="true"/>
+        <element choice="3" default="8" label="Open hour" max_length="40" name="open_hour" type="integer">
+            <choice>
+                <element label="00" sequence="0" value="0"/>
+                <element label="01" sequence="1" value="1"/>
+                <element label="02" sequence="2" value="2"/>
+                <element label="03" sequence="3" value="3"/>
+                <element label="04" sequence="4" value="4"/>
+                <element label="05" sequence="5" value="5"/>
+                <element label="06" sequence="6" value="6"/>
+                <element label="07" sequence="7" value="7"/>
+                <element label="08" sequence="8" value="8"/>
+                <element label="09" sequence="9" value="9"/>
+                <element label="10" sequence="10" value="10"/>
+                <element label="11" sequence="11" value="11"/>
+                <element label="12" sequence="12" value="12"/>
+                <element label="13" sequence="13" value="13"/>
+                <element label="14" sequence="14" value="14"/>
+                <element label="15" sequence="15" value="15"/>
+                <element label="16" sequence="16" value="16"/>
+                <element label="17" sequence="17" value="17"/>
+                <element label="18" sequence="18" value="18"/>
+                <element label="19" sequence="19" value="19"/>
+                <element label="20" sequence="20" value="20"/>
+                <element label="21" sequence="21" value="21"/>
+                <element label="22" sequence="22" value="22"/>
+                <element label="23" sequence="23" value="23"/>
+            </choice>
+        </element>
+        <element choice="3" default="0" label="Open minute" max_length="40" name="open_minute" type="integer">
+            <choice>
+                <element label="00" sequence="0" value="0"/>
+                <element label="15" sequence="1" value="15"/>
+                <element label="30" sequence="2" value="30"/>
+                <element label="45" sequence="3" value="45"/>
+            </choice>
+        </element>
         <element label="Order" max_length="40" name="order" type="integer"/>
-        <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" type="reference"/>
+        <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" reference_cascade_rule="cascade" type="reference"/>
+        <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
         <index name="index">
             <element name="site"/>
         </index>

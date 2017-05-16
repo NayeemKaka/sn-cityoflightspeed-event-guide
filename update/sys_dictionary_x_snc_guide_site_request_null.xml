@@ -5,7 +5,7 @@
         <array>false</array>
         <array_denormalized>false</array_denormalized>
         <attributes/>
-        <audit>false</audit>
+        <audit>true</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
 	// Add your code here
@@ -54,7 +54,7 @@
         <sys_created_on>2017-05-15 15:25:14</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>2fb5b9f4dbb67200c3beffa31d961909</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>x_snc_guide_site_request</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -62,7 +62,7 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sys_dictionary_x_snc_guide_site_request_null</sys_update_name>
         <sys_updated_by>chuck.tomasi</sys_updated_by>
-        <sys_updated_on>2017-05-15 15:25:14</sys_updated_on>
+        <sys_updated_on>2017-05-15 18:34:18</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

@@ -4,13 +4,23 @@
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Booking site" max_length="1024" name="booking_site" type="url"/>
         <element default="0" label="Cost" max_length="20" name="cost" type="currency"/>
+        <element attributes="edge_encryption_enabled=true" label="Description" max_length="1000" name="description" type="string"/>
         <element default="0" label="Dislike" max_length="40" name="dislike" type="integer"/>
         <element default="0" label="Like" max_length="40" name="like" type="integer"/>
-        <element display="true" label="Name" max_length="80" name="name" type="string"/>
+        <element label="Location" mandatory="true" max_length="32" name="location" reference="cmn_location" type="reference"/>
+        <element display="true" label="Name" mandatory="true" max_length="80" name="name" type="string"/>
         <element label="Owner" max_length="32" name="owner" reference="sys_user" type="reference"/>
         <element label="Phone" max_length="40" name="phone" type="phone_number_e164"/>
         <element label="Photo" max_length="40" name="photo" type="user_image"/>
         <element default="0.0" label="Rating ratio" max_length="40" name="rating_ratio" type="float"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="Discovered" label="State" max_length="40" name="state" type="string">
+            <choice>
+                <element label="Discovered" sequence="0" value="Discovered"/>
+                <element label="Requested" sequence="1" value="Requested"/>
+                <element label="Published" sequence="2" value="Published"/>
+                <element label="Obsolete" sequence="3" value="Obsolete"/>
+            </choice>
+        </element>
         <element choice="1" label="Type" max_length="40" name="type" type="choice">
             <choice>
                 <element label="Aquarium" sequence="0" value="Aquarium"/>
@@ -30,6 +40,9 @@
         <element label="Website" max_length="1024" name="website" type="url"/>
         <index name="index">
             <element name="owner"/>
+        </index>
+        <index name="index2">
+            <element name="location"/>
         </index>
     </element>
 </database>
