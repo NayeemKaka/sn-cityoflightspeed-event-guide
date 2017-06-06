@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function searchCtrl($http, appManager) {
+    /* widget controller */
+    var c = this;
+    appManager.trackPages('city_guide_search');
+    appManager.setTitle('Search');
+    c.addSite = function(val) {
+        console.log(val);
+    }
+
+    c.getEvents = function(val) {
+        return $http.get('/api/now/table/x_snc_guide_event?sysparm_query=nameLIKE' + val + '^ORdescriptionLIKE' + val + '^ORtypeLIKE' + val + '^active=true&sysparm_limit=5', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-UserToken': window.g_ck
+            }
+        }).then(function(response) {
+
+            return response.data.result;
+        });
+    };
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.search-page {
+    font-family: "SourceSansPro";
+    background: #f8f1eb;
+    padding-top: 20px;
+    min-height: 100vh;
+    .input-field {
+        position: relative;
+        margin-top: 1rem;
+    }
+    .dropdown-menu&gt;li&gt;a:hover,
+    .dropdown-menu&gt;li&gt;a:focus {
+        background: inherit;
+    }
+    .name {
+        font-size: 24px;
+        word-wrap: break-word;
+        word-break: break-word;
+        white-space: normal;
+        line-height: 1.2;
+        font-weight: 400;
+    }
+    input {
+        margin-bottom: 5px !important;
+    }
+    .sub-text {
+        word-wrap: break-word;
+        word-break: break-word;
+        white-space: normal;
+    }
+    input:not([type]),
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    input[type=url],
+    input[type=time],
+    input[type=date],
+    input[type=datetime],
+    input[type=datetime-local],
+    input[type=tel],
+    input[type=number],
+    input[type=search],
+    textarea.materialize-textarea {
+        background-color: transparent;
+        border: none;
+        color: #333;
+        border-bottom: 1px solid #cecece;
+        border-radius: 0;
+        outline: none;
+        height: 40px;
+        width: 100%;
+        font-size: 24px;
+        margin: 0 0 20px 0;
+        padding: 0;
+        box-shadow: none;
+        box-sizing: content-box;
+        transition: all .3s;
+    }
+    .input-field label {
+        color: #333;
+        position: absolute;
+        top: .8rem;
+        left: 0;
+        font-weight: 300;
+        font-size: 24px;
+        cursor: text;
+        transition: .2s ease-out;
+        text-align: initial;
+    }
+    input:not([type]):focus:not([readonly])+label,
+    input[type=text]:focus:not([readonly])+label,
+    input[type=password]:focus:not([readonly])+label,
+    input[type=email]:focus:not([readonly])+label,
+    input[type=url]:focus:not([readonly])+label,
+    input[type=time]:focus:not([readonly])+label,
+    input[type=date]:focus:not([readonly])+label,
+    input[type=datetime]:focus:not([readonly])+label,
+    input[type=datetime-local]:focus:not([readonly])+label,
+    input[type=tel]:focus:not([readonly])+label,
+    input[type=number]:focus:not([readonly])+label,
+    input[type=search]:focus:not([readonly])+label,
+    textarea.materialize-textarea:focus:not([readonly])+label {
+        color: $brand-primary;
+    }
+    .input-field label:not(.label-icon).active {
+        font-size: 1.4rem;
+        transform: translateY(-140%);
+        color: $brand-primary;
+    }
+    input:not([type]):focus:not([readonly]),
+    input[type=text]:focus:not([readonly]),
+    input[type=password]:focus:not([readonly]),
+    input[type=email]:focus:not([readonly]),
+    input[type=url]:focus:not([readonly]),
+    input[type=time]:focus:not([readonly]),
+    input[type=date]:focus:not([readonly]),
+    input[type=datetime]:focus:not([readonly]),
+    input[type=datetime-local]:focus:not([readonly]),
+    input[type=tel]:focus:not([readonly]),
+    input[type=number]:focus:not([readonly]),
+    input[type=search]:focus:not([readonly]),
+    textarea.materialize-textarea:focus:not([readonly]) {
+        border-bottom: 1px solid $brand-primary;
+        box-shadow: 0 1px 0 0 $brand-primary;
+    }
+    /***UIB dropdown ****/
+    .flex-it {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: flex-start;
+        .image {
+            height: 80px;
+            width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .info {
+            width: 75%;
+            padding-left: 10px;
+            p {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    .dropdown-menu {
+        background-color: inherit;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        height: 100%;
+        top: 0px !important;
+        /* min-width: 100px; */
+        /* max-height: 650px; */
+        overflow-y: auto;
+        position: relative;
+        z-index: 999;
+        /* will-change: width, height; */
+        list-style-type: none;
+    }
+    .dropdown-menu li {
+        clear: both;
+        color: rgba(0, 0, 0, 0.87);
+        cursor: pointer;
+        min-height: 50px;
+        line-height: 1.5rem;
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        text-transform: none;
+    }
+    .dropdown-menu li:hover,
+    .dropdown-menu li.active,
+    .dropdown-menu li.selected {
+        background-color: inherit;
+    }
+    .dropdown-menu li.active {
+        background-color: inherit;
+    }
+    .dropdown-menu li&gt;a,
+    .dropdown-menu li&gt;span {
+        font-size: 18px !important;
+        font-weight: 300 !important;
+        color: #333 !important;
+        display: block;
+        line-height: 22px;
+        padding: 14px 0px !important;
+    }
+    .dropdown-menu&gt;.active&gt;a,
+    .dropdown-menu&gt;.active&gt;a:focus {
+        font-size: 16px;
+        color: #333;
+        display: block;
+        background: inherit;
+        line-height: 22px;
+        padding: 14px 0px;
+    }
+    .dropdown-menu&gt;.active&gt;a:hover {
+        background-color: inherit;
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guide-search</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide Search</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-03 02:00:38</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>2db3fc76dbc33e00c3beffa31d9619d2</sys_id>
+        <sys_mod_count>90</sys_mod_count>
+        <sys_name>City Guide Search</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_widget_2db3fc76dbc33e00c3beffa31d9619d2</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-04 03:56:11</sys_updated_on>
+        <template><![CDATA[<div class="search-page row">
+    <!-- your widget template -->
+
+    <form class="col-xs-12">
+        <div class="input-field ">
+            <input id="autocomplete-input" type="text" ng-model="c.event.site" uib-typeahead="event as event.name for event in c.getEvents($viewValue)" typeahead-no-results="noResults" class="autocomplete" typeahead-template-url="customTemplate.html">
+            <label for="autocomplete-input">What's on your mind?</label>
+        </div>
+    </form>
+</div>
+
+<script type="text/ng-template" id="customTemplate.html">
+    <a class="flex-it" ng-href="/guide?id=city_guide_event_details&sys_id={{match.model.sys_id}}">
+        <!--<div class="image" ng-style="{'background-image':'url({{match.model.photo_url}})'}">
+        </div>-->
+        <img class="image" src="{{match.model.photo_url}}" />
+        <div class="info">
+            <p class="name" ng-bind-html="match.model.name | uibTypeaheadHighlight:query"></p>
+            <p class="sub-text">{{match.model.description | limitTo:50}}...</p>
+        </div>
+    </a>
+</script>]]></template>
+    </sp_widget>
+</record_update>

@@ -20,7 +20,7 @@ HoursManager.prototype = {
 			'Saturday',
 			'Sunday'
 		];
-		
+
 		this.hoursTable = 'x_snc_guide_hours';
 		this.refField   = 'site';
 	},
@@ -103,6 +103,88 @@ HoursManager.prototype = {
 
 	},
 
+	/*
+ *
+ *
+ *
+ *
+ */
+	_googleDayToSNOrder : function(val) {
+
+		if (val == 0)
+			return 7;
+
+		return val;
+
+	},
+
+	/*
+ * Convert HHMM format (e.g. 1700) to integer values 17 and 00
+ *
+ */
+	_timeStrToObj : function(timeStr) {
+
+		var answer = {};
+
+		var hour = timeStr.substring(0, 2);
+		var minute = timeStr.substring(2, 4);
+
+		answer.hour = parseInt(hour, 10);
+		answer.minute = parseInt(minute, 10);
+
+		return answer;
+
+	},
+
+	/*
+	 * delete the hours for this.siteID (intended to be used to reset/recreate)
+	 *
+	 *
+	 *
+	 */
+	_deleteHours : function() {
+
+		var hr = new GlideRecord(this.hoursTable);
+		hr.addQuery('site', this.recID);
+		hr.query();
+
+		hr.deleteMultiple();
+
+	},
+
+	/*
+	 *
+	 *
+	 *
+	 *
+	 */
+	createHoursFromGooglePeriods : function(hoursList) {
+
+		var dayOfWeek = ['Sunday', 'Monday', 'Tuesday',
+						 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
+
+		this._deleteHours(); // if any exist, reset and use this stuff
+		for (var i = 0; i < hoursList.length; i++) {
+
+			var period = hoursList[i];
+			var openTimeObj = this._timeStrToObj(period.open.time);
+			var closeTimeObj = this._timeStrToObj(period.close.time);
+
+			var hour = new GlideRecord(this.hoursTable);
+			hour.newRecord();
+			hour.day          = dayOfWeek[period.open.day];
+			hour.order        = this._googleDayToSNOrder(period.open.day); // from 0-6 to 1-7
+			hour.open_hour    = openTimeObj.hour;
+			hour.open_minute  = openTimeObj.minute;
+			hour.close_hour   = closeTimeObj.hour;
+			hour.close_minute = closeTimeObj.minute;
+			hour.site         = this.recID;
+			var id = hour.insert();
+
+			gs.info('Hours created for: ' + hour.day + ' id=' + id);
+		}
+	},
+
 	type: 'HoursManager'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
@@ -110,7 +192,7 @@ HoursManager.prototype = {
         <sys_created_on>2017-05-15 22:11:38</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>a7c09bb4db7a7200c3beffa31d961968</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>HoursManager</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy>read</sys_policy>
@@ -118,6 +200,6 @@ HoursManager.prototype = {
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sys_script_include_a7c09bb4db7a7200c3beffa31d961968</sys_update_name>
         <sys_updated_by>chuck.tomasi</sys_updated_by>
-        <sys_updated_on>2017-05-16 00:04:22</sys_updated_on>
+        <sys_updated_on>2017-05-17 16:34:55</sys_updated_on>
     </sys_script_include>
 </record_update>

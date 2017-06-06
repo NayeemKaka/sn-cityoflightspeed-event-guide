@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <format/>
+        <height>44</height>
+        <image/>
+        <name>near-me.svg</name>
+        <size_bytes>1183</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-24 23:36:46</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>998cb13fdbbeb600c3beffa31d961949</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>near-me.svg</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>db_image_998cb13fdbbeb600c3beffa31d961949</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-25 00:38:44</sys_updated_on>
+        <thumbnail/>
+        <width>44</width>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <compressed>true</compressed>
+        <content_type>image/svg+xml</content_type>
+        <file_name>image</file_name>
+        <image_height/>
+        <image_width/>
+        <size_bytes>1183</size_bytes>
+        <size_compressed>601</size_compressed>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-25 00:38:44</sys_created_on>
+        <sys_id>97ba42b7dbfeb600c3beffa31d9619c4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-25 00:38:44</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>998cb13fdbbeb600c3beffa31d961949</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="97ba42b7dbfeb600c3beffa31d9619c4">97ba42b7dbfeb600c3beffa31d9619c4</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-25 00:38:44</sys_created_on>
+        <sys_id>d7ba42b7dbfeb600c3beffa31d9619c4</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>bVTbbpwwEH3PV7juSyKB8eB7tGyqIiUvaVUp7UteIro4gMLCCsjufn7NrXGiWEjMnDlz5iLD5ua8r9HRdn3VNgkGQjGyza7Nq6ZI8J/ft6HGN9uLTX8s0KnKhzLBnB/OGJW2Ksph9Y6VPX1vzwmmiCLO3YN9UcDIlWn6BJfDcLiOotPpRE6MtF0RxZTSyMkvlOtzXTUvnxHBGBNNUby9QO5svoQhurON7bKh7a7Rw4sddqWrTQBdcuBCXKEQeUJ/29Luq2wZj+zafdTPOWG4SA7VUNvtT5t1T3v7VO3a5qltvrHzJpojMyu3/W6bdjYbbO7WMpRLbbKJptDKeu63I+JeM1KgKk/wr6ywoVtJP3Tti01w0zZ29cJlyS78XNX1GhztsHutHdsebdPm+bIDT/ZD06vA19vpeHwv565rXw+hwWjosqZ/brt9giezdqNdAiN0OgECuphXH4QmsUPmVuDkfmiitTEgBAsoShkxmgKAcA4N/nvOHnlaGhkDSmkAgjDBBSiDNGHaxBI0D2KODAHOJAjNRi81RBtlpJldUEQpxZxiAJwIl0U5+KhfxIPf+nDzKaM5aOMafNf6/TvvEY2DcWmAu1pAtKQ0Bo1SSQwYxbhiPjxOo5VwCYFbG+PAQHAf1YRLySmPDUo9WLohXAUwgDxhQagCR9YSvTXhgamr4SYTMRc+DDFhTFBp1KzLGJWxj/pNzDAIWBs2UqFZV1Kh/OE+XcT9p+gjnu7YQ5kdLHYfwnhLPtzCqPCu8epMxmb8J2z/ASxwhvCfBAAA</data>
+        <length>788</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="97ba42b7dbfeb600c3beffa31d9619c4">97ba42b7dbfeb600c3beffa31d9619c4</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-25 00:38:44</sys_created_on>
+        <sys_id>5bba42b7dbfeb600c3beffa31d9619c4</sys_id>
+    </sys_attachment_doc>
+</record_update>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_snc_guide_stock_city_guide.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<a href="/x_snc_guide_post_guide_event.do"><h1>Post an event</h1></a>
+	<h2>Here are all the events</h2>
+	<style>
+		#frameContainer {
+
+			margin: 2%;
+			position: fixed;
+			top: 80px;
+			left: 0px;
+			width: 100%;
+			bottom: 25px;
+			min-width: 200px;
+
+		}
+
+		iframe#theFrame { 
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 95%; height:100% 
+		}
+		
+	</style>
+	<div id="frameContainer">
+	<iframe id="theFrame" src="/x_snc_guide_event_list.do?sysparm_userpref_module=426c61a1db3eb20087c1fd441d96191f$[AMP]sysparm_query=active=true^EQ$[AMP]sysparm_clear_stack=true$[AMP]sysparm_clear_stack=true" height="120%" width="100%">
+	</iframe>
+	</div>
+</j:jelly>]]></html>
+        <name>stock_city_guide</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>dave.knight</sys_created_by>
+        <sys_created_on>2017-05-18 19:03:35</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>029382fddbb6f200c3beffa31d96197a</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>stock_city_guide</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sys_ui_page_029382fddbb6f200c3beffa31d96197a</sys_update_name>
+        <sys_updated_by>dave.knight</sys_updated_by>
+        <sys_updated_on>2017-05-18 19:17:48</sys_updated_on>
+    </sys_ui_page>
+</record_update>

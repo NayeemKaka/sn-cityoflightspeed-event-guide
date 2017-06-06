@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="Google Collection" section_id="8d526715dbb6b20087c1fd441d96199a" sys_domain="global" table="x_snc_guide_site" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>eventbrite_created</element>
+            <position>0</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>708c8adadb07fa0087c1fd441d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_name</element>
+            <position>1</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>f08c8adadb07fa0087c1fd441d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_vicinity</element>
+            <position>2</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>748c8adadb07fa0087c1fd441d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_place_id</element>
+            <position>3</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>f48c8adadb07fa0087c1fd441d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_location</element>
+            <position>4</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>788c8adadb07fa0087c1fd441d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_price_level</element>
+            <position>5</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>f88c8adadb07fa0087c1fd441d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_ratings</element>
+            <position>6</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>7c8c8adadb07fa0087c1fd441d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_types</element>
+            <position>7</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>fc8c8adadb07fa0087c1fd441d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>8</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>708c8adadb07fa0087c1fd441d9619ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_icon</element>
+            <position>9</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>f08c8adadb07fa0087c1fd441d9619ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_photo_url</element>
+            <position>10</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>748c8adadb07fa0087c1fd441d9619ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_phone_number</element>
+            <position>11</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>f48c8adadb07fa0087c1fd441d9619ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_site_website_url</element>
+            <position>12</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>788c8adadb07fa0087c1fd441d9619ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_hours</element>
+            <position>13</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>f88c8adadb07fa0087c1fd441d9619ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>g_site_google_url</element>
+            <position>14</position>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-06-01 19:11:18</sys_created_on>
+            <sys_id>7c8c8adadb07fa0087c1fd441d9619ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Google Collection" display_value="Google Collection" name="x_snc_guide_site" sys_domain="global" view="Default view">8d526715dbb6b20087c1fd441d96199a</sys_ui_section>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-06-01 19:11:18</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Google Collection</caption>
+            <header>false</header>
+            <name>x_snc_guide_site</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>tom.cullen</sys_created_by>
+            <sys_created_on>2017-05-17 12:36:37</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8d526715dbb6b20087c1fd441d96199a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Google Collection</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+            <sys_update_name>sys_ui_section_8d526715dbb6b20087c1fd441d96199a</sys_update_name>
+            <sys_updated_by>tom.cullen</sys_updated_by>
+            <sys_updated_on>2017-05-17 12:36:37</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

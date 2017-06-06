@@ -5,13 +5,13 @@
             <element>website</element>
             <position>0</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 23:21:31</sys_created_on>
-            <sys_id>68c2ebfcdb7a7200c3beffa31d961987</sys_id>
+            <sys_created_on>2017-05-17 14:53:05</sys_created_on>
+            <sys_id>1891c0e9dbbab200c3beffa31d9619c9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Web" display_value="Web" name="x_snc_guide_site" sys_domain="global" view="Default view">b630de34dbf67200c3beffa31d961958</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 23:21:31</sys_updated_on>
+            <sys_updated_on>2017-05-17 14:53:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -19,13 +19,13 @@
             <element>photo</element>
             <position>1</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 23:21:32</sys_created_on>
-            <sys_id>20c2ebfcdb7a7200c3beffa31d961988</sys_id>
+            <sys_created_on>2017-05-17 14:53:05</sys_created_on>
+            <sys_id>dc91c0e9dbbab200c3beffa31d9619c9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Web" display_value="Web" name="x_snc_guide_site" sys_domain="global" view="Default view">b630de34dbf67200c3beffa31d961958</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 23:21:32</sys_updated_on>
+            <sys_updated_on>2017-05-17 14:53:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -33,13 +33,13 @@
             <element>.split</element>
             <position>2</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 23:21:32</sys_created_on>
-            <sys_id>a0c2ebfcdb7a7200c3beffa31d961988</sys_id>
+            <sys_created_on>2017-05-17 14:53:05</sys_created_on>
+            <sys_id>5091c0e9dbbab200c3beffa31d9619ca</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Web" display_value="Web" name="x_snc_guide_site" sys_domain="global" view="Default view">b630de34dbf67200c3beffa31d961958</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 23:21:32</sys_updated_on>
+            <sys_updated_on>2017-05-17 14:53:05</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
@@ -47,13 +47,13 @@
             <element>booking_site</element>
             <position>3</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 23:21:32</sys_created_on>
-            <sys_id>24c2ebfcdb7a7200c3beffa31d961988</sys_id>
+            <sys_created_on>2017-05-17 14:53:05</sys_created_on>
+            <sys_id>d091c0e9dbbab200c3beffa31d9619ca</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Web" display_value="Web" name="x_snc_guide_site" sys_domain="global" view="Default view">b630de34dbf67200c3beffa31d961958</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 23:21:32</sys_updated_on>
+            <sys_updated_on>2017-05-17 14:53:05</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -61,15 +61,29 @@
             <element>webcam</element>
             <position>4</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 23:21:32</sys_created_on>
-            <sys_id>a4c2ebfcdb7a7200c3beffa31d961988</sys_id>
+            <sys_created_on>2017-05-17 14:53:05</sys_created_on>
+            <sys_id>5491c0e9dbbab200c3beffa31d9619ca</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Web" display_value="Web" name="x_snc_guide_site" sys_domain="global" view="Default view">b630de34dbf67200c3beffa31d961958</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 23:21:32</sys_updated_on>
+            <sys_updated_on>2017-05-17 14:53:05</sys_updated_on>
             <sys_user/>
             <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>x_snc_guide_webcam.xml</element>
+            <position>5</position>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-05-17 14:53:05</sys_created_on>
+            <sys_id>d491c0e9dbbab200c3beffa31d9619ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter display_value="Live Webcam">1f2100e9dbbab200c3beffa31d961947</sys_ui_formatter>
+            <sys_ui_section caption="Web" display_value="Web" name="x_snc_guide_site" sys_domain="global" view="Default view">b630de34dbf67200c3beffa31d961958</sys_ui_section>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-05-17 14:53:05</sys_updated_on>
+            <sys_user/>
+            <type>formatter</type>
         </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption>Web</caption>

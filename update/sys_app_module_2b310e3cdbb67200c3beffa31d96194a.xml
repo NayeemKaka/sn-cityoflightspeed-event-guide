@@ -2,7 +2,7 @@
 <record_update sys_domain="global" table="sys_app_module">
     <sys_app_module action="INSERT_OR_UPDATE">
         <active>true</active>
-        <application display_value="Tour Guide">dd5575f4dbb67200c3beffa31d961994</application>
+        <application display_value="City Guide">dd5575f4dbb67200c3beffa31d961994</application>
         <assessment/>
         <content_page/>
         <device_type/>
@@ -15,11 +15,11 @@
         <mobile_title>Events</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
         <name>x_snc_guide_event</name>
-        <order/>
+        <order>570</order>
         <override_menu_roles>false</override_menu_roles>
         <query/>
         <report/>
-        <roles>x_snc_guide.event_user</roles>
+        <roles>x_snc_guide.admin</roles>
         <survey/>
         <survey_overwrite>true</survey_overwrite>
         <sys_class_name>sys_app_module</sys_class_name>
@@ -29,18 +29,18 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2b310e3cdbb67200c3beffa31d96194a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>Events</sys_name>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>All</sys_name>
         <sys_overrides/>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sys_app_module_2b310e3cdbb67200c3beffa31d96194a</sys_update_name>
-        <sys_updated_by>chuck.tomasi</sys_updated_by>
-        <sys_updated_on>2017-05-15 16:15:28</sys_updated_on>
+        <sys_updated_by>tom.cullen</sys_updated_by>
+        <sys_updated_on>2017-05-31 19:36:59</sys_updated_on>
         <timeline_page/>
-        <title>Events</title>
+        <title>All</title>
         <uncancelable>false</uncancelable>
         <view_name/>
         <window_name/>

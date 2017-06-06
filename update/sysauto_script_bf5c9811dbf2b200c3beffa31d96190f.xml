@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>Create sample likes and favorites</name>
+        <run_as display_value="Chuck Tomasi">37f2d3c4db76320087c1fd441d961976</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2017-05-16 22:11:43</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>on_demand</run_type>
+        <script><![CDATA[//////////////////////////////////////////////////////////////////////////////
+//
+// Create sample like/favorite data
+//
+//////////////////////////////////////////////////////////////////////////////
+
+var maxDays      = 31;
+var siteTable    = 'x_snc_guide_site';
+var eventTable   = 'x_snc_guide_event';
+var favTable     = 'x_snc_guide_favorite';
+var likeTable    = 'x_snc_guide_like';
+
+var userList = getUserList();
+clearOldTables([favTable, likeTable]);
+
+gs.info('userList.length=' + userList.length);
+
+/*
+var site = new GlideRecord(siteTable);
+site.addQuery('active', true);
+site.addQuery('state', 'Published');
+site.query();
+
+while (site.next()) {
+
+	var siteID = site.getValue('sys_id');
+
+	// Get Event list from site (if any)
+	var eventList = getEventsAtSite(siteID);
+
+	generateLikes(siteID, null, 'Site', 200, 1000);
+	generateFavorites(siteID, null, 'Site', 100, 400);
+
+	// Event likes for this site
+	for (var i = 0; i < eventList.length; i++) {
+		var eventID = eventList[i];
+		generateLikes(siteID, eventID, 'Event', 100, 500);
+		generateFavorites(siteID, eventID, 'Event', 100, 400);
+	}
+}
+*/
+
+var evt = new GlideRecord(eventTable);
+evt.addQuery('active', true);
+evt.addQuery('state', 'Active');
+evt.query();
+
+while (evt.next()) {
+
+	var siteID = evt.getValue('site');
+	var eventID = evt.getValue('sys_id');
+	generateLikes(siteID, eventID, 'Event', 100, 500);
+	generateFavorites(siteID, eventID, 'Event', 100, 400);
+}
+
+updateRatings();
+
+//////////////////////////////////////////////////////////////////////////////
+
+function clearOldTables(tableList) {
+
+	for (var i = 0; i < tableList.length; i++) {
+		var dGR = new GlideRecord(tableList[i]);
+		dGR.query();
+		dGR.deleteMultiple();
+	}
+
+	gs.info('old records deleted');
+}
+
+function getUserList() {
+	var list = [];
+	var user = new GlideRecord('sys_user');
+	user.addQuery('active', true);
+	user.query();
+
+	while (user.next()) {
+		list.push(user.getValue('sys_id'));
+	}
+
+	return list;
+}
+
+function getRandomCount(min, max) {
+
+	var answer = 0;
+
+	do {
+		answer = Math.floor(Math.random() * max).toFixed(0);
+	} while (answer < min);
+
+	return answer;
+}
+
+/*
+ * generate between min and max likes & dislikes for the site (and event if not null)
+ *
+ */
+function generateLikes(siteID, eventID, type, min, max) {
+
+	var count = getRandomCount(min, max);
+
+	for (var i = 0; i < count; i++) {
+		var date = getRandomWorkDayTime();
+		var userID = userList[getRandomArrayIndex(userList)];
+		createRating(userID, siteID, eventID, type, date);
+	}
+}
+
+function generateFavorites(siteID, eventID, type, min, max) {
+
+	var count = getRandomCount(min, max);
+
+	for (var i = 0; i < count; i++) {
+		var date = getRandomWorkDayTime();
+		var userID = userList[getRandomArrayIndex(userList)];
+		createFavorite(userID, siteID, eventID, type, date);
+	}
+}
+
+function getEventsAtSite(siteID) {
+
+	var answer = [];
+	var eGR = new GlideRecord(eventTable);
+	eGR.addQuery('site', siteID);
+	eGR.query();
+
+	while (eGR.next()) {
+		answer.push(eGR.getValue('sys_id'));
+	}
+
+	return answer;
+}
+
+function createRating(userID, siteID, eventID, type, date) {
+	var randomRating = weightedRand2({0:0.05, 1:0.95});
+	var response = 'like';
+
+	if (randomRating == 0)
+		response = 'dislike';
+
+	var rRec = new GlideRecord(likeTable);
+	rRec.newRecord();
+	rRec.user           = userID;
+	rRec.site           = siteID;
+	rRec.event          = eventID;
+	rRec.type           = type;
+	rRec.response       = response;
+	rRec.feedback       = '';
+	rRec.sys_created_on = date;
+
+	rRec.setWorkflow(false);
+	rRec.autoSysFields(false);
+	var id = rRec.insert();
+
+}
+
+function createFavorite(userID, siteID, eventID, type, date) {
+
+	var fRec = new GlideRecord(favTable);
+	fRec.newRecord();
+	fRec.user           = userID;
+	fRec.site           = siteID;
+	fRec.event          = eventID;
+	fRec.type           = type;
+	fRec.sys_created_on = date;
+
+	fRec.setWorkflow(false);
+	fRec.autoSysFields(false);
+	var id = fRec.insert();
+
+}
+
+function updateRatings() {
+
+	// new LikeManager().recountSite();
+	new LikeManager().recountEvent();
+
+}
+
+function weightedRand2(spec) {
+	var i, sum=0, r=Math.random();
+	for (i in spec) {
+		sum += spec[i];
+		if (r <= sum)
+			return i;
+	}
+}
+
+function getRandomWorkDayTime() {
+
+	var randomTime;
+	var time = new GlideTime();
+
+	do {
+		randomTime = getRandomTime();
+		time.setDisplayValue(randomTime);
+
+	} while (time.getHourOfDayLocalTime() < 8 || time.getHourOfDayLocalTime() > 17);
+
+	return randomTime;
+
+}
+
+function getRandomTime() {
+	var now = new GlideDateTime();
+	var maxSeconds = 86400 * maxDays; // number of days in seconds
+	var randomSeconds = Math.floor(Math.random() * maxSeconds).toFixed(0);
+	now.addSeconds(randomSeconds * -1);
+
+	return now.getDisplayValue();
+}
+
+function getRandomArrayIndex(list) {
+	return Math.floor(Math.random() * list.length).toFixed(0);
+}
+
+]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>chuck.tomasi</sys_created_by>
+        <sys_created_on>2017-05-16 22:14:05</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>bf5c9811dbf2b200c3beffa31d96190f</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Create sample likes and favorites</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sysauto_script_bf5c9811dbf2b200c3beffa31d96190f</sys_update_name>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2017-06-01 16:06:33</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

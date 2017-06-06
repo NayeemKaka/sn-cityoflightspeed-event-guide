@@ -38,7 +38,7 @@
                 <element label="45" sequence="3" value="45"/>
             </choice>
         </element>
-        <element choice="1" default="Sunday" label="Day" max_length="40" name="day" type="choice">
+        <element choice="1" default="Sunday" label="Day" max_length="40" name="day" read_only="true" type="choice">
             <choice>
                 <element label="Sunday" sequence="0" value="Sunday"/>
                 <element label="Monday" sequence="1" value="Monday"/>
@@ -86,7 +86,7 @@
                 <element label="45" sequence="3" value="45"/>
             </choice>
         </element>
-        <element label="Order" max_length="40" name="order" type="integer"/>
+        <element label="Order" max_length="40" name="order" read_only="true" type="integer"/>
         <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" reference_cascade_rule="cascade" type="reference"/>
         <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
         <index name="index">

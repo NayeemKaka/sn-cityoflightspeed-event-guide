@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element label="Like" max_length="40" name="x_snc_guide_like" type="collection">
-        <element label="Event" max_length="32" name="event" reference="x_snc_guide_event" type="reference"/>
+    <element label="Like" max_length="40" name="x_snc_guide_like" sizeclass="76868" type="collection">
+        <element label="Event" max_length="32" name="event" reference="x_snc_guide_event" reference_cascade_rule="cascade" type="reference"/>
         <element choice="1" label="Response" max_length="40" name="response" type="choice">
             <choice>
-                <element label="Like" sequence="0" value="Like"/>
-                <element label="Dislike" sequence="1" value="Dislike"/>
+                <element label="Like" sequence="0" value="like"/>
+                <element label="Dislike" sequence="1" value="dislike"/>
             </choice>
         </element>
-        <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" type="reference"/>
+        <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" reference_cascade_rule="cascade" type="reference"/>
         <element choice="3" default="Site" label="Type" max_length="40" name="type" type="choice">
             <choice>
                 <element label="Site" sequence="0" value="Site"/>

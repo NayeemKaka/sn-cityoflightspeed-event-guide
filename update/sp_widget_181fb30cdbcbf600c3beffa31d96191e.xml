@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function addEventMaterial($rootScope, appManager, $timeout) {
+    var c = this;
+    $rootScope.showAddEvent = false;
+    $rootScope.buttonPopped = true;
+    appManager.setBackPage('city_guide_featured_events');
+    appManager.setTitle("Add Event");
+    c.event = {};
+    c.data.resEventSys = "";
+    c.server.get({ action: 'get' }).then(function(response) {
+        console.log(response);
+        c.data.sites = response.data.formdata.sites;
+        c.data.types = response.data.formdata.types;
+        c.data.sitesWithSysid = response.data.formdata.sitesWithsysid;
+        c.data.typesWithsysid = response.data.formdata.typesWithsysid;
+        $timeout(function() {
+            $('input.autocomplete').autocomplete({
+                data: c.data.sites,
+                limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
+                onAutocomplete: function(val) {
+                    //debugger;
+                    // Callback function when value is autcompleted.
+                },
+                minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+            });
+        }, 3000);
+    })
+
+
+    $timeout(function() {
+
+
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+        $('select').material_select();
+
+        $('#textarea1').trigger('autoresize');
+    }, 2000);
+
+    c.submitEvent = function(event) {
+
+        event.startdate = moment(event.startdate).format('DD-MM-YYYY');
+        event.enddate = moment(event.enddate).format('DD-MM-YYYY');
+        //console.log(event);
+        c.server.get({ action: 'set', event: event, sites: c.data.sitesWithSysid, types: c.data.typesWithsysid }).then(function(response) {
+
+            c.data.resEventSys = response.data.response.eventsys;
+            c.event = {};
+            $timeout(function() {
+                c.data.resEventSys = "";
+            }, 4000);
+        })
+    }
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>                                    /* form starting stylings ------------------------------- */
+                                    
+                                    .footer-filter {
+                                        position: absolute;
+                                        bottom: 0px;
+                                        width: 100%;
+                                        z-index: 1030;
+                                    }
+                                    
+                                    .material-form {
+                                        // margin-top: 20px;
+                                        font-family: $font-family;
+                                        background: #f8f1eb;
+                                        min-height: 100vh;
+                                        padding: 10px;
+                                        color: #000;
+                                        padding-top: 20px;
+                                        .autocomplete-content {
+                                            margin-top: -20px;
+                                        }
+                                        @media screen and (min-height: 38.875em) {
+                                            .picker--opened .picker__frame {
+                                                top: 10%;
+                                                bottom: auto;
+                                            }
+                                        }
+                                        .picker__select--year.browser-default {
+                                            width: 27%
+                                        }
+                                        .picker__date-display {
+                                            padding-bottom: 5px !important;
+                                        }
+                                        .picker__weekday-display {
+                                            margin-bottom: 5px !important;
+                                        }
+                                        &amp;.row {
+                                            margin-left: -30px !important;
+                                            margin-right: -30px !important;
+                                        }
+                                        .row {
+                                            margin-bottom: 0px;
+                                            margin-right: -15px;
+                                            margin-left: -15px;
+                                        }
+                                        .input-field {
+                                            margin-top: 0px;
+                                        }
+                                        .start-date-pick-margin {
+                                            margin-top: 10px;
+                                        }
+                                        .reduce-input-margin {
+                                            input {
+                                                margin-bottom: 10px;
+                                            }
+                                        }
+                                        .select-wrapper span.caret {
+                                            border-top: 0px;
+                                        }
+                                        /* label color */
+                                        .input-field label {
+                                            color: #000;
+                                        }
+                                        /* label focus color */
+                                        .input-field input[type=text]:focus+label {
+                                            color: #000;
+                                        }
+                                        /* label underline focus color */
+                                        .input-field input[type=text]:focus {
+                                            border-bottom: 1px solid #000;
+                                            box-shadow: 0 1px 0 0 #000;
+                                        }
+                                        input:not([type]):focus:not([readonly]),
+                                        input[type=text]:focus:not([readonly]),
+                                        input[type=password]:focus:not([readonly]),
+                                        input[type=email]:focus:not([readonly]),
+                                        input[type=url]:focus:not([readonly]),
+                                        input[type=time]:focus:not([readonly]),
+                                        input[type=date]:focus:not([readonly]),
+                                        input[type=datetime]:focus:not([readonly]),
+                                        input[type=datetime-local]:focus:not([readonly]),
+                                        input[type=tel]:focus:not([readonly]),
+                                        input[type=number]:focus:not([readonly]),
+                                        input[type=search]:focus:not([readonly]),
+                                        textarea.materialize-textarea:focus:not([readonly]) {
+                                            border-bottom: 1px solid #000;
+                                            box-shadow: 0 1px 0 0 #000;
+                                        }
+                                        input:not([type]):focus:not([readonly])+label,
+                                        input[type=text]:focus:not([readonly])+label,
+                                        input[type=password]:focus:not([readonly])+label,
+                                        input[type=email]:focus:not([readonly])+label,
+                                        input[type=url]:focus:not([readonly])+label,
+                                        input[type=time]:focus:not([readonly])+label,
+                                        input[type=date]:focus:not([readonly])+label,
+                                        input[type=datetime]:focus:not([readonly])+label,
+                                        input[type=datetime-local]:focus:not([readonly])+label,
+                                        input[type=tel]:focus:not([readonly])+label,
+                                        input[type=number]:focus:not([readonly])+label,
+                                        input[type=search]:focus:not([readonly])+label,
+                                        textarea.materialize-textarea:focus:not([readonly])+label {
+                                            color: #000;
+                                        }
+                                        .picker__date-display {
+                                            text-align: center;
+                                            background-color: $brand-primary;
+                                            color: #fff;
+                                            padding-bottom: 15px;
+                                            font-weight: 300;
+                                        }
+                                        .picker__weekday-display {
+                                            background-color: #d9534f;
+                                            padding: 10px;
+                                            font-weight: 200;
+                                            letter-spacing: .5;
+                                            font-size: 1rem;
+                                            margin-bottom: 15px;
+                                        }
+                                        .picker__close,
+                                        .picker__today {
+                                            font-size: 1.1rem;
+                                            padding: 0 1rem;
+                                            color: $brand-primary;
+                                        }
+                                        .dropdown-content li&gt;a,
+                                        .dropdown-content li&gt;span {
+                                            font-size: 16px;
+                                            color: #000;
+                                            display: block;
+                                            line-height: 22px;
+                                            padding: 14px 16px;
+                                        }
+                                        .switch label input[type=checkbox]:checked+.lever {
+                                            background-color: $brand-primary;
+                                            ;
+                                        }
+                                        .switch label input[type=checkbox]:checked+.lever:after {
+                                            background-color: $brand-primary;
+                                            left: 24px;
+                                        }
+                                        label {
+                                            font-size: 15px;
+                                            color: #000;
+                                        }
+                                        .picker__day.picker__day--today {
+                                            color: $brand-primary;
+                                        }
+                                        .btn {
+                                            background: $brand-primary;
+                                        }
+                                        .picker__day--selected,
+                                        .picker__day--selected:hover,
+                                        .picker--focused .picker__day--selected {
+                                            border-radius: 50%;
+                                            -webkit-transform: scale(0.9);
+                                            transform: scale(0.9);
+                                            background-color: $brand-primary;
+                                            color: #ffffff;
+                                        }
+                                        .success-msg {
+                                            display: inline-block;
+                                            color: #26a69a;
+                                        }
+                                        .add-margin-bottom {
+                                            margin-bottom: 15px;
+                                        }
+                                    }</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>color</field_list>
+        <has_preview>false</has_preview>
+        <id>guide-add-event-material</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide Add Event Material</name>
+        <option_schema>[{"name":"show_add_cart_button","label":"Show Add Cart Button","type":"boolean"},{"hint":"Define a URL Format for successful order page","name":"url","label":"Custom URL Format","type":"string"},{"displayValue":"Page","name":"page","label":"Successful Order Page","type":"reference","value":"sp_page","ed":{"reference":"sp_page"}},{"displayValue":"Table","name":"table","label":"Successful Order Table","type":"reference","value":"sys_db_object","ed":{"reference":"sys_db_object"}},{"hint":"Enable auto-redirection after ordering an item","name":"auto_redirect","label":"Auto Redirect on Successful Order","type":"boolean"}]</option_schema>
+        <public>false</public>
+        <roles>snc_external,snc_internal</roles>
+        <script><![CDATA[// populate the 'data' variable with catalog item, variables, and variable view
+(function() {
+    if (input) {
+        if (input.action == 'get') {
+            data.formdata = {};
+            data.formdata.types = [];
+            data.formdata.sites = {};
+            data.formdata.sitesWithsysid = {};
+            data.formdata.typesWithsysid = {};
+            var gr = new GlideRecord('x_snc_guide_site');
+            gr.addActiveQuery();
+            gr.addQuery('state', 'Discovered');
+            gr.query();
+            while (gr.next()) {
+                // var obj = {};
+                data.formdata.sites[gr.name.toString()] = null;
+                data.formdata.sitesWithsysid[gr.name.toString()] = gr.sys_id.toString();
+            }
+
+            var typegr = new GlideRecord('x_snc_guide_event_type');
+            typegr.addActiveQuery();
+            typegr.query();
+            while (typegr.next()) {
+                // var obj = {};
+                data.formdata.types.push(typegr.name.toString());
+                data.formdata.typesWithsysid[typegr.name.toString()] = typegr.sys_id.toString();
+            }
+        }
+
+        if (input.action == 'set') {
+            var gr = new GlideRecord('x_snc_guide_event');
+            gr.initialize();
+            gr.name = input.event.name;
+            gr.start_date = input.event.startdate;
+            gr.end_date = input.event.enddate;
+            gr.description = input.event.description;
+            gr.featured = input.event.featured;
+            gr.site = input.sites[input.event.site];
+            gr.type_list = input.types[input.event.type];
+            var sysID = gr.insert();
+
+
+            // var typegr = new GlideRecord('x_snc_guide_m2m_event_types');
+            // typegr.initialize();
+            // typegr.event_type = input.types[input.event.type];
+            // typegr.x_event = sysID;
+            // var typesys = typegr.insert();
+            data.response = {};
+            // data.response.typesys = typesys;
+            data.response.eventsys = sysID;
+
+        }
+    }
+
+})()]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-26 03:45:28</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>181fb30cdbcbf600c3beffa31d96191e</sys_id>
+        <sys_mod_count>282</sys_mod_count>
+        <sys_name>City Guide Add Event Material</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_widget_181fb30cdbcbf600c3beffa31d96191e</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-31 20:05:47</sys_updated_on>
+        <template><![CDATA[<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<div class="material-form row">
+
+
+    <form class="col s12">
+
+        <div class="input-field ">
+            <input ng-model="c.event.name" id="email" type="text" class="validate">
+            <label for="email">What is the name of your event?</label>
+        </div>
+
+    </form>
+
+    <form class="col s12">
+        <div class="input-field ">
+            <input type="text" ng-model="c.event.site" id="autocomplete-input" class="autocomplete">
+            <label for="autocomplete-input">Choose a value for your event</label>
+        </div>
+    </form>
+
+
+    <div class="col s12 start-date-pick-margin reduce-input-margin">
+        <!--<label for="birthdate" class="">Start Date</label>-->
+        <!--<input ng-model="c.event.startdate" type="date" class="datepicker" placeholder="Start Date">-->
+        <input class="datepicker" type="text" id="exampleInput" name="input" ng-model="c.event.startdate" placeholder="Start Date" required />
+    </div>
+
+    <div class="col s12 reduce-input-margin">
+        <!--<label for="birthdate" class="">End Date</label>-->
+        <input ng-model="c.event.enddate" type="text" class="datepicker" placeholder="End Date">
+
+
+    </div>
+
+    <div class="col s12 ">
+        <div class="input-field ">
+            <select ng-model="c.event.type">
+            <option value="" disabled selected>Choose the event type</option>
+            <option ng-repeat ="type in c.data.types" value="{{type}}">{{type}}</option>
+
+            </select>
+
+        </div>
+    </div>
+
+    <div class="col s12 add-margin-bottom">
+        <label>Would you like this event listed on the featured event list?</label>
+        <div class="switch">
+            <label>
+      No
+      <input ng-model ="c.event.featured" type="checkbox">
+      <span class="lever"></span>
+      Yes
+    </label>
+        </div>
+    </div>
+
+    <div class="">
+        <form class="col s12 date-pick-margin">
+            <div class="">
+                <div class="input-field ">
+                    <textarea ng-model="c.event.description" id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Description</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div>
+        <a class="waves-effect waves-light btn" ng-click="c.submitEvent(c.event)">Submit</a>
+        <p class="success-msg" ng-show="c.data.resEventSys"> Event submitted successfully</p>
+    </div>
+
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -2,7 +2,7 @@
 <record_update sys_domain="global" table="sys_app_module">
     <sys_app_module action="INSERT_OR_UPDATE">
         <active>true</active>
-        <application display_value="Tour Guide">dd5575f4dbb67200c3beffa31d961994</application>
+        <application display_value="City Guide">dd5575f4dbb67200c3beffa31d961994</application>
         <assessment/>
         <content_page/>
         <device_type/>
@@ -15,7 +15,7 @@
         <mobile_title>Create new request</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
         <name/>
-        <order>100</order>
+        <order>1100</order>
         <override_menu_roles>false</override_menu_roles>
         <query>com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=17d97a38db3a7200c3beffa31d961959</query>
         <report/>
@@ -29,7 +29,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>3cae2bb4dbba7200c3beffa31d96198f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Create new request</sys_name>
         <sys_overrides/>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
@@ -37,8 +37,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sys_app_module_3cae2bb4dbba7200c3beffa31d96198f</sys_update_name>
-        <sys_updated_by>chuck.tomasi</sys_updated_by>
-        <sys_updated_on>2017-05-16 00:13:48</sys_updated_on>
+        <sys_updated_by>dave.knight</sys_updated_by>
+        <sys_updated_on>2017-05-18 03:19:42</sys_updated_on>
         <timeline_page/>
         <title>Create new request</title>
         <uncancelable>false</uncancelable>

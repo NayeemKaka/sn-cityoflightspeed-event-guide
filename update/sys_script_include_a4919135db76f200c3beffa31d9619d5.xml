@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_guide.UserManager</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>UserManager</name>
+        <script><![CDATA[var UserManager = Class.create();
+UserManager.prototype = {
+	initialize: function() {
+		this.groupMemberTable = 'sys_user_grmember';
+		this.groupTable       = 'sys_user_group';
+	},
+	
+	getGroupByName : function(groupName) {
+		
+		var group = new GlideRecord(this.groupTable);
+		
+		if (group.get('name', groupName)) {
+			return group;
+		}
+		
+		return;
+	},
+	
+	isMemberOf : function(userID, groupName) {
+		
+		var group = this.getGroupByName(groupName);
+		
+		if (!group)
+			return 'unknown group';
+		
+		var groupID = group.getValue('sys_id');
+		
+		var grMember = new GlideRecord(this.groupMemberTable);
+		grMember.addQuery('user', userID);
+		grMember.addQuery('group', groupID);
+		grMember.query();
+		
+		return group.hasNext();
+		
+	},
+	
+	addUserToGroup : function(userID, groupName) {
+		
+		if (!this.isMemberOf(userID, groupName)) {
+			var grMember = new GlideRecord(this.groupMemberTable);
+			grMember.newRecord();
+			grMember.user = userID;
+			grMember.group.setDisplayValue(groupName);
+			grMember.insert();
+		}
+	},
+	
+	addRoleToUser : function (userID, roleID) {
+		
+		// Create a new Site Manager Record
+		// However, check to see if it already exists (a failure mode)
+		var gr = new GlideRecord("sys_user_has_role");
+		gr.addQuery("user", userID);
+		gr.addQuery("role", roleID); 
+		gr.query();
+		if (!gr.hasNext()) {
+			gr.initialize();
+			gr.user = userID;
+			gr.role = roleID;
+			gr.inherited = false;
+			gr.insert();
+		}	
+	},
+	
+	
+	type: 'UserManager'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>chuck.tomasi</sys_created_by>
+        <sys_created_on>2017-05-18 15:25:59</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>a4919135db76f200c3beffa31d9619d5</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>UserManager</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sys_script_include_a4919135db76f200c3beffa31d9619d5</sys_update_name>
+        <sys_updated_by>dave.knight</sys_updated_by>
+        <sys_updated_on>2017-05-25 17:35:22</sys_updated_on>
+    </sys_script_include>
+</record_update>

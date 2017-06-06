@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <format/>
+        <height>44</height>
+        <image/>
+        <name>star.svg</name>
+        <size_bytes>1573</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-24 23:44:00</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>7b2eb13fdbbeb600c3beffa31d9619dd</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>star.svg</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>db_image_7b2eb13fdbbeb600c3beffa31d9619dd</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-25 00:40:48</sys_updated_on>
+        <thumbnail/>
+        <width>44</width>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <compressed>true</compressed>
+        <content_type>image/svg+xml</content_type>
+        <file_name>image</file_name>
+        <image_height/>
+        <image_width/>
+        <size_bytes>1573</size_bytes>
+        <size_compressed>873</size_compressed>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-25 00:40:48</sys_created_on>
+        <sys_id>e13b0eb7dbfeb600c3beffa31d9619f3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-25 00:40:48</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>7b2eb13fdbbeb600c3beffa31d9619dd</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="e13b0eb7dbfeb600c3beffa31d9619f3">e13b0eb7dbfeb600c3beffa31d9619f3</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-25 00:40:48</sys_created_on>
+        <sys_id>253b0eb7dbfeb600c3beffa31d9619f3</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>bVTBjuM2DL3vV6juZRdwFFGiSGmQZIsGmL2kQIFtL70s0oknMSZjDxzvZD6/z05SeBZrBIj0RD2Sj6QWn9+ej+a16k512ywLsq4wVfPQ7upmvyz+/ut+lorPqw+L0+venOtdf1gWzC9vhTlU9f7Q33avdXX+vX1bFs44w4xfMSWlwsBNc1oWh75/uZvPz+ezPQfbdvu5d87NQX81uXs71s3Tzwwp5zwfT4vVB4Nv8ctsZr5UTdVt+7a7M1+fqv7hAN+WzEcmjvGTmZkJ0b/toXqut9f07EP7PD9d7sxmV8q+7o/V6n772nZ1X32rH9rmW9v8Ft4W88vRxWxXnR5W667a9tUOuvSHq3O7mI9HN6vH02pA8HdB9qbeLYs/t/tqBk1Ofdc+VcuiaZvqtptdVcbxY3083g6H9az7foR19Vo17W53FWFC+2PUN4Zf78dvcmFy6UvXfn+ZUShM322b02PbPS+LcXlEch+zdeNXmtvq0w88I9fLFhKA7Q9im3yiqLH0ziZxHBKZNWCXWYLwALNEF4MY8ja7EFX1goojCQNKSon9O4qN2JSDixJT6YNVF5P3YtZiKeYYIsMahXfknZpoJUlgzn60jZFiSEBTiIEDvMFx0IDzgTeT88GJlKTWBZUYglljCV54TCWJ9aQpejViJTvxzpcUrUtgFQLoEFpiyiXyjESBVcyG4BiWiUpyNqijjHAxC5yDZ0lltppZo3A2ZEPwniQzUB9UU/bBQIcoDsQKlLyo5qxmkyBlJiZElmzwiJIyJE42e84avAD2xKKkHlVLCdeYSkVkISF4KOys54QBKcWqsDjQIV5vE4vPKB3iiRkJ0xBxsJA0eOXSWXEpeYmcDGDNAcrKAJOTGCGhgQDQWp1/R7KBhBopxXce19CbyKfEeYwuomQaDSFBVRSCL4lkhscBzQ6KpzzNeoOaJw5ZKE41Wnt0gGQEqKOgSButZYDCF7LJo/gytCkNqGfNOpTv/0Jt0HroC5ikaVHXgAPuk+dLB4gmqEzZZh6Clkuz5MRJDWzRGCo5TDtr49EDkADZTvtwDTgQO0p66VlF5mngSGHwIpf2dp7xvAJFbJkDT2dh8/Ph+6cYB/1rv+0KvEbDqP7wEsz3k7fkthkXi+FlXv0H4j9ocCUGAAA=</data>
+        <length>1152</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="e13b0eb7dbfeb600c3beffa31d9619f3">e13b0eb7dbfeb600c3beffa31d9619f3</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-25 00:40:48</sys_created_on>
+        <sys_id>a53b0eb7dbfeb600c3beffa31d9619f3</sys_id>
+    </sys_attachment_doc>
+</record_update>

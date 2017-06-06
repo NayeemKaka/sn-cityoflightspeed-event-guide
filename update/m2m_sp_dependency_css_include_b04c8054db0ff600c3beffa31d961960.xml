@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="m2m_sp_dependency_css_include">
+    <m2m_sp_dependency_css_include action="INSERT_OR_UPDATE">
+        <order>100</order>
+        <sp_css_include display_value="mdb css">122c8054db0ff600c3beffa31d96192d</sp_css_include>
+        <sp_dependency display_value="mdb styles">8f1c4054db0ff600c3beffa31d96199d</sp_dependency>
+        <sys_class_name>m2m_sp_dependency_css_include</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-26 04:43:07</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>b04c8054db0ff600c3beffa31d961960</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>mdb css.mdb styles</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>m2m_sp_dependency_css_include_b04c8054db0ff600c3beffa31d961960</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-26 04:43:07</sys_updated_on>
+    </m2m_sp_dependency_css_include>
+</record_update>

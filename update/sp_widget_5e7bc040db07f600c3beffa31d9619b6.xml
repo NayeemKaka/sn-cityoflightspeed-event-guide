@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function guideEventDetailsCtrl($location, appManager, $timeout, $rootScope, $scope) {
+    /* widget controller */
+    var c = this;
+    c.$onInit = function() {
+        c.searchObject = $location.search();
+        appManager.setTitle('Detail');
+        appManager.trackPages('city_guide_event_details&sys_id=' + c.searchObject.sys_id);
+        c.getData();
+    };
+
+
+    c.getData = function() {
+        c.server.get({ action: 'get', sys_id: c.searchObject.sys_id }).then(function(response) {
+            c.data.event = response.data.event;
+        });
+    }
+
+    c.truncateChars = function(text, limit) {
+        if (text.length > limit) {
+            text = text.substr(0, limit) + '...';
+            return text;
+        } else {
+            return text;
+        }
+    }
+
+    c.addToFavourite = function(event) {
+        c.server.get({ action: 'getSession' }).then(function(response) {
+            c.data.is_logged_in = response.data.is_logged_in;
+            if (!c.data.is_logged_in) {
+                $rootScope.showSignIn = true;
+                $rootScope.pendingCall = {
+                    name: 'addToFavourite',
+                    args: [event]
+                }
+            } else {
+                $rootScope.$broadcast('addToFavourite', [event]);
+            }
+        })
+    }
+
+    $rootScope.$on('addToFavourite', function(event, data) {
+        console.log(data);
+        c.server.get({ action: 'saveFavorite', eventSysid: data[0].sys_id.display_value, siteSysid: data[0].site.value }).then(function(response) {
+            data[0].favourite = true;
+            $rootScope.$broadcast('popAlert', 'Added to favorites');
+        })
+    });
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.list-page {
+    font-family: $font-family;
+    .featured-events {
+        background: $brand-secondary;
+        .each-weekend-event {
+            margin-bottom: 10px;
+            img {
+                width: 100%;
+            }
+            .description {
+                padding: 10px;
+                background: #fff;
+                position: relative;
+                text-align: center;
+                .exp {
+                    margin: 5px;
+                    width: 30px;
+                    height: 30px;
+                    background-color: $exp-bg;
+                    border-radius: 100%;
+                    line-height: 80px;
+                    text-align: center;
+                    vertical-align: middle;
+                    display: inline-block;
+                    &amp;.fav-back {
+                        background-color: $brand-primary;
+                    }
+                    .fa {
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: inherit;
+                    }
+                    img {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: inherit;
+                    }
+                }
+                .dates {
+                    span {
+                        font-weight: bold;
+                    }
+                }
+                .each-name {
+                    font-weight: 900;
+                    font-family: $font-family;
+                    font-size: 18px;
+                    color: $text-color-grey;
+                }
+                .each-description {
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                    color: $text-color-grey;
+                }
+            }
+        }
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guide-event-detail</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide Event Detail</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    //data.type = $sp.getParameter('type');
+    data.event = {};
+
+    if (input) {
+
+        data.is_logged_in = gs.getSession().isLoggedIn();
+
+
+        if (input.action == 'get') {
+            // console.log($sp.getParameter('sys_id'));
+            var gr = new GlideRecord('x_snc_guide_event');
+            gr.addActiveQuery();
+            gr.orderByDesc('sys_updated_on');
+            gr.addQuery('sys_id', input.sys_id);
+            gr.addQuery('state', 'Active');
+            gr.query();
+            if (gr.next()) {
+                var obj = {};
+                $sp.getRecordElements(obj, gr, 'name,sys_id,photo,description,photo_url,site,start_date, end_date');
+                data.event = obj;
+                if (data.is_logged_in) {
+                    var favgr = new GlideRecord('x_snc_guide_favorite');
+                    // gr.addActiveQuery();
+                    favgr.addQuery('user', gs.getUserID());
+                    favgr.addQuery('event', obj.sys_id.display_value);
+                    favgr.query();
+                    if (favgr.next()) {
+                        obj.favourite = true;
+                    }
+                }
+            }
+
+        }
+        if (input.action == 'saveFavorite') {
+            var gr = new GlideRecord('x_snc_guide_favorite');
+            gr.addActiveQuery();
+            gr.addQuery('user', gs.getUserID());
+            gr.addQuery('event', input.eventSysid);
+            gr.query();
+            if (gr.next()) {
+
+            } else {
+                gr.initialize();
+                gr.event = input.eventSysid;
+                gr.user = gs.getUserID();
+                gr.site = input.siteSysid;
+                gr.type = 'Event';
+                gr.insert();
+            }
+        }
+        if (input.action == 'getSession') {
+            console.log('hey2');
+            data.is_logged_in = gs.getSession().isLoggedIn();
+        }
+
+
+    }
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-25 10:02:04</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>5e7bc040db07f600c3beffa31d9619b6</sys_id>
+        <sys_mod_count>46</sys_mod_count>
+        <sys_name>City Guide Event Detail</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_widget_5e7bc040db07f600c3beffa31d9619b6</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-03 00:36:44</sys_updated_on>
+        <template><![CDATA[<div class="list-page row">
+    <!-- your widget template -->
+
+
+    <div class="featured-events">
+        <div class="each-weekend-event">
+            <img ng-src={{c.data.event.photo_url.display_value}}>
+            <div class="description ">
+
+                <p class="each-name ">{{c.data.event.name.display_value}}</p>
+                <p class="each-description ">{{c.data.event.description.display_value}}</p>
+                <div class="date">
+                    <p><span>Start Date:</span> {{c.data.event.start_date.display_value}}</p>
+                    <p><span>End Date:</span> {{c.data.event.end_date.display_value}}</p>
+                </div>
+                <div class="exp" ng-click="c.addToFavourite(c.data.event)" ng-class="{'fav-back':c.data.event.favourite}">
+                    <!--<i class="fa fa-star " aria-hidden="true "></i>-->
+                    <img src="star.svg" />
+                </div>
+                <!--<div class="exp" ng-repeat="icons in event.typeIcons" ng-class="{'fav-back':event.favourite}">
+                    <i class="fa {{icons}}" aria-hidden="true"></i>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

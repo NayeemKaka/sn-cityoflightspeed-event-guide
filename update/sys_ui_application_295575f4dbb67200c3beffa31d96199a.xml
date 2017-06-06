@@ -5,7 +5,7 @@
         <hint/>
         <name>Tour Guide</name>
         <order/>
-        <roles>x_snc_guide.site_user</roles>
+        <roles/>
         <sys_class_name>sys_ui_application</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-15 15:23:26</sys_created_on>

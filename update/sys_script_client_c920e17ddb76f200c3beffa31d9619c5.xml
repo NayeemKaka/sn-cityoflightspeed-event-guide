@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Hide the type_list field for existing records (use the M2M list instead.)</description>
+        <field>active</field>
+        <global>true</global>
+        <messages/>
+        <name>Show type list only if new</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+	if (!g_form.isNewRecord()) {
+		g_form.setDisplay('type_list', false);
+	} else {
+		g_form.setMandatory('type_list', true);
+	}
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>chuck.tomasi</sys_created_by>
+        <sys_created_on>2017-05-18 16:26:33</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c920e17ddb76f200c3beffa31d9619c5</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Show type list only if new</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sys_script_client_c920e17ddb76f200c3beffa31d9619c5</sys_update_name>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2017-05-18 16:39:33</sys_updated_on>
+        <table>x_snc_guide_event</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

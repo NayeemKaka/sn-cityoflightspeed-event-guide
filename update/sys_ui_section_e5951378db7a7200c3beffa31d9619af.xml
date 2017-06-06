@@ -2,172 +2,172 @@
 <record_update>
     <sys_ui_section caption="" section_id="e5951378db7a7200c3beffa31d9619af" sys_domain="global" table="x_snc_guide_site_task" version="3" view="">
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>number</element>
+            <element>.begin_split</element>
             <position>0</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>29951378db7a7200c3beffa31d9619b0</sys_id>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>d76365dddb76b200c3beffa31d961928</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>number</element>
+            <position>1</position>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>5b6365dddb76b200c3beffa31d961928</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>site_request.site</element>
+            <position>2</position>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>db6365dddb76b200c3beffa31d961928</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>assigned_to</element>
-            <position>1</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>ad951378db7a7200c3beffa31d9619b0</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>cmdb_ci</element>
-            <position>2</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>21951378db7a7200c3beffa31d9619b1</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>active</element>
             <position>3</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>a1951378db7a7200c3beffa31d9619b1</sys_id>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>5f6365dddb76b200c3beffa31d961928</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
             <position>4</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>25951378db7a7200c3beffa31d9619b1</sys_id>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>df6365dddb76b200c3beffa31d961928</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>priority</element>
-            <position>5</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>a5951378db7a7200c3beffa31d9619b1</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
             <element>state</element>
-            <position>6</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>29951378db7a7200c3beffa31d9619b1</sys_id>
+            <position>5</position>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>536365dddb76b200c3beffa31d961929</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>parent</element>
-            <position>7</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>a9951378db7a7200c3beffa31d9619b1</sys_id>
+            <element>site_request</element>
+            <position>6</position>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>d36365dddb76b200c3beffa31d961929</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active</element>
+            <position>7</position>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>576365dddb76b200c3beffa31d961929</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.end_split</element>
             <position>8</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>2d951378db7a7200c3beffa31d9619b1</sys_id>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>d76365dddb76b200c3beffa31d961929</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>short_description</element>
-            <position>9</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>ad951378db7a7200c3beffa31d9619b1</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
             <element>description</element>
-            <position>10</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>21951378db7a7200c3beffa31d9619b2</sys_id>
+            <position>9</position>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>5b6365dddb76b200c3beffa31d961929</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>work_notes</element>
-            <position>11</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-15 22:23:59</sys_created_on>
-            <sys_id>a1951378db7a7200c3beffa31d9619b2</sys_id>
+            <position>10</position>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>db6365dddb76b200c3beffa31d961929</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-15 22:23:59</sys_updated_on>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
             <sys_user/>
             <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>inline_checklist_macro</element>
+            <position>11</position>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-17 03:22:10</sys_created_on>
+            <sys_id>5f6365dddb76b200c3beffa31d961929</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter display_value="Checklist">ade76621c3200200e280dccdf3d3ae9a</sys_ui_formatter>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_guide_site_task" sys_domain="global" view="Default view">e5951378db7a7200c3beffa31d9619af</sys_ui_section>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-17 03:22:10</sys_updated_on>
+            <sys_user/>
+            <type>formatter</type>
         </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Photo" max_length="40" name="x_snc_guide_site_photo" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" type="reference"/>
+        <element label="URL" max_length="1024" name="url" type="url"/>
+        <index name="index">
+            <element name="site"/>
+        </index>
+    </element>
+</database>

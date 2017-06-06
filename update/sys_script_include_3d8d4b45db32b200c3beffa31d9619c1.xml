@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_guide.FavoriteManager</api_name>
+        <client_callable>false</client_callable>
+        <description>Manage the favorites for a site or event.</description>
+        <name>FavoriteManager</name>
+        <script><![CDATA[var FavoriteManager = Class.create();
+FavoriteManager.prototype = {
+	initialize: function(userID, siteID, eventID, type) {
+		this.userID = userID;
+		this.type = type;
+		this.siteID = siteID;
+		this.eventID = eventID;
+		this.favoriteTable = 'x_snc_guide_favorite';
+	},
+
+	exists : function() {
+
+		var fav = new GlideRecord(this.favoriteTable);
+
+		fav.addQuery('site', this.siteID);
+		fav.addQuery('user', this.userID);
+		fav.addQuery('type', this.type);
+		if (this.type == 'Event') {
+			fav.addQuery('event', this.eventID);
+		}
+		fav.query();
+
+		if (fav.next()) {
+			return fav.getValue('sys_id');
+		}
+
+		return;
+	},
+
+	isFavorite : function() {
+
+		return this.exists() != null;
+
+	},
+
+	createOrUpdate : function() {
+
+		var favID = this.exists();
+		if (!favID)
+			this.create();
+		else
+			this.update();
+	},
+
+	create : function() {
+
+		var fav = new GlideRecord(this.favoriteTable);
+
+		fav.newRecord();
+		fav.user = this.userID;
+		fav.site = this.siteID;
+		fav.type = this.type;
+
+		if (this.type == 'Event')
+			fav.event = this.eventID;
+		var id = fav.insert();
+
+		return id;
+	},
+
+	update : function(favID) {
+
+		var fav = new GlideRecord(this.favoriteTable);
+
+		fav.get(favID);
+		fav.site = this.siteID;
+		fav.user = this.userID;
+		fav.type = this.type;
+		if (this.type == 'Event')
+			fav.event = this.eventID;
+
+		fav.update();
+	},
+
+	deleteFav : function() {
+
+		var fav = new GlideRecord(this.favoriteTable);
+
+		fav.addQuery('site', this.siteID);
+		fav.addQuery('user', this.userID);
+		fav.addQuery('type', this.type);
+		if (this.type == 'Event') {
+			fav.addQuery('event', this.eventID);
+		}
+		fav.query();
+
+		if (fav.next()) {
+			fav.deleteRecord();
+		}
+
+	},
+
+	type: 'FavoriteManager'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>chuck.tomasi</sys_created_by>
+        <sys_created_on>2017-05-16 16:30:12</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>3d8d4b45db32b200c3beffa31d9619c1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FavoriteManager</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sys_script_include_3d8d4b45db32b200c3beffa31d9619c1</sys_update_name>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2017-05-16 16:30:12</sys_updated_on>
+    </sys_script_include>
+</record_update>

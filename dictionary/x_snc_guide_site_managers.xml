@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Site Managers" max_length="40" name="x_snc_guide_site_managers" type="collection">
+        <element label="Registration" max_length="32" name="registration" reference="x_snc_guide_site_request" type="reference"/>
+        <element label="Site" max_length="32" name="site" reference="x_snc_guide_site" type="reference"/>
+        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="site"/>
+        </index>
+        <index name="index2">
+            <element name="registration"/>
+        </index>
+        <index name="index3">
+            <element name="user"/>
+        </index>
+    </element>
+</database>

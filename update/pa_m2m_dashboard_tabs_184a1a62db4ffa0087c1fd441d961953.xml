@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="pa_m2m_dashboard_tabs">
+    <pa_m2m_dashboard_tabs action="INSERT_OR_UPDATE">
+        <dashboard display_value="City Guide Dashboard">6e1ad662db4ffa0087c1fd441d96197b</dashboard>
+        <home>false</home>
+        <order>1</order>
+        <sys_class_name>pa_m2m_dashboard_tabs</sys_class_name>
+        <sys_created_by>tom.cullen</sys_created_by>
+        <sys_created_on>2017-06-02 14:49:49</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>184a1a62db4ffa0087c1fd441d961953</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>6e1ad662db4ffa0087c1fd441d96197b</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>pa_m2m_dashboard_tabs_184a1a62db4ffa0087c1fd441d961953</sys_update_name>
+        <sys_updated_by>tom.cullen</sys_updated_by>
+        <sys_updated_on>2017-06-02 14:49:49</sys_updated_on>
+        <tab display_value="New Tab">944a1a62db4ffa0087c1fd441d961951</tab>
+    </pa_m2m_dashboard_tabs>
+</record_update>

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function footerFilterCtrl($rootScope, appManager, $timeout, $location, $scope) {
+    // widget controller
+    var c = this;
+    c.$onInit = function() {
+        c.searchObject = $location.search();
+        $rootScope.buttonPopped = false;
+        if (("standalone" in window.navigator) && !window.navigator.standalone) {
+            console.log('full');
+        }
+    };
+
+    c.addEvent = function() {
+        $rootScope.$broadcast('addEventFromFooter');
+    }
+
+
+
+
+    $rootScope.$on('popTheBtn', function(event, data) {
+        $rootScope.showAddEvent = true;
+        $rootScope.buttonPopped = true;
+        $timeout(function() {
+            $rootScope.showAddEvent = false;
+        }, 5000);
+    });
+
+
+
+    c.gotoMapPage = function() {
+        c.searchObject = $location.search();
+        $location.url("?id=guide_map_page");
+    }
+
+
+    c.sendFilterChoice = function(typeSysID, name) {
+        appManager.setTitle(name);
+        $location.url("?id=city_guide_item_list&selector=" + typeSysID);
+    }
+
+
+
+    $rootScope.$on('$locationChangeStart', function(event, current, previous) {
+        $rootScope.showDropOptions = false;
+        c.searchObject = $location.search();
+        var startIndex = previous.indexOf("=") + 1;
+        appManager.setBackPage(previous.substring(startIndex));
+    });
+
+    c.gotoFavorites = function() {
+        c.server.get({ action: 'getSession' }).then(function(response) {
+            $scope.user.logged_in = response.data.is_logged_in;
+            if (!$scope.user.logged_in) {
+                $rootScope.showSignIn = true;
+                $rootScope.pendingCall = {
+                    name: 'gotoFavorites',
+                    args: ["?id=city_guide_my_favorites"]
+                }
+            } else {
+                $location.url("?id=city_guide_my_favorites");
+            }
+        })
+    };
+
+
+    $rootScope.$on('gotoFavorites', function(event, data) {
+        $location.url(data[0]);
+    });
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.footer-filter {&#13;
+    // position: absolute;&#13;
+    // bottom: 0px;&#13;
+    // width: 100%;&#13;
+    // z-index: 1030;&#13;
+    //box-shadow: -1px -2px 18px 3px #ababab;&#13;
+    box-shadow: 0px -3px 20px 0px #6d6d6d;&#13;
+    position: relative;&#13;
+    z-index: 10;&#13;
+    .btn-div {&#13;
+        position: relative;&#13;
+        //margin: 10px;&#13;
+        .add-event-btn {&#13;
+            border-radius: 0px;&#13;
+            background: #6bbdc6;&#13;
+            position: fixed;&#13;
+            width: 100%;&#13;
+            bottom: -100px;&#13;
+            height: 0px;&#13;
+            display: flex;&#13;
+            align-items: center;&#13;
+            justify-content: center;&#13;
+            box-shadow: -1px 2px 3px #333;&#13;
+            overflow: hidden;&#13;
+            transition: all 0.5s;&#13;
+            z-index: 1;&#13;
+            &amp;.pop-it-up {&#13;
+                position: fixed;&#13;
+                width: 100%;&#13;
+                bottom: 59px;&#13;
+                height: 56px;&#13;
+                overflow: auto;&#13;
+            }&#13;
+            p {&#13;
+                margin-bottom: 0px;&#13;
+                color: #f1e2c9;&#13;
+                font-size: 18px;&#13;
+                text-transform: uppercase;&#13;
+            }&#13;
+        }&#13;
+    }&#13;
+    .provider-switcher {&#13;
+        background: $brand-third;&#13;
+        color: $text-color-grey;&#13;
+        position: relative;&#13;
+        //box-shadow: inset -2px 1px 2px 2px #ddd;&#13;
+        .scrolling-selectors {&#13;
+            height: 55px;&#13;
+            margin-left: 142px;&#13;
+        }&#13;
+        .fixed-selectors {&#13;
+            height: 55px;&#13;
+            width: 130px;&#13;
+            float: left;&#13;
+            position: absolute;&#13;
+            left: 0px;&#13;
+            top: 0px;&#13;
+            box-shadow: 2px 3px 7px 1px #8d8484;&#13;
+            background: #f6eddc;&#13;
+            .vertical-line {&#13;
+                padding: 2px 3px 10px 0px;&#13;
+                width: 10px;&#13;
+                height: 55px;&#13;
+                position: relative;&#13;
+                display: block;&#13;
+                float: left;&#13;
+                .border-for-line {&#13;
+                    height: 49px;&#13;
+                    margin-bottom: 3px;&#13;
+                    margin-top: 3px;&#13;
+                    font-size: 11px;&#13;
+                    text-align: right;&#13;
+                    padding-right: 10px;&#13;
+                    white-space: normal;&#13;
+                    border-right: 1px solid rgba(155, 151, 151, 0.4);&#13;
+                    text-transform: uppercase;&#13;
+                    p {&#13;
+                        margin-bottom: 0px;&#13;
+                        padding-top: 10px;&#13;
+                    }&#13;
+                }&#13;
+            }&#13;
+            .each-filter {&#13;
+                //padding: 10px;&#13;
+                width: 60px;&#13;
+                height: 55px;&#13;
+                font-size: 18px;&#13;
+                float: left;&#13;
+                display: flex;&#13;
+                color: $pe-tabs-selector-text-color;&#13;
+                align-items: center;&#13;
+                justify-content: space-around;&#13;
+                background: $pe-tabs-selector-bg-color;&#13;
+                //border-right: 1px solid #fff;&#13;
+                .provider-logos {&#13;
+                    height: 27px;&#13;
+                }&#13;
+            }&#13;
+        }&#13;
+        .exp-location {&#13;
+            line-height: 1.6 !important;&#13;
+            width: 58px;&#13;
+            height: 55px;&#13;
+            .encloser {&#13;
+                height: inherit;&#13;
+                position: relative;&#13;
+                display: block;&#13;
+                .fa {&#13;
+                    font-size: 25px;&#13;
+                    position: absolute;&#13;
+                    top: 5px;&#13;
+                    left: 36%;&#13;
+                    height: initial;&#13;
+                    display: block;&#13;
+                }&#13;
+                span {&#13;
+                    font-size: 13px;&#13;
+                    /* line-height: 0.5; */&#13;
+                    position: absolute;&#13;
+                    top: 28px;&#13;
+                    left: 13px;&#13;
+                    text-transform: uppercase;&#13;
+                }&#13;
+            }&#13;
+        }&#13;
+        .exp {&#13;
+            width: 44px;&#13;
+            height: 44px;&#13;
+            background-color: #dfd3bf;&#13;
+            border-radius: 100%;&#13;
+            line-height: 80px;&#13;
+            text-align: center;&#13;
+            vertical-align: middle;&#13;
+            display: inline-block;&#13;
+            &amp;.fav-back {&#13;
+                background-color: $brand-primary;&#13;
+            }&#13;
+            .fa {&#13;
+                color: #d9534f;&#13;
+                display: flex;&#13;
+                align-items: center;&#13;
+                justify-content: center;&#13;
+                height: inherit;&#13;
+            }&#13;
+            img {&#13;
+                display: flex;&#13;
+                align-items: center;&#13;
+                justify-content: center;&#13;
+                height: inherit;&#13;
+            }&#13;
+        }&#13;
+        &amp;:after {&#13;
+            content: " ";&#13;
+            display: block;&#13;
+            clear: both;&#13;
+        }&#13;
+        .scroll-wrapper {&#13;
+            width: 100%;&#13;
+            white-space: nowrap;&#13;
+            overflow-y: hidden;&#13;
+            overflow-x: scroll;&#13;
+            -webkit-overflow-scrolling: touch;&#13;
+            // Toggle this depending upon whether you want to see the scrollbar&#13;
+            &amp;::-webkit-scrollbar {&#13;
+                display: none;&#13;
+                -webkit-appearance: none;&#13;
+                width: 0px;&#13;
+                height: 0px;&#13;
+            }&#13;
+            .inner-wrapper {&#13;
+                min-width: 500px;&#13;
+                &amp;:after {&#13;
+                    content: " ";&#13;
+                    display: block;&#13;
+                    clear: both;&#13;
+                }&#13;
+            }&#13;
+        }&#13;
+        .heading {&#13;
+            margin: 0;&#13;
+            text-align: center;&#13;
+            padding: 10px;&#13;
+        }&#13;
+        .border-none {&#13;
+            border: 0px !important;&#13;
+        }&#13;
+        .provider-filters {&#13;
+            .all-filter {&#13;
+                width: 75px;&#13;
+                float: left;&#13;
+                font-size: 18px;&#13;
+                padding: 14px;&#13;
+                background: $pe-tabs-selector-bg-color;&#13;
+                color: $pe-tabs-selector-text-color;&#13;
+                //border-right: 1px solid #fff;&#13;
+            }&#13;
+            .each-filter {&#13;
+                //padding: 10px;&#13;
+                width: 60px;&#13;
+                height: 55px;&#13;
+                font-size: 18px;&#13;
+                float: left;&#13;
+                display: flex;&#13;
+                color: $pe-tabs-selector-text-color;&#13;
+                align-items: center;&#13;
+                justify-content: space-around;&#13;
+                background: $pe-tabs-selector-bg-color;&#13;
+                //border-right: 1px solid #fff;&#13;
+                .provider-logos {&#13;
+                    height: 27px;&#13;
+                }&#13;
+            }&#13;
+        }&#13;
+    }&#13;
+    .active {&#13;
+        background: $pe-tabs-selector-bg-active-color;&#13;
+        color: $pe-tabs-selector-text-active-color;&#13;
+    }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guide-footer-filter</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide Footer Filter</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    data.event_types = [];
+    var gr = new GlideRecord('x_snc_guide_event_type');
+    gr.addActiveQuery();
+    gr.orderBy('order');
+    gr.query();
+
+    while (gr.next()) {
+        //console.log(gr.label);
+        var obj = {};
+        $sp.getRecordElements(obj, gr, 'name,sys_id,font_awesome_icon,icon');
+        data.event_types.push(obj);
+    }
+
+    if (input) {
+        if (input.action == 'getSession') {
+            data.is_logged_in = gs.getSession().isLoggedIn();
+        }
+    }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-19 21:27:59</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>dc2f67c6dbfef20087c1fd441d961989</sys_id>
+        <sys_mod_count>301</sys_mod_count>
+        <sys_name>City Guide Footer Filter</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_header_footer_dc2f67c6dbfef20087c1fd441d961989</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-02 22:29:46</sys_updated_on>
+        <template><![CDATA[<div class="footer-filter" ng-show="$root.title != 'home'">
+    <!--<div style="background-image: linear-gradient(to bottom, rgba(245, 255, 251, 0), #d9d5d5);/* background-color: rgba(0, 0, 0, 0.4); */width: 100%;height: 6px;">
+    </div>-->
+    <div class="btn-div">
+        <div ng-click="c.addEvent()" class="add-event-btn text-center" ng-class="{'pop-it-up':$root.showAddEvent}">
+            <p>Have an Event? Add it Now!</p>
+        </div>
+    </div>
+    <div>
+        <div class="provider-switcher">
+            <div class="provider-filters col-xs-12 remove-padding scroll-wrapper">
+                <div class="inner-wrapper" ng-style="{ 'width' : c.data.event_types.length*60+2*60+30 }">
+                    <!--fixed goes here-->
+                    <div class="scrolling-selectors">
+                        <div ng-repeat="item in c.data.event_types" ng-click="c.sendFilterChoice(item.sys_id.display_value, item.name.display_value)">
+                            <div class="each-filter">
+
+                                <div class="exp" ng-class="{'fav-back':c.searchObject.selector == item.sys_id.display_value}">
+                                    <!--<img ng-if="item.name.display_value != 'Music'" ng-src="{{item.icon.display_value}}" />-->
+                                    <img ng-if="item.name.display_value == 'Music'" src="music.svg" />
+                                    <img ng-if="item.name.display_value == 'Food'" src="food.svg" />
+                                    <img ng-if="item.name.display_value == 'Sports'" src="sports.svg" />
+                                    <img ng-if="item.name.display_value == 'Nature'" src="nature.svg" />
+                                    <img ng-if="item.name.display_value == 'Drama'" src="drama.svg" />
+                                    <img ng-if="item.name.display_value == 'Arts'" src="arts.svg" />
+                                    <img ng-if="item.name.display_value == 'Shopping'" src="shopping.svg" />
+                                    <!--<i class="fa {{item.font_awesome_icon.display_value}}" ng-class="" aria-hidden="true"></i>-->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="fixed-selectors">
+                <div class="each-filter">
+                    <div ng-click="c.gotoMapPage()" class="exp " ng-class="{'fav-back':c.searchObject.id == 'guide_map_page'}" role="button" tabindex="0">
+                        <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
+                        <img src="near-me.svg" />
+                    </div>
+                </div>
+                <div class="each-filter">
+                    <div ng-click="c.gotoFavorites()" class="exp " ng-class="{'fav-back':c.searchObject.id == 'city_guide_my_favorites'}" role="button" tabindex="0">
+                        <img src="star.svg" />
+                    </div>
+                </div>
+
+
+                <div class="vertical-line">
+                    <div class="border-for-line">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>]]></template>
+    </sp_header_footer>
+</record_update>

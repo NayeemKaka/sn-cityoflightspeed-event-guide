@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function guideListCtrl(appManager, $timeout, $rootScope, $location, $scope) {
+    /* widget controller */
+    var c = this;
+    c.$onInit = function() {
+        c.searchObject = $location.search();
+        appManager.trackPages('city_guide_item_list&selector=' + c.searchObject.selector);
+        c.getData('today');
+    };
+
+    c.gotoDetail = function(event) {
+        $location.url("?id=city_guide_event_details&sys_id=" + event.sys_id.display_value);
+    }
+
+    c.getData = function(type) {
+        c.selectedTab = type;
+        c.server.get({ action: 'get', type: type, selector: c.searchObject.selector }).then(function(response) {
+            if (type == 'today') {
+                c.data.todaysevents = response.data.events;
+                appManager.setTitle(c.data.todaysevents.typeName);
+            } else if (type == 'weekend') {
+                c.data.events = response.data.events;
+            } else if (type == 'month') {
+                c.data.eventsMonth = response.data.events;
+            }
+        });
+    }
+
+    c.truncateChars = function(text, limit) {
+        if (text.length > limit) {
+            text = text.substr(0, limit) + '...';
+            return text;
+        } else {
+            return text;
+        }
+    }
+
+    c.addToFavourite = function(event) {
+        c.server.get({ action: 'getSession' }).then(function(response) {
+            c.data.is_logged_in = response.data.is_logged_in;
+            if (!c.data.is_logged_in) {
+                $rootScope.showSignIn = true;
+                $rootScope.pendingCall = {
+                    name: 'addToFavourite',
+                    args: [event]
+                }
+            } else {
+                $rootScope.$broadcast('addToFavourite', [event]);
+            }
+        })
+    }
+
+    $rootScope.$on('addToFavourite', function(event, data) {
+        c.server.get({ action: 'saveFavorite', eventSysid: data[0].sys_id.display_value, siteSysid: data[0].site.value }).then(function(response) {
+            data[0].favourite = true;
+            $rootScope.$broadcast('popAlert', 'Added to favorites');
+        })
+    });
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.list-page {
+    font-family: $font-family;
+    overflow-y: hidden;
+    min-height: 83vh;
+    position: relative;
+    .tabs {
+        border-bottom: 2px solid rgba(88, 87, 88, 0.4);
+        width: 100%;
+        background: $brand-third;
+        overflow: hidden;
+        color: #959393;
+        position: absolute;
+        top: 0px;
+        z-index: 1200;
+        -webkit-transition: top 0.25s;
+        -moz-transition: top 0.25s;
+        -ms-transition: top 0.25s;
+        -o-transition: top 0.25s;
+        transition: top 0.25s;
+        .each-tab {
+            float: left;
+            padding: 15px 4px;
+            text-align: center;
+            &amp;.active {
+                background: #fff;
+                color: black;
+            }
+            p {
+                margin-bottom: 0px;
+                text-transform: uppercase;
+                font-size: 12px;
+                line-height: 1;
+            }
+        }
+        .last-tab {
+            width: 33.2%;
+        }
+        .first-tab {
+            width: 31%;
+        }
+        .second-tab {
+            width: 35.2%;
+        }
+    }
+    .encloser {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        min-height: 100vh;
+        width: 100%;
+        overflow: hidden;
+    }
+    .cascade-cards {
+        padding: 10px;
+        background: $brand-secondary;
+        //min-height: 100vh;
+        //padding-top: 50px;
+        padding-top: 45px;
+        padding-bottom: 125px;
+        position: relative;
+        min-height: 100vh;
+        max-height: 100%;
+        overflow: auto;
+        .masonry,
+        .masonry .masonry-brick {
+            /* apply before masonry add class */
+            position: absolute;
+            /* important to add it before enter animation start */
+            -webkit-transition-duration: .7s;
+            transition-duration: .7s;
+            -webkit-transition-property: all;
+            transition-property: all;
+        }
+        .masonry .masonry-enter {
+            /* limit animated properties for entering elements */
+            -webkit-transition-property: -webkit-transform, opacity;
+            transition-property: transform, opacity;
+        }
+        .masonry-enter,
+        .masonry-leave.masonry-leave-active {
+            opacity: 0;
+            -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+        }
+        .masonry-leave,
+        .masonry-enter.masonry-enter-active {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        .masonry-brick {
+            width: 48%;
+            margin-bottom: 10px;
+        }
+        .images {
+            height: 135px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        img {
+            width: 100%;
+        }
+        .description {
+            padding: 10px;
+            background: #fff;
+            position: relative;
+            word-wrap: break-word;
+            .exp {
+                position: absolute;
+                top: -17px;
+                left: 40%;
+                width: 30px;
+                height: 30px;
+                background-color: $exp-bg;
+                border-radius: 100%;
+                line-height: 80px;
+                text-align: center;
+                vertical-align: middle;
+                display: inline-block;
+                &amp;.fav-back {
+                    background-color: $brand-primary;
+                }
+                .fa {
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: inherit;
+                }
+                img {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: inherit;
+                }
+            }
+            .each-name {
+                padding-top: 10px;
+                font-weight: bold;
+                font-size: 16px;
+            }
+            .each-description {
+                font-size: 12px;
+                margin-bottom: 0px;
+                color: rgba(149, 149, 149, 0.5);
+            }
+        }
+    }
+    // .weekend-events {
+    //     background: $brand-secondary;
+    //     .each-weekend-event {
+    //         margin-bottom: 10px;
+    //         img {
+    //             width: 100%;
+    //         }
+    //         .description {
+    //             padding: 10px;
+    //             background: #fff;
+    //             position: relative;
+    //             text-align: center;
+    //             .exp {
+    //                 width: 30px;
+    //                 height: 30px;
+    //                 background-color: ;
+    //                 border-radius: 100%;
+    //                 line-height: 80px;
+    //                 text-align: center;
+    //                 vertical-align: middle;
+    //                 display: inline-block;
+    //                 &amp;.fav-back {
+    //                     background-color: $brand-primary;
+    //                 }
+    //                 .fa {
+    //                     color: #fff;
+    //                     display: flex;
+    //                     align-items: center;
+    //                     justify-content: center;
+    //                     height: inherit;
+    //                 }
+    //             }
+    //             .each-name {
+    //                 font-weight: bold;
+    //                 font-family: $font-family;
+    //                 font-size: 18px;
+    //             }
+    //             .each-description {
+    //                 font-size: 14px;
+    //                 margin-bottom: 10px;
+    //             }
+    //         }
+    //     }
+    // }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guide-list</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide List</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    //data.type = $sp.getParameter('type');
+    data.events = {};
+    data.events.allevents = [];
+    data.events.typeName = "";
+    data.is_logged_in = gs.getSession().isLoggedIn();
+
+    if (input) {
+        data.is_logged_in = gs.getSession().isLoggedIn();
+        // console.log(input);
+        if (input.action == 'get' && input.type == 'today') {
+            var todayQuery = "start_dateONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)";
+
+            data.events.typeName = getTypeName(input.selector);
+            //obj.types.push(eventTypeGr.event_type.name.toString());
+            var eventM2mTypeGr = new GlideRecord('x_snc_guide_m2m_event_types');
+            eventM2mTypeGr.addActiveQuery();
+            eventM2mTypeGr.addQuery('event_type', input.selector);
+            eventM2mTypeGr.setLimit(20);
+            eventM2mTypeGr.query();
+            console.log(eventM2mTypeGr.getRowCount());
+            while (eventM2mTypeGr.next()) {
+                //obj.types.push(eventTypeGr.event_type.name.toString());
+
+                var gr = new GlideRecord('x_snc_guide_event');
+                gr.addActiveQuery();
+                gr.addQuery('sys_id', eventM2mTypeGr.x_event.sys_id.toString());
+                gr.addQuery('state', 'Active');
+                gr.orderByDesc('sys_updated_on');
+                gr.addEncodedQuery(todayQuery);
+                gr.query();
+                if (gr.next()) {
+                    var obj = {};
+                    obj.types = []
+                    $sp.getRecordElements(obj, gr, 'name,sys_id,photo,description,photo_url,site');
+                    obj.typeName = eventM2mTypeGr.event_type.name.toString();
+                    if (data.is_logged_in) {
+                        var gr = new GlideRecord('x_snc_guide_favorite');
+                        // gr.addActiveQuery();
+                        gr.addQuery('user', gs.getUserID());
+                        gr.addQuery('event', obj.sys_id.display_value);
+                        gr.query();
+                        if (gr.next()) {
+                            obj.favourite = true;
+                        }
+                    }
+
+                    data.events.allevents.push(obj);
+                }
+            }
+
+
+        }
+        if (input.action == 'get' && input.type == 'weekend') {
+            var weekend = getThisWeekendDates();
+            var sat = weekend.saturday;
+            var sun = weekend.sunday;
+
+            var thisWeekendQuery = "start_dateON" + sat + "@javascript:gs.dateGenerate('" + sat + "','start')@javascript:gs.dateGenerate('" + sat + "','end')^ORstart_dateON" + sun + "@javascript:gs.dateGenerate('" + sun + "','start')@javascript:gs.dateGenerate('" + sun + "','end')";
+            data.events.typeName = getTypeName(input.selector);
+
+            var eventM2mTypeGr = new GlideRecord('x_snc_guide_m2m_event_types');
+            eventM2mTypeGr.addActiveQuery();
+            eventM2mTypeGr.addQuery('event_type', input.selector);
+            eventM2mTypeGr.query();
+            while (eventM2mTypeGr.next()) {
+                //obj.types.push(eventTypeGr.event_type.name.toString());
+
+                var gr = new GlideRecord('x_snc_guide_event');
+                gr.addActiveQuery();
+                gr.addQuery('state', 'Active');
+                gr.addQuery('sys_id', eventM2mTypeGr.x_event.sys_id.toString());
+                gr.orderByDesc('sys_updated_on');
+                // gr.setLimit(15);
+                gr.addEncodedQuery(thisWeekendQuery);
+                gr.query();
+                while (gr.next()) {
+                    var obj = {};
+                    obj.types = []
+                    $sp.getRecordElements(obj, gr, 'name,sys_id,photo,description,photo_url,site');
+                    obj.typeName = eventM2mTypeGr.event_type.name.toString();
+                    if (data.is_logged_in) {
+                        var gr = new GlideRecord('x_snc_guide_favorite');
+                        // gr.addActiveQuery();
+                        gr.addQuery('user', gs.getUserID());
+                        gr.addQuery('event', obj.sys_id.display_value);
+                        gr.query();
+                        if (gr.next()) {
+                            obj.favourite = true;
+                        }
+                    }
+                    data.events.allevents.push(obj);
+                }
+            }
+
+        }
+        if (input.action == 'get' && input.type == 'month') {
+            console.log('hey');
+            var thisMonthQuery = "start_dateONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()";
+            data.events.typeName = getTypeName(input.selector);
+            var eventM2mTypeGr = new GlideRecord('x_snc_guide_m2m_event_types');
+            eventM2mTypeGr.addActiveQuery();
+            eventM2mTypeGr.addQuery('event_type', input.selector);
+            eventM2mTypeGr.query();
+            while (eventM2mTypeGr.next()) {
+                //obj.types.push(eventTypeGr.event_type.name.toString());
+
+                var gr = new GlideRecord('x_snc_guide_event');
+                gr.addActiveQuery();
+                gr.addQuery('state', 'Active');
+                gr.addQuery('sys_id', eventM2mTypeGr.x_event.sys_id.toString());
+                gr.orderByDesc('sys_updated_on');
+                // gr.setLimit(15);
+                gr.addEncodedQuery(thisMonthQuery);
+                gr.query();
+                while (gr.next()) {
+                    var obj = {};
+                    obj.types = []
+                    $sp.getRecordElements(obj, gr, 'name,sys_id,photo,description,photo_url,site');
+                    obj.typeName = eventM2mTypeGr.event_type.name.toString();
+                    if (data.is_logged_in) {
+                        var gr = new GlideRecord('x_snc_guide_favorite');
+                        // gr.addActiveQuery();
+                        gr.addQuery('user', gs.getUserID());
+                        gr.addQuery('event', obj.sys_id.display_value);
+                        gr.query();
+                        if (gr.next()) {
+                            obj.favourite = true;
+                        }
+                    }
+                    data.events.allevents.push(obj);
+                }
+            }
+
+        }
+
+        if (input.action == 'saveFavorite') {
+            var gr = new GlideRecord('x_snc_guide_favorite');
+            gr.addActiveQuery();
+            gr.addQuery('user', gs.getUserID());
+            gr.addQuery('event', input.eventSysid);
+            gr.query();
+            if (gr.next()) {
+
+            } else {
+                gr.initialize();
+                gr.event = input.eventSysid;
+                gr.user = gs.getUserID();
+                gr.site = input.siteSysid;
+                gr.type = 'Event';
+                gr.insert();
+            }
+        }
+        if (input.action == 'getSession') {
+            data.is_logged_in = gs.getSession().isLoggedIn();
+        }
+    }
+
+
+    function getTypeName(typeSysId) {
+        var TypeGr = new GlideRecord('x_snc_guide_event_type');
+        TypeGr.addActiveQuery();
+        TypeGr.addQuery('sys_id', typeSysId);
+        TypeGr.query();
+
+        if (TypeGr.next()) {
+            return TypeGr.name.toString();
+        }
+    }
+    //////// FUNCTION TO SUPPORT THIS WEEKEND QUERY //////////
+
+    /*
+     * get "this weekend" dates.
+     * Scenarios
+     * If this is Monday-Fri, then this weekend is the following Sat/Sun
+     * If this is Sat, then this weekend is today and tomorrow
+     * If this is Sun, then this weekend is yesterday and today
+     *
+     * @param none
+     * @return Object {"Satuday" : "yyyy-mm-dd", "Sunday" : "yyyy-mm-dd"}
+     *
+     */
+    function getThisWeekendDates() {
+
+        var answer = {
+            "saturday": "",
+            "sunday": ""
+        };
+
+        var now = new GlideDateTime();
+        var dayOfWeek = now.getDayOfWeekLocalTime();
+        var daysToSat = 6 - dayOfWeek;
+        var saturday = new GlideDateTime();
+        var sunday = new GlideDateTime();
+
+        saturday.addDaysLocalTime(daysToSat);
+        sunday.addDaysLocalTime(daysToSat + 1);
+
+        answer.saturday = saturday.getLocalDate().toString();
+        answer.sunday = sunday.getLocalDate().toString();
+
+        return answer;
+    }
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-17 20:42:47</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>408111eddbbab20087c1fd441d9619b1</sys_id>
+        <sys_mod_count>461</sys_mod_count>
+        <sys_name>City Guide List</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_widget_408111eddbbab20087c1fd441d9619b1</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-03 00:36:30</sys_updated_on>
+        <template><![CDATA[<div class="list-page row">
+    <!-- your widget template -->
+    <div class="tabs">
+        <div class="each-tab first-tab" ng-click="c.getData('today')" ng-class="{'active': c.selectedTab == 'today'}">
+            <p>Today</p>
+        </div>
+        <div class="each-tab second-tab" ng-click="c.getData('weekend')" ng-class="{'active':c.selectedTab == 'weekend'}">
+            <p>this Weekend</p>
+        </div>
+        <div class="each-tab last-tab" ng-click="c.getData('month')" ng-class="{'active':c.selectedTab == 'month'}">
+            <p>this month</p>
+        </div>
+    </div>
+
+    <div class="encloser">
+        <div class="clear-both cascade-cards" ng-show="c.selectedTab == 'today'">
+
+            <div masonry="{ gutter:10}" reload-on-show ng-show="c.selectedTab == 'today'">
+                <h4 class="text-center" ng-show="c.data.todaysevents.allevents.length == 0">No Events Found</h4>
+                <div class="masonry-brick" ng-repeat="event in c.data.todaysevents.allevents | filter : c.filterType ">
+                    <!--<img ng-src={{event.photo_url.display_value}} ng-click="c.gotoDetail(event)" />-->
+                    <div class="images" ng-click="c.gotoDetail(event)" ng-style="{'background-image':'url({{event.photo_url.display_value}})'}"></div>
+                    <div class="description ">
+                        <div class="exp" ng-click="c.addToFavourite(event)" ng-class="{'fav-back':event.favourite}">
+                            <!--<i class="fa fa-star " aria-hidden="true "></i>-->
+                            <img src="star.svg" />
+
+                        </div>
+                        <p class="each-name ">{{event.name.display_value}}</p>
+                        <p class="each-description ">{{c.truncateChars(event.description.display_value, 50)}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div ng-show="c.selectedTab == 'weekend'" c.selectedTab=='month' " class="clear-both cascade-cards ">
+        <div masonry="{ gutter:10} " reload-on-show ng-show="c.selectedTab=='weekend' " c.selectedTab=='month' ">
+            <h4 class="text-center " ng-show="c.data.events.allevents.length==0 ">No Events Found</h4>
+            <div class="masonry-brick " ng-repeat="event in c.data.todaysevents.allevents | filter : c.filterType ">
+                <div class="images" ng-click="c.gotoDetail(event)" ng-style="{'background-image':'url({{event.photo_url.display_value}})'}"></div>
+                <!--<img ng-src={{event.photo_url.display_value}} ng-click="c.gotoDetail(event) " />-->
+                <div class="description ">
+                    <div class="exp " ng-click="c.addToFavourite(event) " ng-class="{ 'fav-back':event.favourite} ">
+                        <!--<i class="fa fa-star " aria-hidden="true "></i>-->
+                        <img src="star.svg " />
+                    </div>
+                    <p class="each-name ">{{event.name.display_value}}</p>
+                    <p class="each-description ">{{c.truncateChars(event.description.display_value, 50)}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div ng-show="c.selectedTab=='month' " class="clear-both cascade-cards ">
+        <div masonry="{ gutter:10} " reload-on-show ng-show="c.selectedTab=='month' ">
+            <h4 class="text-center " ng-show="c.data.eventsMonth.allevents.length==0 ">No Events Found</h4>
+            <div class="masonry-brick " ng-repeat="event in c.data.eventsMonth.allevents | filter : c.filterType ">
+                <!--<img ng-src={{event.photo_url.display_value}} ng-click="c.gotoDetail(event) " />-->
+                <div class="images" ng-click="c.gotoDetail(event)" ng-style="{'background-image':'url({{event.photo_url.display_value}})'}"></div>
+                <div class="description ">
+                    <div class="exp " ng-click="c.addToFavourite(event) " ng-class="{ 'fav-back':event.favourite} ">
+                        <!--<i class="fa fa-star " aria-hidden="true "></i>-->
+                        <img src="star.svg " />
+                    </div>
+                    <p class="each-name ">{{event.name.display_value}}</p>
+                    <p class="each-description ">{{c.truncateChars(event.description.display_value, 50)}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

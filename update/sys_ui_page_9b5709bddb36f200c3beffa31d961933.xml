@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_snc_guide_post_guide_event.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	
+	<g:evaluate var="jvar_management_status">
+		
+		// Determine if this user can post
+
+		var status = "initiation"; // User has never attempted to post
+		var userId = gs.getUserID();
+		
+		var siteManagersGR = new GlideRecord("x_snc_guide_site_managers");
+		siteManagersGR.addQuery("user", userId);
+		siteManagersGR.query();
+		if (siteManagersGR.hasNext()) {
+		
+			while (siteManagersGR.next()) {
+				
+				if (siteManagersGR.site) {
+		
+					// If a record exists for this user and a site, that means
+					// the site has been approved, and their management status over the site is also approved.
+					// They can post.
+					status = "registered";
+					break; // Exit loop now to ensure this is the final status. There may be other sites pending
+				}
+				if (siteManagersGR.registration) {
+		
+					// If there is a user, no approved site, but an open registration,
+					// they are waiting for the site registration approval
+					status = "pending";
+				}
+			}
+		}
+		status;
+		
+	</g:evaluate>
+	
+	<j:if test="${jvar_management_status == 'initiation'}">
+		<h1>Thanks for your interest in posting an event, however you must register a site first. Please click <a href="com.glideapp.servicecatalog_cat_item_view.do?v=1$[AMP]sysparm_id=c78c6e65db32f200c3beffa31d961935">$[SP]here$[SP]</a> to register.</h1>
+	</j:if>
+	
+	<j:if test="${jvar_management_status == 'pending'}">
+		<h1>We are sorry, but your site registration is still pending approval. Click<a href="/x_snc_guide_site_request_list.do?sysparm_fixed_query=site.ownerDYNAMIC90d1921e5f510100a9ad2572f2b477fe">$[SP]here$[SP]</a>to review your site registration status, or click<a href="/x_snc_guide_event_list.do?sysparm_userpref_module=426c61a1db3eb20087c1fd441d96191f$[AMP]sysparm_query=active=true^EQ$[AMP]sysparm_clear_stack=true$[AMP]sysparm_clear_stack=true">$[SP]here$[SP]</a>to browse events.</h1>
+	</j:if>
+	
+	<j:if test="${jvar_management_status == 'registered'}">
+		<script>
+			window.location = "com.glideapp.servicecatalog_cat_item_view.do?v=1$[AMP]sysparm_id=1cf645addb7ab20087c1fd441d961958";
+		</script>
+	</j:if>
+	
+
+
+	
+	
+
+</j:jelly>]]></html>
+        <name>post_guide_event</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>dave.knight</sys_created_by>
+        <sys_created_on>2017-05-18 16:06:37</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>9b5709bddb36f200c3beffa31d961933</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>post_guide_event</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sys_ui_page_9b5709bddb36f200c3beffa31d961933</sys_update_name>
+        <sys_updated_by>dave.knight</sys_updated_by>
+        <sys_updated_on>2017-05-18 18:48:00</sys_updated_on>
+    </sys_ui_page>
+</record_update>

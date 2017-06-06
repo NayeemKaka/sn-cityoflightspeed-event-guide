@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_js_include">
+    <sp_js_include action="INSERT_OR_UPDATE">
+        <display_name>Guide Scripts</display_name>
+        <source>local</source>
+        <sys_class_name>sp_js_include</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-16 23:00:13</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>a6576095dbf2b200c3beffa31d96193c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Guide Scripts</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_ui_script display_value="x_snc_guide.City Guide Portal Scripts">00a4e815dbf2b200c3beffa31d961910</sys_ui_script>
+        <sys_update_name>sp_js_include_a6576095dbf2b200c3beffa31d96193c</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-16 23:00:13</sys_updated_on>
+        <url/>
+    </sp_js_include>
+</record_update>

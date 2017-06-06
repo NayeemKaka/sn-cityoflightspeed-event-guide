@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function guideAllowAccessCtrl(appManager, $rootScope, $location, $timeout) {
+    /* widget controller */
+    var c = this;
+    appManager.setTitle('home');
+    c.getUserLocation = function() {
+        c.loading = true;
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(displayLocation, errorCallback, { timeout: 7000 });
+            $timeout(function() {
+                $location.url("/guide?id=city_guide_featured_events");
+            }, 2000);
+        }
+
+    }
+
+
+
+    function displayLocation(lat, lng) {
+        //debugger;
+        // appManager.updateUserLocation(position.coords.latitude, position.coords.longitude);
+        //$rootScope.lat = lat //position.coords.latitude;
+        //$rootScope.lng = lng //position.coords.longitude;
+        c.loading = false;
+        //$window.location.href = "/guide?id=city_guide_featured_events";
+    }
+
+    function errorCallback() {
+        c.loading = false;
+        $location.url("/guide?id=city_guide_featured_events");
+    }
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>    .home {
+        min-height: 100vh;
+        font-family: $font-family;
+        text-align: center;
+        background: $brand-primary;
+        color: #fff;
+        a {
+            color: #fff;
+        }
+        .spinny {}
+        .title {
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0px;
+            font-weight: bold;
+            padding: 0px 70px;
+            color: #f1e2c9;
+        }
+        .bottom-btn {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .title-middle {
+            color: #40afdb;
+        }
+        .no-thanks {
+            text-transform: uppercase;
+            color: #f1e2c9;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 14px;
+            position: absolute;
+            bottom: 70px;
+        }
+        .bottom-btn {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            background: #bc3939;
+            text-transform: uppercase;
+            color: #f1e2c9;
+            border-top: 2px solid rgba(0, 0, 0, 0.4);
+            p {
+                margin: 0px;
+            }
+        }
+        .spinner {
+            margin-top: 20px;
+        }
+        .selection-options {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 30px;
+            background: radial-gradient(126px at center, #ec7373, #ec7373, #f95050);
+            .selector {
+                width: 50%;
+                padding: 10px;
+                height: 220px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p {
+                    text-transform: uppercase;
+                    font-size: 18px;
+                    color: #f1e2c9;
+                }
+                .exp {
+                    width: 170px;
+                    height: 170px;
+                    margin: 15px;
+                    background-color: #6bbdc6;
+                    border-radius: 100%;
+                    line-height: 80px;
+                    text-align: center;
+                    vertical-align: middle;
+                    display: inline-block;
+                    .fa {
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: inherit;
+                    }
+                    img {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: inherit;
+                    }
+                }
+            }
+        }
+    }
+    
+    .sk-spinner-pulse {
+        width: 50px;
+        height: 50px;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 100%;
+        -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+        animation: sk-pulseScaleOut 1s infinite ease-in-out;
+    }
+    
+    @-webkit-keyframes sk-pulseScaleOut {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes sk-pulseScaleOut {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 0;
+        }
+    }</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guide-allow-access</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide Allow Access</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-23 19:29:09</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>913a37dfdbb2b600c3beffa31d961933</sys_id>
+        <sys_mod_count>122</sys_mod_count>
+        <sys_name>City Guide Allow Access</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_widget_913a37dfdbb2b600c3beffa31d961933</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-05 20:46:03</sys_updated_on>
+        <template><![CDATA[<div class="home row">
+
+    <div class="animated slideInUp">
+        <div class="selection-options">
+            <div class="text-center selector">
+                <div>
+                    <div class="exp">
+                        <!--<i class="fa fa-globe fa-5x" ng-class="{'fa-spin':c.loading}"></i>-->
+                        <img src="globe.svg" />
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <p class="title">We need to know your<br> location to help you discover<br> things around you.</p>
+        <div class="spinny" ng-show="c.loading">
+            <div class="sk-spinner sk-spinner-pulse"></div>
+        </div>
+
+    </div>
+
+    <a href="/guide?id=city_guide_featured_events" class="no-thanks">No thanks!</a>
+    <div class="bottom-btn" ng-click="c.getUserLocation()">
+        <p> Allow access</p>
+    </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

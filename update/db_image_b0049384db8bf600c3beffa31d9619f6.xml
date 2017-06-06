@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <format>png</format>
+        <height>512</height>
+        <image/>
+        <name>close.png</name>
+        <size_bytes>2672</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-26 00:37:27</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>b0049384db8bf600c3beffa31d9619f6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>close.png</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>db_image_b0049384db8bf600c3beffa31d9619f6</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-26 00:37:53</sys_updated_on>
+        <thumbnail/>
+        <width>512</width>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#0</average_image_color>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>image</file_name>
+        <image_height>512</image_height>
+        <image_width>512</image_width>
+        <size_bytes>2672</size_bytes>
+        <size_compressed>2546</size_compressed>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-26 00:37:53</sys_created_on>
+        <sys_id>e0249384db8bf600c3beffa31d961998</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-26 00:37:53</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>b0049384db8bf600c3beffa31d9619f6</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="e0249384db8bf600c3beffa31d961998">e0249384db8bf600c3beffa31d961998</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-26 00:37:53</sys_created_on>
+        <sys_id>24249384db8bf600c3beffa31d961998</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>3384</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="e0249384db8bf600c3beffa31d961998">e0249384db8bf600c3beffa31d961998</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-26 00:37:53</sys_created_on>
+        <sys_id>a4249384db8bf600c3beffa31d961998</sys_id>
+    </sys_attachment_doc>
+</record_update>

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function guideFeaturedListCtrl($location, appManager, $timeout, $rootScope, $scope, $window) {
+    /* widget controller */
+    var c = this;
+    c.$onInit = function() {
+        appManager.setTitle('Featured Events');
+        appManager.trackPages('city_guide_featured_events');
+        c.getData('today');
+    };
+
+    $timeout(function() {
+        if (!$rootScope.buttonPopped) {
+            $rootScope.$broadcast('popTheBtn');
+        }
+    }, 3000);
+
+
+    c.getData = function(type) {
+        c.selectedTab = type;
+        c.server.get({ action: 'get', type: type }).then(function(response) {
+            if (type == 'today') {
+                c.data.events = response.data.events;
+            } else if (type == 'weekend') {
+                c.data.events = response.data.events;
+            } else if (type == 'month') {
+                c.data.events = response.data.events;
+            }
+
+        });
+    }
+
+
+    c.gotoDetail = function(event) {
+        $location.url("?id=city_guide_event_details&sys_id=" + event.sys_id.display_value);
+    }
+
+    c.truncateChars = function(text, limit) {
+        if (text.length > limit) {
+            text = text.substr(0, limit) + '...';
+            return text;
+        } else {
+            return text;
+        }
+    }
+
+    c.addToFavourite = function(event) {
+        c.server.get({ action: 'getSession' }).then(function(response) {
+            c.data.is_logged_in = response.data.is_logged_in;
+            if (!c.data.is_logged_in) {
+                $rootScope.showSignIn = true;
+                $rootScope.pendingCall = {
+                    name: 'addToFavourite',
+                    args: [event]
+                }
+            } else {
+                $rootScope.$broadcast('addToFavourite', [event]);
+            }
+
+        })
+    }
+
+    $rootScope.$on('addToFavourite', function(event, data) {
+        c.server.get({ action: 'saveFavorite', eventSysid: data[0].sys_id.display_value, siteSysid: data[0].site.value }).then(function(response) {
+            data[0].favourite = true;
+            $rootScope.$broadcast('popAlert', 'Added to favorites');
+        })
+    });
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.list-page {
+    font-family: $font-family;
+    //overflow: scroll;
+    overflow-y: hidden;
+    min-height: 83vh;
+    position: relative;
+    .tabs {
+        border-bottom: 2px solid rgba(88, 87, 88, 0.4);
+        width: 100%;
+        background: $brand-third;
+        overflow: hidden;
+        color: #959393;
+        position: absolute;
+        top: 0px;
+        z-index: 1200;
+        -webkit-transition: top 0.25s;
+        -moz-transition: top 0.25s;
+        -ms-transition: top 0.25s;
+        -o-transition: top 0.25s;
+        transition: top 0.25s;
+        .each-tab {
+            float: left;
+            padding: 15px 4px;
+            text-align: center;
+            &amp;.active {
+                background: #fff;
+                color: black;
+            }
+            p {
+                margin-bottom: 0px;
+                text-transform: uppercase;
+                font-size: 12px;
+                line-height: 1;
+            }
+        }
+        .last-tab {
+            width: 33.2%;
+        }
+        .first-tab {
+            width: 31%;
+        }
+        .second-tab {
+            width: 35.2%;
+        }
+    }
+    .encloser {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        min-height: 100vh;
+        width: 100%;
+        overflow: hidden;
+    }
+    .featured-events {
+        background: $brand-secondary;
+        padding: 10px;
+        //padding-top: 50px;
+        //overflow: scroll;
+        //min-height: 100vh;
+        //z-index: 1020;
+        padding-top: 45px;
+        padding-bottom: 125px;
+        position: relative;
+        min-height: 100vh;
+        max-height: 100%;
+        overflow: auto;
+        .event-image {
+            // border-bottom: 1px solid $brand-primary;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .each-weekend-event {
+            margin-bottom: 10px;
+            img {
+                width: 100%;
+            }
+            .description {
+                padding: 10px;
+                background: $brand-secondary;
+                position: relative;
+                text-align: center;
+                .exp {
+                    margin: 5px;
+                    width: 30px;
+                    height: 30px;
+                    background-color: $exp-bg;
+                    border-radius: 100%;
+                    line-height: 80px;
+                    text-align: center;
+                    vertical-align: middle;
+                    display: inline-block;
+                    &amp;.fav-back {
+                        background-color: $brand-primary;
+                    }
+                    .fa {
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: inherit;
+                    }
+                    img {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: inherit;
+                    }
+                }
+                .each-name {
+                    font-weight: 900;
+                    font-family: $font-family;
+                    font-size: 18px;
+                    margin-bottom: 0px;
+                    line-height: 1.2;
+                    color: $text-color-grey;
+                }
+                .each-description {
+                    line-height: 1.2;
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                    color: $text-color-grey;
+                }
+            }
+        }
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guide-featured-events</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide Featured Events</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    //data.type = $sp.getParameter('type');
+    data.events = [];
+    data.is_logged_in = gs.getSession().isLoggedIn();
+    if (input) {
+        data.is_logged_in = gs.getSession().isLoggedIn();
+        // console.log(input);
+        if (input.action == 'get' && input.type == 'today') {
+            var todayQuery = "start_dateONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)";
+            var gr = new GlideRecord('x_snc_guide_event');
+            gr.addActiveQuery();
+            gr.orderByDesc('sys_updated_on');
+            gr.addQuery('state', 'Active');
+            gr.addQuery('featured', true);
+            gr.addEncodedQuery(todayQuery);
+            gr.setLimit(15);
+            gr.query();
+            while (gr.next()) {
+                var obj = {};
+                obj.types = [];
+                obj.typeIcons = [];
+                $sp.getRecordElements(obj, gr, 'name,sys_id,photo,description,photo_url,site');
+
+                if (data.is_logged_in) {
+                    var favgr = new GlideRecord('x_snc_guide_favorite');
+                    // gr.addActiveQuery();
+                    favgr.addQuery('user', gs.getUserID());
+                    favgr.addQuery('event', obj.sys_id.display_value);
+                    favgr.query();
+                    if (favgr.next()) {
+                        obj.favourite = true;
+                    }
+                }
+                var eventTypeGr = new GlideRecord('x_snc_guide_m2m_event_types');
+                eventTypeGr.addActiveQuery();
+                eventTypeGr.addQuery('x_event', obj.sys_id.display_value);
+                eventTypeGr.query();
+                while (eventTypeGr.next()) {
+                    obj.types.push(eventTypeGr.event_type.name.toString());
+                    obj.typeIcons.push(eventTypeGr.event_type.font_awesome_icon.toString());
+
+                }
+                data.events.push(obj);
+            }
+
+        }
+        if (input.action == 'get' && input.type == 'weekend') {
+            var weekend = getThisWeekendDates();
+            var sat = weekend.saturday;
+            var sun = weekend.sunday;
+
+            var thisWeekendQuery = "start_dateON" + sat + "@javascript:gs.dateGenerate('" + sat + "','start')@javascript:gs.dateGenerate('" + sat + "','end')^ORstart_dateON" + sun + "@javascript:gs.dateGenerate('" + sun + "','start')@javascript:gs.dateGenerate('" + sun + "','end')";
+            var gr = new GlideRecord('x_snc_guide_event');
+            gr.addActiveQuery();
+            gr.orderByDesc('sys_updated_on');
+            gr.setLimit(14);
+            gr.addEncodedQuery(thisWeekendQuery);
+            gr.addQuery('state', 'Active');
+            gr.addQuery('featured', true);
+            gr.query();
+            while (gr.next()) {
+                var obj = {};
+                obj.types = [];
+                obj.typeIcons = [];
+                $sp.getRecordElements(obj, gr, 'name,sys_id,photo,description,photo_url,site');
+                if (data.is_logged_in) {
+                    var favgr = new GlideRecord('x_snc_guide_favorite');
+                    // gr.addActiveQuery();
+                    favgr.addQuery('user', gs.getUserID());
+                    favgr.addQuery('event', obj.sys_id.display_value);
+                    favgr.query();
+                    if (favgr.next()) {
+                        obj.favourite = true;
+                    }
+                }
+                var eventTypeGr = new GlideRecord('x_snc_guide_m2m_event_types');
+                eventTypeGr.addActiveQuery();
+                eventTypeGr.addQuery('x_event', obj.sys_id.display_value);
+                eventTypeGr.query();
+                while (eventTypeGr.next()) {
+                    obj.types.push(eventTypeGr.event_type.name.toString());
+                    obj.typeIcons.push(eventTypeGr.event_type.font_awesome_icon.toString());
+                }
+                data.events.push(obj);
+            }
+
+        }
+        if (input.action == 'get' && input.type == 'month') {
+            var thisMonthQuery = "start_dateONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()";
+
+            var gr = new GlideRecord('x_snc_guide_event');
+            gr.addActiveQuery();
+            gr.orderByDesc('sys_updated_on');
+            gr.addQuery('state', 'Active');
+            gr.addQuery('featured', true);
+            gr.addEncodedQuery(thisMonthQuery);
+            gr.setLimit(15);
+            gr.query();
+            while (gr.next()) {
+                var obj = {};
+                obj.types = [];
+                obj.typeIcons = [];
+                $sp.getRecordElements(obj, gr, 'name,sys_id,photo,description,photo_url,site');
+                if (data.is_logged_in) {
+                    var favgr = new GlideRecord('x_snc_guide_favorite');
+                    // gr.addActiveQuery();
+                    favgr.addQuery('user', gs.getUserID());
+                    favgr.addQuery('event', obj.sys_id.display_value);
+                    favgr.query();
+                    if (favgr.next()) {
+                        obj.favourite = true;
+                    }
+                }
+                var eventTypeGr = new GlideRecord('x_snc_guide_m2m_event_types');
+                eventTypeGr.addActiveQuery();
+                eventTypeGr.addQuery('x_event', obj.sys_id.display_value);
+
+                eventTypeGr.query();
+                while (eventTypeGr.next()) {
+                    obj.types.push(eventTypeGr.event_type.name.toString());
+                    obj.typeIcons.push(eventTypeGr.event_type.font_awesome_icon.toString());
+                }
+                data.events.push(obj);
+            }
+
+        }
+        if (input.action == 'getSession') {
+            data.is_logged_in = gs.getSession().isLoggedIn();
+        }
+        if (input.action == 'saveFavorite') {
+            var gr = new GlideRecord('x_snc_guide_favorite');
+            gr.addActiveQuery();
+            gr.addQuery('user', gs.getUserID());
+            gr.addQuery('event', input.eventSysid);
+            gr.query();
+            if (gr.next()) {
+
+            } else {
+                gr.initialize();
+                gr.event = input.eventSysid;
+                gr.user = gs.getUserID();
+                gr.site = input.siteSysid;
+                gr.type = 'Event';
+                gr.insert();
+            }
+        }
+    }
+
+    //////// FUNCTION TO SUPPORT THIS WEEKEND QUERY //////////
+
+    /*
+     * get "this weekend" dates.
+     * Scenarios
+     * If this is Monday-Fri, then this weekend is the following Sat/Sun
+     * If this is Sat, then this weekend is today and tomorrow
+     * If this is Sun, then this weekend is yesterday and today
+     *
+     * @param none
+     * @return Object {"Satuday" : "yyyy-mm-dd", "Sunday" : "yyyy-mm-dd"}
+     *
+     */
+    function getThisWeekendDates() {
+
+        var answer = {
+            "saturday": "",
+            "sunday": ""
+        };
+
+        var now = new GlideDateTime();
+        var dayOfWeek = now.getDayOfWeekLocalTime();
+        var daysToSat = 6 - dayOfWeek;
+        var saturday = new GlideDateTime();
+        var sunday = new GlideDateTime();
+
+        saturday.addDaysLocalTime(daysToSat);
+        sunday.addDaysLocalTime(daysToSat + 1);
+
+        answer.saturday = saturday.getLocalDate().toString();
+        answer.sunday = sunday.getLocalDate().toString();
+
+        return answer;
+    }
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-23 01:40:11</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>da85c4d3db7e760087c1fd441d961916</sys_id>
+        <sys_mod_count>177</sys_mod_count>
+        <sys_name>City Guide Featured Events</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_widget_da85c4d3db7e760087c1fd441d961916</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-03 00:36:19</sys_updated_on>
+        <template><![CDATA[<div class="list-page row">
+    <!-- your widget template -->
+    <!--<div class="tabs" hide-element hide-offset="60">-->
+    <div class="tabs">
+        <div class="each-tab first-tab" ng-click="c.getData('today')" ng-class="{'active': c.selectedTab == 'today'}">
+            <p>Today</p>
+        </div>
+        <div class="each-tab second-tab" ng-click="c.getData('weekend')" ng-class="{'active':c.selectedTab == 'weekend'}">
+            <p>this Weekend</p>
+        </div>
+        <div class="each-tab last-tab" ng-click="c.getData('month')" ng-class="{'active':c.selectedTab == 'month'}">
+            <p>this month</p>
+        </div>
+    </div>
+    <div class="encloser">
+        <div class="featured-events">
+            <h4 class="text-center" ng-show="c.data.events.length == 0" aria-hidden="false">No Events Found</h4>
+            <div class="each-weekend-event" ng-repeat="event in c.data.events">
+                <!--<img ng-src={{event.photo_url.display_value}} ng-click="c.gotoDetail(event)" />-->
+                <div class="event-image" ng-style="{'background-image':'url({{event.photo_url.display_value}})'}" ng-click="c.gotoDetail(event)"></div>
+                <div class="description ">
+
+                    <p class="each-name ">{{event.name.display_value}}</p>
+                    <p class="each-description ">{{c.truncateChars(event.description.display_value, 90)}}</p>
+
+                    <div class="exp" ng-click="c.addToFavourite(event)" ng-class="{'fav-back':event.favourite}">
+                        <!--<i class="fa fa-star " aria-hidden="true "></i>-->
+                        <img src="star.svg" />
+                    </div>
+                    <div class="exp" ng-repeat="type in event.types">
+
+                        <img ng-if="type == 'Music'" src="music.svg" />
+                        <img ng-if="type == 'Food'" src="food.svg" />
+                        <img ng-if="type == 'Sports'" src="sports.svg" />
+                        <img ng-if="type == 'Nature'" src="nature.svg" />
+                        <img ng-if="type == 'Drama'" src="drama.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

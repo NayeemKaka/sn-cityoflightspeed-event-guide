@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function guideHomePageSelectorCtrl(appManager, $timeout, $location) {
+    /* widget controller */
+    var c = this;
+    appManager.setTitle('home');
+
+    $timeout(function() {
+        $location.url("/guide?id=city_guide_allow_access");
+    }, 2000);
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>    .home {
+        min-height: 100vh;
+        font-family: $font-family;
+        text-align: center;
+        background: $brand-primary;
+        color: #fff;
+        a {
+            color: #fff;
+        }
+        .title {
+            font-size: 60px;
+            line-height: 1;
+            margin: 0px;
+            font-weight: bold;
+            padding: 0px 70px;
+        }
+        .title-middle {
+            color: #6bbdc6;
+        }
+        // .master-search {
+        //     padding: 10px;
+        //     .form-group {
+        //         margin-bottom: 0px;
+        //         position: relative;
+        //         .form-control {
+        //             width: 95%;
+        //             height: 47px;
+        //             margin-left: auto;
+        //             margin-right: auto;
+        //         }
+        //         .search-icon {
+        //             position: absolute;
+        //             right: 17px;
+        //             color: $brand-primary;
+        //             top: 15px;
+        //             font-size: 20px;
+        //         }
+        //     }
+        // }
+        .selection-options {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 30px;
+            //background: radial-gradient(126px at center,red,yellow,green);
+            background: radial-gradient(126px at center, #ec7373, #ec7373, #f95050);
+            .selector {
+                width: 50%;
+                padding: 10px;
+                height: 220px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p {
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    color: #f1e2c9;
+                }
+                .exp {
+                    width: 170px;
+                    height: 170px;
+                    margin: 15px;
+                    background-color: #6bbdc6;
+                    border-radius: 100%;
+                    line-height: 80px;
+                    text-align: center;
+                    vertical-align: middle;
+                    display: inline-block;
+                    .fa {
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: inherit;
+                    }
+                }
+            }
+        }
+    }</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guide-home</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide Home Page</name>
+        <option_schema>[{"name":"title","label":"Title","type":"string"}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-16 23:21:30</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>ed2cacd5dbf2b200c3beffa31d9619b3</sys_id>
+        <sys_mod_count>130</sys_mod_count>
+        <sys_name>City Guide Home Page</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_widget_ed2cacd5dbf2b200c3beffa31d9619b3</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-02 01:23:00</sys_updated_on>
+        <template><![CDATA[<div class="home row">
+    <!-- your widget template -->
+
+
+    <!--<div class="master-search">
+      <div class="form-group">
+
+         <input type="text" class="form-control" id="text" placeholder="Whats on your mind?">
+         <i class="search-icon fa fa-search"></i>
+      </div>
+    </div>-->
+    <div class="animated slideInUp">
+        <div class="selection-options">
+            <a href="/guide?id=city_guide_category_list&selector=browse" class="text-center selector">
+                <div>
+                    <div class="exp">
+                        <i class="fa fa-university fa-5x"></i>
+                    </div>
+
+                </div>
+            </a>
+
+
+        </div>
+        <h1 class="title "> <i>City</i></h1>
+        <h1 class="title title-middle "> Events</h1>
+        <h1 class="title "> <i>Guide</i></h1>
+    </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties_category_m2m">
+    <sys_properties_category_m2m action="INSERT_OR_UPDATE">
+        <category display_value="City Guide">0f9aeb1ddb7ab200c3beffa31d9619b6</category>
+        <order>300</order>
+        <property display_value="x_snc_guide.logging.verbosity" name="x_snc_guide.logging.verbosity">9e7d534ddb32b200c3beffa31d961977</property>
+        <sys_class_name>sys_properties_category_m2m</sys_class_name>
+        <sys_created_by>chuck.tomasi</sys_created_by>
+        <sys_created_on>2017-05-17 13:13:15</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>82ba6f1ddb7ab200c3beffa31d961918</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_snc_guide.logging.verbosity.City Guide</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sys_properties_category_m2m_82ba6f1ddb7ab200c3beffa31d961918</sys_update_name>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2017-05-18 15:13:00</sys_updated_on>
+    </sys_properties_category_m2m>
+</record_update>

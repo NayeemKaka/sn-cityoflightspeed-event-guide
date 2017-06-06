@@ -24,7 +24,7 @@
         <mobile_picture/>
         <mobile_picture_type>use_desktop_picture</mobile_picture_type>
         <model/>
-        <name>City Tour Guide Request</name>
+        <name>Site Request</name>
         <no_cart>false</no_cart>
         <no_order>false</no_order>
         <no_order_now>false</no_order_now>
@@ -48,6 +48,7 @@
 loc.street = producer.getValue('var_street');
 loc.city_state = producer.getValue('var_city');
 loc.zip = producer.getValue('var_zip');
+var lm = new LocationManager(loc);
 
 var site = new GlideRecord('x_snc_guide_site');
 
@@ -57,8 +58,8 @@ site.owner        = producer.owner;
 site.website      = producer.website;
 site.webcam       = producer.webcam;
 site.type         = producer.type;
-site.location     = location = new LocationManager(loc).newLocation();
-site.phone        = producer.phone;
+site.location     = lm.newLocation();
+site.phone        = lm.phoneString(producer.getValue('phone'));
 site.booking_site = producer.booking_site;
 site.description  = producer.description;
 site.state        = 'Requested';
@@ -76,15 +77,15 @@ gs.addInfoMessage('Your request has been entered. Watch your mailbox for updates
         <sys_created_on>2017-05-15 20:22:50</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>17d97a38db3a7200c3beffa31d961959</sys_id>
-        <sys_mod_count>8</sys_mod_count>
-        <sys_name>City Tour Guide Request</sys_name>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Site Request</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sc_cat_item_producer_17d97a38db3a7200c3beffa31d961959</sys_update_name>
         <sys_updated_by>chuck.tomasi</sys_updated_by>
-        <sys_updated_on>2017-05-16 00:35:06</sys_updated_on>
+        <sys_updated_on>2017-05-17 19:56:39</sys_updated_on>
         <table_name>x_snc_guide_site_request</table_name>
         <template/>
         <type>item</type>

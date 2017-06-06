@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Event-Type-Event" max_length="40" name="x_snc_guide_m2m_event_types" type="collection">
+        <element label="Event type" max_length="32" name="event_type" reference="x_snc_guide_event_type" type="reference"/>
+        <element label="Event" max_length="32" name="x_event" reference="x_snc_guide_event" type="reference"/>
+        <index name="index">
+            <element name="event_type"/>
+        </index>
+        <index name="index2">
+            <element name="x_event"/>
+        </index>
+    </element>
+</database>

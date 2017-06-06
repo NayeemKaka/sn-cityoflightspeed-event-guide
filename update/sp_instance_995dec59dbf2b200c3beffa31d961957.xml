@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">853d2859dbf2b200c3beffa31d961949</sp_column>
+        <sp_widget display_value="City Guide Home Page">ed2cacd5dbf2b200c3beffa31d9619b3</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-16 23:25:49</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>995dec59dbf2b200c3beffa31d961957</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>City Guide</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_instance_995dec59dbf2b200c3beffa31d961957</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-17 19:05:37</sys_updated_on>
+        <title>City Guide</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"title": {
+		"value": "City Guide",
+		"displayValue": "City Guide"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=995dec59dbf2b200c3beffa31d961957"/>
+</record_update>

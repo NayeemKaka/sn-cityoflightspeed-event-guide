@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="Imp Eb category" max_length="40" name="x_snc_guide_ii_tmpl_eb_category" type="collection">
+        <element attributes="import_attribute_name=id" label="id" max_length="40" name="u_id" type="integer"/>
+        <element attributes="import_attribute_name=name,edge_encryption_enabled=true" label="name" max_length="40" name="u_name" type="string"/>
+    </element>
+</database>

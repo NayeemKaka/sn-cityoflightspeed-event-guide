@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>Update Event Dates</name>
+        <run_as display_value="Chuck Tomasi">37f2d3c4db76320087c1fd441d961976</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2017-06-01 21:56:10</run_start>
+        <run_time>1970-01-01 08:02:15</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[/*
+ * Fix the dates on the demo records so they are current
+ *
+ */
+(function () {
+	var gr = new GlideRecord("x_snc_guide_event");
+	gr.query();
+
+	var diffDayVar = _getDateDiff('desc');
+
+	while (gr.next()) {
+		gr.sys_created_on   = _changeDate(gr.sys_created_on, diffDayVar);
+		gr.sys_updated_on   = _changeDate(gr.sys_updated_on, diffDayVar);
+		gr.start_date       = _changeDate(gr.start_date, diffDayVar);
+		gr.end_date         = _changeDate(gr.end_date, diffDayVar);
+
+		gr.autoSysFields(false);  // Do not update sys_updated_on, sys_updated_by, and sys_mod_count
+		gr.setWorkflow(false);    // Do not run any other business rules
+		gr.update();
+		gs.debug('Guide Demo Data: Updated date/time on ' + gr.getDisplayValue() + ' created=' + gr.sys_created_on.getDisplayValue());
+	}
+})();
+
+function _changeDate(field, diff) {
+	var tempDate = new GlideDateTime(field);
+	tempDate.addDaysLocalTime(diff);
+
+	return tempDate;
+}
+
+function _getDateDiff(sortOrder) {
+	var diffDays = 0;
+	var gr = new GlideRecord("x_snc_guide_event");
+	if (sortOrder == 'desc') {
+		gr.orderByDesc('sys_created_on');
+	} else {
+		gr.orderBy('sys_created_on');
+	}
+	gr.setLimit(1);
+	gr.query();
+	if (gr.next()) {
+		var nowDate = new GlideDateTime();
+		var openDate = new GlideDateTime(gr.sys_created_on);
+		diffDays = GlideDateTime.subtract(openDate, nowDate).getDayPart();
+		gs.debug('Current date is ' + nowDate.getDisplayValue() + ' and most recent request is dated ' + openDate.getDisplayValue());
+		gs.debug('Diff days is ' + diffDays);
+	}
+	return diffDays;
+}
+]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>chuck.tomasi</sys_created_by>
+        <sys_created_on>2017-06-01 21:58:45</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>8842325adb0bfa00c3beffa31d96193c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Update Event Dates</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sysauto_script_8842325adb0bfa00c3beffa31d96193c</sys_update_name>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2017-06-01 21:58:45</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

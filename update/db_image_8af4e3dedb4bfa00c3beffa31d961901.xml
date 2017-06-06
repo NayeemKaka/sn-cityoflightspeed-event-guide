@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <format/>
+        <height/>
+        <image/>
+        <name>arts.svg</name>
+        <size_bytes>2697</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-02 01:37:53</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>8af4e3dedb4bfa00c3beffa31d961901</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>arts.svg</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>db_image_8af4e3dedb4bfa00c3beffa31d961901</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-02 01:38:20</sys_updated_on>
+        <thumbnail/>
+        <width/>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <compressed>true</compressed>
+        <content_type>image/svg+xml</content_type>
+        <file_name>image</file_name>
+        <image_height/>
+        <image_width/>
+        <size_bytes>2697</size_bytes>
+        <size_compressed>1363</size_compressed>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-02 01:38:20</sys_created_on>
+        <sys_id>da1527dedb4bfa00c3beffa31d961995</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-02 01:38:20</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>8af4e3dedb4bfa00c3beffa31d961901</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="da1527dedb4bfa00c3beffa31d961995">da1527dedb4bfa00c3beffa31d961995</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-02 01:38:20</sys_created_on>
+        <sys_id>1e1527dedb4bfa00c3beffa31d961995</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>fVbLbhtHELz7KyabiwMsl/2alyHKSQTYJwMBnFx8MWRxLRKWuAJJS/r8VA8lg3boEIK0rOnpR3V1r85eP97ehPtxu1tPm0XHA3Vh3FxNy/XmetH98/ebWelen784291fh4f1cr9adGZ3j11Yjevr1f752/16fPhzelx0FCiY4ac7dspdQJjNbtGt9vu7V/P5w8PD8KDDtL2eCxHN4f7J5NXjzXrz5ZQh11rn7bQ7fxHwOftlNgtvx824vdxP21fh/Zdxf7VC7IHDS2OL8bcwC0eOPk2r8XZ9+VTecDXdzneHO7PZk8v9en8znv+x3e8+rq+mzcdp87s+ns0P8MFkOe6uzi+24+V+XIKT/eop8HA2b0fPVp93547gzwG5Duvlovvr8nqcgY/dfjt9GRfdZtqMz99mTwzj+PP65ub50J9n2683sB7vx820XD4RcOT2OOPn27++aZ8j46MLb7fT17sZo9377eVm93na3i669niDwl6WgdqnD0xPj7/94OhHZyeOj0wupttP6824nL1fXd6NP7E92P/8rJ3fXYJyeHzHOpQolE160aFGjpIkXKQh1pyN4ncwDZkTTCGinsvAqpny9yjBOBaBi2PYECRRIS4B8awUFdWeB4k1ZeVQB6laJVfr/VqplJLBB8uQa4oUAXusnCJbABqtSFKG41zIxEpgKFa5KPzaUP06fMMDKmHKscQ+DmKJi1UYJySkhrJhjFuZ1DRw9WeOWYCSRoJpDBdOQMmCeL0OgDjnGoMkRxMyjkPNRRPnI+yIhyPwG2WCcUaJKO2Y3tO9+BDeFdTAkpJIn0FPVDVGYmVImYkjlz4N6JbHSyEPVUEOW0FmJaFykRJQcDbQUAVoKtHILIcLWDChByUDBs8kJZeAdnHNStUdszD6pdhHQ0okGc3IAyXQEcXCheEaZMLRete7asmsAVyrCikL0OouqiiSEMTKufR1oCoxWQVBedBEMRW0CDpAWMavUAZFYRSz+02unkQWTjMBigQ5G8ORwjxWEzSpgHyDxoipVNhDgwmbUgPYNegjRfdikEeKmoJAVkqa1dyWKnly6BQ6a4gNv+hNrRE9AUogDS0CahmtZCgFKPxA2sX7T+iCMDcXELGhE00WyMUgeUQrsRAsGopVm5Cw+Hhk3Gy2RVyjrYoK2VgSR1MlFA0PcTBCr9E7CBfMe+7hNBHOEMqrylwREI1ghRdt6s7QSo3ZYY21UDH3YqAg1dhzhARUoCRHGboRTT3GDb3kxrF7QE966NcQGD3zOkgxAQSvKJSi5kYwzrx/DkIJMecDP6iNam4eWLB4CigmEIuikzkqVq3W7GhEM2pqGUCXxaDMC4dRdU7Z082VrXLrB4Tl28ZLo6IgvobTPIAgjH9NCsLgG4QafPgOgm9OmNpSfIBNvPEtPazzql5ghihBvu8PZt9WDaMYY1Lwg1uijJ5HDwiCOaESWCQ8mS9N8K5YlpgQPGZkl1wVbpCrWGxbTCzLYe2aYpistiWGFEuOnq9gBWGtNr8Ua7WGgsvDIPg9zuhO6pF6xiBgpj1jcIwZq46iy4gRTvPgBKHnqESbMeYUkw5xAsWywRYRN8cq9XHxdQzJJ1cKFoBhafqChbqxKiW1XQhOEt4y8ICuMxFoORRNkJP6lk8CVrShWEbQJgdmjC5Vdt6dihixhuACCSFGVc+BEiSGuYGt+ILACvF2ieANUxzN2H+K/QjUtyO2V3vVGESBAe7bwGLEcm0Z+zwiY59uQFiB4SQRHzr8q+Lv1f95Lc9/8l4+efAf8Dvg25f2cOb//Z3/C8VC8wWJCgAA</data>
+        <length>1804</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="da1527dedb4bfa00c3beffa31d961995">da1527dedb4bfa00c3beffa31d961995</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-02 01:38:20</sys_created_on>
+        <sys_id>9e1527dedb4bfa00c3beffa31d961995</sys_id>
+    </sys_attachment_doc>
+</record_update>

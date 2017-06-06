@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_angular_provider">
+    <sp_angular_provider action="INSERT_OR_UPDATE">
+        <name>hideElement</name>
+        <script><![CDATA[function($http,$window,$timeout) {
+	return{
+			restrict:'A',
+		  	link: function (scope, element, attrs) {
+				debugger;
+				var scrollposition = 0,scroll_time;
+				var hideOffset = attrs.hideOffset;
+				angular.element('.featured-events').bind("wheel", function() {
+					var body = angular.element(document.getElementsByTagName('body'));
+					var current_scroll = body[0].scrollTop || $window.pageYOffset;
+					console.log(current_scroll);
+					var hheight = element[0].scrollHeight;
+					var pxOffset = parseInt(hideOffset);
+					$timeout.cancel(scroll_time);
+					if(current_scroll >= hheight+pxOffset){
+						if (current_scroll < scrollposition) {
+							element.css({'top':"0px"});
+						}
+						else if (current_scroll > scrollposition) {
+							element.css({
+								'top':-hheight+"px",
+								'transition':'all 0.25s',
+								'-webkit-transition': 'all 0.25s',
+								'-moz-transition': 'all 0.25s',
+								'-ms-transition': 'all 0.25s',
+								'-o-transition': 'all 0.25s',
+							});
+						}
+					}
+					scroll_time = $timeout(function(){
+						scrollposition = body[0].scrollTop;
+					},60);
+				});
+			}
+		}		
+}]]></script>
+        <sys_class_name>sp_angular_provider</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-01 17:00:02</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>e72ee51adb87fa00c3beffa31d96194f</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>hideElement</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_angular_provider_e72ee51adb87fa00c3beffa31d96194f</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-01 20:34:49</sys_updated_on>
+        <type>directive</type>
+    </sp_angular_provider>
+</record_update>

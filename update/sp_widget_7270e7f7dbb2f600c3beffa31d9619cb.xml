@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function guideFavoritesCtrl(appManager, $timeout, $rootScope, $location, $scope) {
+    /* widget controller */
+    var c = this;
+    c.$onInit = function() {
+        appManager.setTitle("My Favorites");
+        appManager.trackPages('city_guide_my_favorites');
+        c.data.todaysevents = "";
+        c.getData();
+    };
+
+    c.getData = function() {
+        c.server.get({ action: 'get' }).then(function(response) {
+            c.data.todaysevents = response.data.events;
+        });
+    }
+
+    c.truncateChars = function(text, limit) {
+        if (text.length > limit) {
+            text = text.substr(0, limit) + '...';
+            return text;
+        } else {
+            return text;
+        }
+    }
+
+    c.toggleFavourite = function(event) {
+        c.server.get({ action: 'toggleFavs', favSysid: event.sys_id.display_value }).then(function(response) {
+            c.data.todaysevents = response.data.events;
+        })
+    }
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.list-page {
+    font-family: $font-family;
+    .cascade-cards {
+        padding: 10px;
+        background: $brand-secondary;
+        min-height: 100vh;
+        .masonry,
+        .masonry .masonry-brick {
+            /* apply before masonry add class */
+            position: absolute;
+            /* important to add it before enter animation start */
+            -webkit-transition-duration: .7s;
+            transition-duration: .7s;
+            -webkit-transition-property: all;
+            transition-property: all;
+        }
+        .masonry .masonry-enter {
+            /* limit animated properties for entering elements */
+            -webkit-transition-property: -webkit-transform, opacity;
+            transition-property: transform, opacity;
+        }
+        .masonry-enter,
+        .masonry-leave.masonry-leave-active {
+            opacity: 0;
+            -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+        }
+        .masonry-leave,
+        .masonry-enter.masonry-enter-active {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        .masonry-brick {
+            width: 48%;
+            margin-bottom: 10px;
+        }
+        .images {
+            height: 135px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        img {
+            width: 100%;
+        }
+        .description {
+            padding: 10px;
+            background: #fff;
+            position: relative;
+            word-wrap: break-word;
+            .exp {
+                position: absolute;
+                top: -17px;
+                left: 40%;
+                width: 30px;
+                height: 30px;
+                background-color: $exp-bg;
+                border-radius: 100%;
+                line-height: 80px;
+                text-align: center;
+                vertical-align: middle;
+                display: inline-block;
+                &amp;.fav-back {
+                    background-color: $brand-primary;
+                }
+                .fa {
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: inherit;
+                }
+                img {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: inherit;
+                }
+            }
+            .each-name {
+                font-weight: bold;
+                font-size: 16px;
+            }
+            .each-description {
+                font-size: 12px;
+                margin-bottom: 0px;
+                color: rgba(149, 149, 149, 0.5);
+            }
+        }
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guide-my-favorites</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide My Favorites</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    //data.type = $sp.getParameter('type');
+    data.events = [];
+
+
+
+    if (input) {
+        // console.log(input);
+        if (input.action == 'get') {
+            getFavorites();
+        }
+
+
+
+        if (input.action == 'toggleFavs') {
+            var gr = new GlideRecord('x_snc_guide_favorite');
+            gr.addActiveQuery();
+            gr.addQuery('user', gs.getUserID());
+            gr.addQuery('event', input.favSysid);
+            gr.query();
+            if (gr.next()) {
+                gr.deleteRecord();
+                getFavorites();
+            }
+        }
+
+    }
+
+    function getFavorites() {
+        var gr = new GlideRecord('x_snc_guide_favorite');
+        gr.addQuery('user', gs.getUserID());
+        gr.addQuery('type', 'Event');
+        gr.query();
+        while (gr.next()) {
+            //obj.favourite = true;
+            var eventGR = new GlideRecord('x_snc_guide_event');
+            eventGR.addActiveQuery();
+            eventGR.addQuery('sys_id', gr.event.sys_id.toString());
+            eventGR.addQuery('state', 'Active');
+            eventGR.orderByDesc('sys_updated_on');
+            eventGR.query();
+            if (eventGR.next()) {
+                var obj = {};
+                $sp.getRecordElements(obj, eventGR, 'name,sys_id,photo,description,photo_url,site');
+                obj.favourite = true;
+                data.events.push(obj);
+            }
+        }
+    }
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-25 07:06:21</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>7270e7f7dbb2f600c3beffa31d9619cb</sys_id>
+        <sys_mod_count>70</sys_mod_count>
+        <sys_name>City Guide My Favorites</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_widget_7270e7f7dbb2f600c3beffa31d9619cb</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-02 23:18:22</sys_updated_on>
+        <template><![CDATA[<div class="list-page row">
+    <!-- your widget template -->
+
+    <div class="clear-both cascade-cards">
+
+        <div masonry="{ gutter:10}" reload-on-show>
+            <h4 class="text-center" ng-show="c.data.todaysevents.length == 0">No Events Found</h4>
+            <div class="masonry-brick" ng-repeat="event in c.data.todaysevents">
+                <!--<img ng-src={{event.photo_url.display_value}}>-->
+                <div class="images" ng-click="c.gotoDetail(event)" ng-style="{'background-image':'url({{event.photo_url.display_value}})'}"></div>
+                <div class="description ">
+                    <div class="exp" ng-click="c.toggleFavourite(event)" ng-class="{'fav-back':event.favourite}">
+                        <!--<i class="fa fa-star " aria-hidden="true "></i>-->
+                        <img src="star.svg" />
+                    </div>
+                    <p class="each-name ">{{event.name.display_value}}</p>
+                    <p class="each-description ">{{c.truncateChars(event.description.display_value, 50)}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

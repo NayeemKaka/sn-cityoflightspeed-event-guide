@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <global>false</global>
+        <name>x_snc_guide.Kle NG Masonry</name>
+        <script><![CDATA[(function() {
+    "use strict";
+
+    angular.module('masonry', ['ng']).directive('masonry', function($timeout) {
+        return {
+            restrict: 'AC',
+            link: function(scope, elem, attrs) {
+                var container = elem[0];
+                var options = angular.extend({
+                    itemSelector: '.item'
+                }, angular.fromJson(attrs.masonry));
+
+                var masonry = scope.masonry = new Masonry(container, options);
+
+                var debounceTimeout = 0;
+                scope.update = function() {
+                    if (debounceTimeout) {
+                        $timeout.cancel(debounceTimeout);
+                    }
+                    debounceTimeout = $timeout(function() {
+                        debounceTimeout = 0;
+
+                        masonry.reloadItems();
+                        masonry.layout();
+    
+                        elem.children(options.itemSelector).css('visibility', 'visible');
+                    }, 120);
+                };
+                
+                scope.removeBrick = function() {
+                    $timeout(function() {
+                        masonry.reloadItems();
+                        masonry.layout();
+                   }, 500);
+                };                
+                
+                scope.appendBricks = function(ele) {
+                    masonry.appended(ele);
+                };                
+                
+                scope.$on('masonry.layout', function() {
+                    masonry.layout();                 
+                });
+                
+                scope.update();
+            }
+        };
+    }).directive('masonryTile', function() {
+        return {
+            restrict: 'AC',
+            link: function(scope, elem) {
+                elem.css('visibility', 'hidden');
+                var master = elem.parent('*[masonry]:first').scope(),
+                    update = master.update,
+                    removeBrick = master.removeBrick,
+                    appendBricks = master.appendBricks;                    
+                if (update) {
+                    imagesLoaded( elem.get(0), update);
+                    elem.ready(update);
+                }
+                if (appendBricks) {
+                    imagesLoaded( elem.get(0), appendBricks(elem));
+                }                
+                scope.$on('$destroy', function() {
+                    if (removeBrick) {
+                        removeBrick();
+                    }
+                });                
+            }
+        };
+    });
+})();]]></script>
+        <script_name>Kle NG Masonry</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-19 06:29:00</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>1341ac46db3af20087c1fd441d9619dd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_guide.Kle NG Masonry</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sys_ui_script_1341ac46db3af20087c1fd441d9619dd</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-19 06:29:00</sys_updated_on>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

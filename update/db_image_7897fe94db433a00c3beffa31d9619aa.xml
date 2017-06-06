@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <format/>
+        <height/>
+        <image/>
+        <name>drama.svg</name>
+        <size_bytes>3043</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-26 17:11:42</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>7897fe94db433a00c3beffa31d9619aa</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>drama.svg</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>db_image_7897fe94db433a00c3beffa31d9619aa</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-26 17:11:50</sys_updated_on>
+        <thumbnail/>
+        <width/>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <compressed>true</compressed>
+        <content_type>image/svg+xml</content_type>
+        <file_name>image</file_name>
+        <image_height/>
+        <image_width/>
+        <size_bytes>3043</size_bytes>
+        <size_compressed>1553</size_compressed>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-26 17:11:50</sys_created_on>
+        <sys_id>dca772d4db433a00c3beffa31d96196f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-26 17:11:50</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>7897fe94db433a00c3beffa31d9619aa</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="dca772d4db433a00c3beffa31d96196f">dca772d4db433a00c3beffa31d96196f</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-26 17:11:50</sys_created_on>
+        <sys_id>10a772d4db433a00c3beffa31d961970</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>2060</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="dca772d4db433a00c3beffa31d96196f">dca772d4db433a00c3beffa31d96196f</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-26 17:11:50</sys_created_on>
+        <sys_id>90a772d4db433a00c3beffa31d961970</sys_id>
+    </sys_attachment_doc>
+</record_update>

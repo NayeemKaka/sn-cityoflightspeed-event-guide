@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function categoryListCtrl(appManager, $location) {
+    /* widget controller */
+    var c = this;
+
+    c.$onInit = function() {
+        appManager.setPage('list');
+        appManager.setBackPage('city_guide_home');
+        var searchObject = $location.search();
+        //appManager.setTitle(searchObject.selector);
+        getData(searchObject.selector);
+    };
+
+
+
+    function getData(selector) {
+        c.server.get({ action: 'get', type: selector }).then(function(response) {
+            console.log(response);
+            c.data.listItems = response.data.event_types;
+        });
+    }
+
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.category-list {
+    font-family: $font-family;
+    .list {
+        .each-list-item {
+            border-bottom: 1px solid $brand-primary;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            &amp;:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                //background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+                background-image: linear-gradient(to bottom right, #000, #000);
+                opacity: .6;
+            }
+            .each-label {
+                text-transform: uppercase;
+                font-size: 18px;
+                text-align: center;
+                color: #fff;
+                z-index: 1020;
+            }
+        }
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guide-category-list</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide Category List</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+
+    if (input) {
+        // console.log(input);
+        if (input.action == 'get' && input.type == 'browse') {
+            data.event_types = [];
+            var gr = new GlideRecord('x_snc_guide_event_type');
+            gr.addActiveQuery();
+            gr.query();
+
+            while (gr.next()) {
+                //console.log(gr.label);
+                var obj = {};
+                $sp.getRecordElements(obj, gr, 'name,sys_id,image');
+                data.event_types.push(obj);
+            }
+
+        }
+        console.log(JSON.stringify(data.event_types));
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-16 23:41:09</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>1db0f85ddbf2b200c3beffa31d961922</sys_id>
+        <sys_mod_count>106</sys_mod_count>
+        <sys_name>City Guide Category List</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_widget_1db0f85ddbf2b200c3beffa31d961922</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-05-31 20:06:08</sys_updated_on>
+        <template><![CDATA[<div class="category-list row ">
+    <!-- your widget template -->
+   <div class="list ">
+    <a class="each-list-item" ng-repeat="item in c.data.listItems" ng-style="{'background-image':'url({{item.image.display_value}})'}" href="/guide?id=city_guide_item_list&type={{item.label.display_value}}">
+        <p class="each-label">{{item.name.display_value}}</p>
+    </a>
+   </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

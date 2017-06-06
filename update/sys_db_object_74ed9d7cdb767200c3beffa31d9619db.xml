@@ -6,9 +6,9 @@
         <alter_access>false</alter_access>
         <client_scripts_access>false</client_scripts_access>
         <configuration_access>false</configuration_access>
-        <create_access>false</create_access>
+        <create_access>true</create_access>
         <create_access_controls>true</create_access_controls>
-        <delete_access>false</delete_access>
+        <delete_access>true</delete_access>
         <extension_model/>
         <is_extendable>false</is_extendable>
         <label>Site</label>
@@ -23,17 +23,17 @@
         <sys_created_on>2017-05-15 15:23:26</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>74ed9d7cdb767200c3beffa31d9619db</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>Site</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sys_db_object_74ed9d7cdb767200c3beffa31d9619db</sys_update_name>
-        <sys_updated_by>chuck.tomasi</sys_updated_by>
-        <sys_updated_on>2017-05-15 15:23:26</sys_updated_on>
-        <update_access>false</update_access>
-        <user_role display_value="x_snc_guide.site_user" name="x_snc_guide.site_user">6c5575f4dbb67200c3beffa31d961928</user_role>
+        <sys_updated_by>tom.cullen</sys_updated_by>
+        <sys_updated_on>2017-06-01 23:47:08</sys_updated_on>
+        <update_access>true</update_access>
+        <user_role display_value="x_snc_guide.admin" name="x_snc_guide.admin">1337baf4db3a7200c3beffa31d9619ba</user_role>
         <ws_access>true</ws_access>
     </sys_db_object>
 </record_update>

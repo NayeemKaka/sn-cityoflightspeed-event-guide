@@ -6,13 +6,28 @@
         <element default="0" label="Cost" max_length="20" name="cost" type="currency"/>
         <element attributes="edge_encryption_enabled=true" label="Description" max_length="1000" name="description" type="string"/>
         <element default="0" label="Dislike" max_length="40" name="dislike" type="integer"/>
+        <element label="Eventbrite created" max_length="40" name="eventbrite_created" read_only="true" type="boolean"/>
+        <element label="G hours" max_length="1000" name="g_hours" type="string"/>
+        <element label="G icon" max_length="1024" name="g_icon" type="url"/>
+        <element label="G location" max_length="40" name="g_location" type="string"/>
+        <element label="G name" max_length="100" name="g_name" type="string"/>
+        <element label="G phone number" max_length="40" name="g_phone_number" type="string"/>
+        <element label="G photo from google" max_length="40" name="g_photo_from_google" type="boolean"/>
+        <element label="G photo url" max_length="1024" name="g_photo_url" type="url"/>
+        <element label="G place ID" max_length="40" name="g_place_id" type="string"/>
+        <element label="G price level" max_length="40" name="g_price_level" type="string"/>
+        <element label="G ratings" max_length="40" name="g_ratings" type="string"/>
+        <element label="G site google url" max_length="1024" name="g_site_google_url" type="url"/>
+        <element label="G site website url" max_length="1024" name="g_site_website_url" type="url"/>
+        <element label="G types" max_length="500" name="g_types" type="string"/>
+        <element label="G vicinity" max_length="40" name="g_vicinity" type="string"/>
         <element default="0" label="Like" max_length="40" name="like" type="integer"/>
         <element label="Location" mandatory="true" max_length="32" name="location" reference="cmn_location" type="reference"/>
         <element display="true" label="Name" mandatory="true" max_length="80" name="name" type="string"/>
         <element label="Owner" max_length="32" name="owner" reference="sys_user" type="reference"/>
         <element label="Phone" max_length="40" name="phone" type="phone_number_e164"/>
         <element label="Photo" max_length="40" name="photo" type="user_image"/>
-        <element default="0.0" label="Rating ratio" max_length="40" name="rating_ratio" type="float"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;var answer = new LikeManager().calculateRatio(current.getValue('like'), current.getValue('dislike'));&#13;&#10;&#9;&#13;&#10;&#9;return answer;  // return the calculated value&#13;&#10;&#13;&#10;})(current);" default="0.0" label="Rating ratio" max_length="40" name="rating_ratio" read_only="true" type="float" virtual="true"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="Discovered" label="State" max_length="40" name="state" type="string">
             <choice>
                 <element label="Discovered" sequence="0" value="Discovered"/>
@@ -21,20 +36,7 @@
                 <element label="Obsolete" sequence="3" value="Obsolete"/>
             </choice>
         </element>
-        <element choice="1" label="Type" max_length="40" name="type" type="choice">
-            <choice>
-                <element label="Aquarium" sequence="0" value="Aquarium"/>
-                <element label="Convention Center" sequence="1" value="Convention Center"/>
-                <element label="Entertainment" sequence="2" value="Entertainment"/>
-                <element label="Historical Monument" sequence="3" value="Historical Monument"/>
-                <element label="Museum" sequence="4" value="Museum"/>
-                <element label="Planetarium" sequence="5" value="Planetarium"/>
-                <element label="Restaurant" sequence="6" value="Restaurant"/>
-                <element label="Scenic" sequence="7" value="Scenic"/>
-                <element label="Sports Arena" sequence="8" value="Sports Arena"/>
-                <element label="Transportation" sequence="9" value="Transportation"/>
-            </choice>
-        </element>
+        <element label="Type" max_length="32" name="type" reference="x_snc_guide_site_type" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
         <element default="0" label="Wait time" max_length="40" name="wait_time" type="integer"/>
         <element label="Webcam" max_length="1024" name="webcam" type="url"/>
         <element label="Website" max_length="1024" name="website" type="url"/>
@@ -43,6 +45,9 @@
         </index>
         <index name="index2">
             <element name="location"/>
+        </index>
+        <index name="index3">
+            <element name="type"/>
         </index>
     </element>
 </database>

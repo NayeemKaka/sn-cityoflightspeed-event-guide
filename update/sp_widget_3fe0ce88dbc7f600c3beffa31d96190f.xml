@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function guideEventListCtrl(appManager) {
+    /* widget controller */
+    var c = this;
+    appManager.setTitle("My Events");
+    appManager.trackPages('city_guide_events_list');
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.my-list {
+    font-family: $font-family;
+    min-height: 100vh;
+    background: $brand-secondary;
+    h4 {
+        margin-top: 20px;
+    }
+    .event {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        margin-bottom: 2px;
+        .image-div {
+            width: 35%;
+        }
+        .event-image {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .event-info {
+            padding: 10px;
+            p {
+                margin-bottom: 0px;
+            }
+            .name {
+                font-size: 18px;
+                text-transform: uppercase;
+                color: #4e4e4e;
+            }
+            .state {
+                color: #f95050;
+                font-size: 14px;
+            }
+            .date {
+                font-size: 12px;
+                color: color: rgba(149, 149, 149, 0.5);
+            }
+        }
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guide-events-list</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide Events List</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    data.events = [];
+    var gr = new GlideRecord('x_snc_guide_event');
+    gr.addActiveQuery();
+    gr.addQuery('sys_created_by', gs.getUserName());
+    gr.orderByDesc('sys_updated_on');
+    gr.query();
+    while (gr.next()) {
+        var obj = {};
+        $sp.getRecordElements(obj, gr, 'name,sys_id,photo,description,photo_url,site,state,start_date,end_date');
+        data.events.push(obj);
+    }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-25 18:51:07</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>3fe0ce88dbc7f600c3beffa31d96190f</sys_id>
+        <sys_mod_count>35</sys_mod_count>
+        <sys_name>City Guide Events List</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_widget_3fe0ce88dbc7f600c3beffa31d96190f</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-01 01:27:18</sys_updated_on>
+        <template><![CDATA[<div class="my-list row">
+    <!-- your widget template -->
+    <h4 class="text-center" ng-show="c.data.events.length == 0">No Events Found</h4>
+    <div class="event" ng-repeat="event in c.data.events">
+        <div class="image-div">
+            <div ng-if="event.photo.display_value" class="event-image" ng-style="{'background-image':'url({{event.photo.display_value}})'}"></div>
+            <div ng-if="!event.photo.display_value" class="event-image" ng-style="{'background-image':'url(events-placeholder.png)'}"></div>
+        </div>
+        <div class="event-info">
+            <div>
+                <p class="name">{{event.name.display_value}}</p>
+                <p class="state"><span>State:</span>{{event.state.display_value}}</p>
+                <p class="date"><span>Start Date: </span> {{event.start_date.display_value}}</p>
+                <p class="date"><span>End Date: </span> {{event.end_date.display_value}}</p>
+            </div>
+        </div>
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

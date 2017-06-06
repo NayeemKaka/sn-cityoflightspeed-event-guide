@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function mapPageCtrl(appManager, $rootScope, $location) {
+    /* widget controller */
+    var c = this;
+
+    c.$onInit = function() {
+        c.searchObject = $location.search();
+        c.loading = true;
+        appManager.trackPages('guide_map_page');
+        appManager.setTitle("Near By");
+    };
+
+    //var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    /*var mapTiles = new L.TileLayer(osmUrl, {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    maxZoom: 18
+});*/
+
+    // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3VzaC1jaGFuZHJhc2hla2FyIiwiYSI6ImNqMnFwcnplZTAwMDEycWt6cm1yNDF0bzEifQ.krI_R9WCDI_GBKrfY6bf1g', {
+    //     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    //     maxZoom: 16,
+    //     id: 'testing',
+    //     accessToken: 'pk.eyJ1Ijoic3VzaC1jaGFuZHJhc2hla2FyIiwiYSI6ImNqMnFwcnplZTAwMDEycWt6cm1yNDF0bzEifQ.krI_R9WCDI_GBKrfY6bf1g'
+    // }).addTo(mymap);
+    //mymap.addLayer(mapTiles);
+    var mapbox = {
+        mapbox_wheat: {
+            name: 'Mapbox',
+            url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token={apikey}',
+            type: 'xyz',
+            options: {
+                apikey: 'pk.eyJ1Ijoic3VzaC1jaGFuZHJhc2hla2FyIiwiYSI6ImNqMnFwcnplZTAwMDEycWt6cm1yNDF0bzEifQ.krI_R9WCDI_GBKrfY6bf1g',
+                mapid: 'testing'
+            }
+        }
+    };
+
+
+    c.markers = [];
+    c.tile = mapbox.mapbox_wheat;
+    var lat = 40.6453531;
+    var lng = -74.0150371;
+
+    checkCordinates(lat, lng);
+
+    function displayLocation(position) {
+        // var lat = position.coords.latitude;
+        // var lng = position.coords.longitude;
+        // L.marker([lat, lng]).addTo(mymap);
+        // console.log('{longitude:' + lng + ', latitude:' + lat + '}');
+        // mymap.setView([lat, lng], 16);
+        // mymap.setView([lat, lng], 16);
+        //console.log(position);
+
+        // var lat = 40.6453531;
+        // var lng = -74.0150371;
+
+        c.currentLocation = {
+            lat: lat,
+            lng: lng,
+            zoom: 12
+        };
+        getNearByEvents(lat, lng);
+    }
+
+
+    function checkCordinates(lat, lng) {
+        if (!lat) {
+            //navigator.geolocation.getCurrentPosition(displayLocation);
+            getNearByEvents(lat, lng);
+        } else {
+            getNearByEvents(lat, lng);
+        }
+    }
+
+    function getNearByEvents(lat, lng) {
+        c.currentLocation = {
+            lat: lat,
+            lng: lng,
+            zoom: 12
+        };
+
+        c.awesomeMarkerIcon = {
+            type: 'awesomeMarker',
+            icon: 'user',
+            markerColor: 'green',
+            prefix: 'fa',
+            iconColor: '#fff'
+        };
+
+        c.server.get({ action: 'getNearByEvents', lat: lat, lng: lng }).then(function(response) {
+            c.loading = false;
+            var currentlocation = {
+                lat: lat,
+                lng: lng,
+                icon: c.awesomeMarkerIcon
+            }
+            c.markers = JSON.parse(response.data.events);
+            c.markers.splice(0, 0, currentlocation);
+            console.log(c.markers);
+
+        });
+    }
+
+    // navigator.geolocation.getCurrentPosition(displayLocation);
+
+
+    // var marker = L.marker([33.033577, -117.080582]).addTo(mymap);
+    // marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>#mapid {
+    height: 100vh;
+    width: 100vw;
+}
+
+.sk-spinner-pulse {
+    width: 60px;
+    height: 60px;
+    margin: 60px auto;
+    background-color: $brand-primary;
+    border-radius: 100%;
+    -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+    animation: sk-pulseScaleOut 1s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-pulseScaleOut {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes sk-pulseScaleOut {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.flex-it {
+    display: flex;
+    //align-items: center;
+    .image {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        margin-right: 5px;
+    }
+}
+
+.near-by {
+    min-height: 100vh;
+    background: $brand-secondary;
+}
+
+.angular-leaflet-map {
+    height: 100vh;
+    width: 100vw;
+    .leaflet-popup-content p {
+        margin: 5px 0px !important;
+    }
+}
+
+.loading {
+    color: $brand-primary;
+    .loading-span {
+        padding-left: 10px;
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guide-map</id>
+        <internal>false</internal>
+        <link/>
+        <name>City Guide Map</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    data.events = {};
+    if (input) {
+        //console.log(input);
+        if (input.action == 'getNearByEvents' && input.lat) {
+            console.log(JSON.stringify(input));
+            console.log("hey");
+            var maps = new x_snc_googlemaps_p.MapScriptInclude();
+            //40.8516387,-73.9111453
+
+            data.events = maps.getNearbyEvents(input.lat, input.lng, 'restaurant', 3000);
+        }
+    }
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-05-20 05:12:43</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>9b5991d6dbb2360087c1fd441d961968</sys_id>
+        <sys_mod_count>276</sys_mod_count>
+        <sys_name>City Guide Map</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sp_widget_9b5991d6dbb2360087c1fd441d961968</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-05 20:43:12</sys_updated_on>
+        <template><![CDATA[<div class="row near-by">
+    <!--<div id="mapid"></div>-->
+    <leaflet ng-show="!c.loading" lf-center="c.currentLocation" markers="c.markers | filter: c.filterType" tiles="c.tile" defaults="defaults"></leaflet>
+    <!--<h3 ng-show="c.loading" class="text-center loading">
+        <p><i class="fa fa-spinner fa-spin"></i><span class="loading-span">Loading...</span></p>
+    </h3>-->
+
+    <div class="spinny" ng-show="c.loading">
+        <div class="sk-spinner sk-spinner-pulse"></div>
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

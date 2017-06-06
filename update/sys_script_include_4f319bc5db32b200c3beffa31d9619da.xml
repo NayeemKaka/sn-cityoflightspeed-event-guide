@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_guide.LikeManager</api_name>
+        <client_callable>false</client_callable>
+        <description>Functions to manage the likes/dislikes on the system</description>
+        <name>LikeManager</name>
+        <script><![CDATA[var LikeManager = Class.create();
+LikeManager.prototype = {
+	initialize: function(userID, siteID, eventID, type) {
+		this.siteID = siteID;
+		this.userID = userID;
+		this.eventID = eventID;
+		this.type = type;
+		this.ratingTable = 'x_snc_guide_like';
+		this.siteTable = 'x_snc_guide_site';
+		this.eventTable = 'x_snc_guide_event';
+	},
+
+	/*
+	 * get a rating record for the site/user
+	 *
+	 * @param field name to return. none=entire GR
+	 * @return GlideRecord (null if not found)
+	 *
+	 */
+	getRating : function(fieldName) {
+
+		var rate = new GlideRecord(this.ratingTable);
+		rate.addQuery('site', this.siteID);
+		rate.addQuery('user', this.userID);
+		rate.addQuery('type', this.type);
+		if (this.type == 'Event') {
+			rate.addQuery('event', this.eventID);
+		}
+		rate.query();
+
+		if (rate.next()) {
+			if (fieldName) {
+				gs.info('getRating(fieldName)=' + rate.getValue(fieldName));
+				return rate.getValue(fieldName);
+			}
+
+			gs.info('no fieldname specified');
+			return rate;
+		}
+
+		if (fieldName) {
+			return 'not_found';
+		}
+
+		return;
+	},
+
+	/*
+	 * count the likes and dislikes for this site or event
+	 *
+	 * @param - none
+	 * @return object {like : count, dislike : count}
+	 *
+	 */
+	count : function() {
+
+		var answer = {'like' : 0, 'dislike' : 0};
+		var ga = new GlideAggregate(this.ratingTable);
+		ga.addAggregate('COUNT', 'response');
+		ga.addQuery('type', this.type);
+
+		switch (this.type) {
+			case 'Site':
+				ga.addQuery('site', this.siteID);
+				break;
+
+			case 'Event':
+				ga.addQuery('event', this.eventID);
+				break;
+
+			default : return 0;
+		}
+
+		ga.query();
+
+		while (ga.next()) {
+			var rating = ga.response;
+			var count = ga.getAggregate('COUNT', 'response');
+			answer[rating]= count;
+		}
+
+		return answer;
+	},
+
+	/*
+	 * set the rating/feedback for the site/user - creates/updates as needed
+	 *
+	 * @param rating - numeric value
+	 * @param feedback - string text to process
+	 * @return sys_id of record created/updated
+	 *
+	 */
+	setRating : function(rating) {
+
+		var id = '';
+		var rateRec = this._userHasRating();
+
+		if (rateRec) {
+			id = this._updateRating(rateRec, rating);
+		} else {
+			id = this._createRating(rating);
+		}
+
+		return id;
+	},
+
+	/*
+	 * determine if a user already has a rating record
+	 *
+	 * @param none
+	 * @return GlideRecord (if available, else null)
+	 *
+	 */
+	_userHasRating : function() {
+
+		var rate = new GlideRecord(this.ratingTable);
+		rate.addQuery('site', this.siteID);
+		rate.addQuery('user', this.userID);
+		rate.addQuery('type', this.type);
+		if (this.type == 'Event') {
+			rate.addQuery('event', this.eventID);
+		}
+		rate.query();
+		gs.info('q=' + rate.getEncodedQuery());
+
+		if (rate.next())
+			return rate;
+
+		return ;
+	},
+
+	/*
+	 * update an existing rating record
+	 *
+	 * @param GlideRecord(this.ratingTable)
+	 * @param rating - numerical value
+	 * @return sys_id of record updated
+	 *
+	 */
+	_updateRating : function(rRec, rating) {
+
+		rRec.response = rating;
+		var id = rRec.update();
+
+		return id;
+	},
+
+	/*
+	 * create a new rating record w/values
+	 *
+	 * @param rating - numerical value
+	 * @return sys_id of record updated
+	 *
+	 */
+	_createRating : function(rating) {
+
+		var rRec = new GlideRecord(this.ratingTable);
+		rRec.newRecord();
+		rRec.user = this.userID;
+		rRec.site = this.siteID;
+		rRec.type = this.type;
+		if (this.type == 'Event')
+			rRec.event = this.eventID;
+		rRec.response = rating;
+		var id = rRec.insert();
+
+		return id;
+	},
+
+	calculateRatio : function(like, dislike) {
+
+		var likeVal = parseInt(like, 10);
+		var dislikeVal = parseInt(dislike, 10);
+
+		if (like + dislikeVal == 0)
+			return 0;
+
+		return likeVal / (likeVal + dislikeVal) * 100;
+
+	},
+
+	/*
+	 * recountSite likes/dislikes for all active published sites
+	 *
+	 * @param none
+	 * @return none
+	 *
+	 */
+	recountSite : function() {
+
+		var site = new GlideRecord(this.siteTable);
+		site.addQuery('active', true);
+		site.addQuery('state', 'Published'); // Update published sites only
+		site.query();
+		gs.info(site.getRowCount() + ' sites found');
+
+		while (site.next()) {
+			gs.info('site=' + site.getDisplayValue());
+
+			var siteID = site.getValue('sys_id');
+			var rating = 0;
+			var ga = new GlideAggregate(this.ratingTable);
+			ga.addAggregate('COUNT', 'response');
+			ga.addQuery('site', siteID);
+			ga.addQuery('type', 'Site');
+			ga.query();
+
+			while (ga.next()) {
+				var field = ga.response;
+				rating = ga.getAggregate('COUNT', 'response');
+				site.setValue(field, rating);
+				gs.info('Count for ' + site.getDisplayValue() + ': ' + field + '=' + rating);
+			}
+
+			site.update();
+		}
+	},
+
+	/*
+	 * recountEvent likes/dislikes for all Events
+	 *
+	 * @param none
+	 * @return none
+	 *
+	 */
+	recountEvent : function() {
+
+		var event = new GlideRecord(this.eventTable);
+		event.query();
+		gs.info(event.getRowCount() + ' events found');
+
+		while (event.next()) {
+			gs.info('event=' + event.getDisplayValue());
+
+			var eventID = event.getValue('sys_id');
+			var rating = 0;
+			var ga = new GlideAggregate(this.ratingTable);
+			ga.addAggregate('COUNT', 'response');
+			ga.addQuery('event', eventID);
+			ga.addQuery('type', 'Event');
+			ga.query();
+
+			while (ga.next()) {
+				var field = ga.response;
+				rating = ga.getAggregate('COUNT', 'response');
+				event.setValue(field, rating);
+				gs.info('Count for ' + event.getDisplayValue() + ': ' + field + '=' + rating);
+			}
+
+			event.update();
+		}
+	},
+
+	type: 'LikeManager'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>chuck.tomasi</sys_created_by>
+        <sys_created_on>2017-05-16 16:49:44</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>4f319bc5db32b200c3beffa31d9619da</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>LikeManager</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sys_script_include_4f319bc5db32b200c3beffa31d9619da</sys_update_name>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2017-05-17 22:08:28</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -4,17 +4,47 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>name</element>
-            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="e2131773db22320087c1fd441d96192f">1ead6f74dbba7200c3beffa31d9619f6</list_id>
+            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="e2131773db22320087c1fd441d96192f">acbbbe2ddb32f200c3beffa31d96197e</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-16 00:09:09</sys_created_on>
-            <sys_id>d6ad6f74dbba7200c3beffa31d9619f7</sys_id>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-18 04:26:18</sys_created_on>
+            <sys_id>24bbbe2ddb32f200c3beffa31d96197f</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-16 00:09:09</sys_updated_on>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-18 04:26:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>type</element>
+            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="e2131773db22320087c1fd441d96192f">acbbbe2ddb32f200c3beffa31d96197e</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-18 04:26:18</sys_created_on>
+            <sys_id>a4bbbe2ddb32f200c3beffa31d96197f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-18 04:26:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>location</element>
+            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="e2131773db22320087c1fd441d96192f">acbbbe2ddb32f200c3beffa31d96197e</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-18 04:26:18</sys_created_on>
+            <sys_id>28bbbe2ddb32f200c3beffa31d96197f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-18 04:26:18</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -27,12 +57,12 @@
             <relationship/>
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-16 00:09:09</sys_created_on>
+            <sys_created_by>dave.knight</sys_created_by>
+            <sys_created_on>2017-05-18 04:26:18</sys_created_on>
             <sys_customer_update>true</sys_customer_update>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>1ead6f74dbba7200c3beffa31d9619f6</sys_id>
+            <sys_id>acbbbe2ddb32f200c3beffa31d96197e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_snc_guide_site</sys_name>
             <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
@@ -40,8 +70,8 @@
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
             <sys_update_name>sys_ui_list_x_snc_guide_site_sys_ref_list</sys_update_name>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-16 00:09:09</sys_updated_on>
+            <sys_updated_by>dave.knight</sys_updated_by>
+            <sys_updated_on>2017-05-18 04:26:18</sys_updated_on>
             <sys_user/>
             <view display_value="Reference List" name="sys_ref_list">e2131773db22320087c1fd441d96192f</view>
             <view_name/>
