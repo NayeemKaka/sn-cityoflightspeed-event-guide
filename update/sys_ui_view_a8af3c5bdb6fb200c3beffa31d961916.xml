@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_view">
+    <sys_ui_view action="INSERT_OR_UPDATE">
+        <group/>
+        <hidden>false</hidden>
+        <name>sys_popup,text_search</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>thomas.jefferson</sys_created_by>
+        <sys_created_on>2017-06-29 12:40:43</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>a8af3c5bdb6fb200c3beffa31d961916</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Sys_popup,text_search</sys_name>
+        <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+        <sys_update_name>sys_ui_view_a8af3c5bdb6fb200c3beffa31d961916</sys_update_name>
+        <sys_updated_by>thomas.jefferson</sys_updated_by>
+        <sys_updated_on>2017-06-29 12:40:43</sys_updated_on>
+        <title>Sys_popup,text_search</title>
+        <user/>
+    </sys_ui_view>
+</record_update>

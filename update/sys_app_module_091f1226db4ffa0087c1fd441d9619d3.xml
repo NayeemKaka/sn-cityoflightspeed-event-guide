@@ -17,7 +17,7 @@
         <name/>
         <order>100</order>
         <override_menu_roles>false</override_menu_roles>
-        <query>/$pa_dashboard.do?sysparm_dashboard=6e1ad662db4ffa0087c1fd441d96197b&amp;sysparm_tab=944a1a62db4ffa0087c1fd441d961951&amp;sysparm_cancelable=true&amp;sysparm_editable=true&amp;sysparm_active_panel=quickLayoutSideContent&amp;sysparm_ignore_default_filter=false</query>
+        <query>/$pa_dashboard.do?sysparm_dashboard=6e1ad662db4ffa0087c1fd441d96197b&amp;sysparm_tab=944a1a62db4ffa0087c1fd441d961951&amp;sysparm_cancelable=true&amp;sysparm_editable=true&amp;sysparm_ignore_default_filter=false</query>
         <report/>
         <roles/>
         <survey/>
@@ -29,7 +29,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>091f1226db4ffa0087c1fd441d9619d3</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Dashboard</sys_name>
         <sys_overrides/>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
@@ -37,8 +37,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sys_app_module_091f1226db4ffa0087c1fd441d9619d3</sys_update_name>
-        <sys_updated_by>tom.cullen</sys_updated_by>
-        <sys_updated_on>2017-06-02 15:15:36</sys_updated_on>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2017-06-27 21:40:48</sys_updated_on>
         <timeline_page/>
         <title>Dashboard</title>
         <uncancelable>false</uncancelable>

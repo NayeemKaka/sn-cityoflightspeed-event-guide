@@ -59,7 +59,7 @@
 
         $timeout(function() {
             c.showAlert = false;
-        }, 5000);
+        }, 3000);
 
     });
 
@@ -80,6 +80,20 @@
             $rootScope.showDropOptions = false;
         })
     });
+
+    $rootScope.$on('addToFavourite', function(event, data) {
+        //console.log(data);
+        //  debugger;
+        c.server.get({ action: 'saveFavorite', eventSysid: data[0].sys_id.display_value, siteSysid: data[0].site.value }).then(function(response) {
+            if (data[0].favourite) {
+                data[0].favourite = false;
+                $rootScope.$broadcast('popAlert', 'Removed from favorites');
+            } else if (!data[0].favourite) {
+                data[0].favourite = true;
+                $rootScope.$broadcast('popAlert', 'Added to favorites');
+            }
+        })
+    });
 }]]></client_script>
         <controller_as>c</controller_as>
         <css>.header-div {&#13;
@@ -88,7 +102,7 @@
         border-radius: 0px;&#13;
         background: #6bbdc6;&#13;
         position: fixed;&#13;
-        width: 45%;&#13;
+        width: 50%;&#13;
         top: -100px;&#13;
         height: 45px;&#13;
         left: 0;&#13;
@@ -104,7 +118,7 @@
         z-index: 1;&#13;
         &amp;.alert-pop {&#13;
             position: fixed;&#13;
-            width: 45%;&#13;
+            width: 50%;&#13;
             top: 125px;&#13;
             height: 45px;&#13;
             overflow: auto;&#13;
@@ -174,8 +188,8 @@
         line-height: 1;&#13;
     }&#13;
     .search-icon {&#13;
-        width: 24px;&#13;
-        height: 24px;&#13;
+        width: 29px;&#13;
+        height: 29px;&#13;
         fill: #fff;&#13;
         stroke: #fff;&#13;
     }&#13;
@@ -192,11 +206,11 @@
         height: 24px;&#13;
         fill: #fff;&#13;
         stroke: #fff;&#13;
-        -ms-transform: rotate(90deg);&#13;
-        /* IE 9 */&#13;
-        -webkit-transform: rotate(90deg);&#13;
-        /* Chrome, Safari, Opera */&#13;
-        transform: rotate(90deg);&#13;
+        // -ms-transform: rotate(90deg);&#13;
+        // /* IE 9 */&#13;
+        // -webkit-transform: rotate(90deg);&#13;
+        // /* Chrome, Safari, Opera */&#13;
+        // transform: rotate(90deg);&#13;
     }&#13;
     .navbar-toggle {&#13;
         //border-color: $navbar-toggle-color;&#13;
@@ -238,6 +252,7 @@
 &#13;
 .navbar-brand {&#13;
     font-weight: 600;&#13;
+  font-size:24px;&#13;
 }&#13;
 &#13;
 .user-block {&#13;
@@ -294,6 +309,23 @@
         if (input.action == 'getSession') {
             data.is_logged_in = gs.getSession().isLoggedIn();
         }
+        if (input.action == 'saveFavorite') {
+            var gr = new GlideRecord('x_snc_guide_favorite');
+            gr.addActiveQuery();
+            gr.addQuery('user', gs.getUserID());
+            gr.addQuery('event', input.eventSysid);
+            gr.query();
+            if (gr.next()) {
+                gr.deleteRecord();
+            } else {
+                gr.initialize();
+                gr.event = input.eventSysid;
+                gr.user = gs.getUserID();
+                gr.site = input.siteSysid;
+                gr.type = 'Event';
+                gr.insert();
+            }
+        }
     }
 })();]]></script>
         <servicenow>false</servicenow>
@@ -302,7 +334,7 @@
         <sys_created_on>2017-05-16 22:54:45</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>9c36a455dbf2b200c3beffa31d961990</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>City Guide Header</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -310,7 +342,7 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sp_header_footer_9c36a455dbf2b200c3beffa31d961990</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-06-03 03:47:02</sys_updated_on>
+        <sys_updated_on>2017-06-13 21:51:11</sys_updated_on>
         <template><![CDATA[<div ng-show="$root.title != 'home'" class="header-div">
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol viewBox="0 0 48 48" id="icon-down">
@@ -331,31 +363,52 @@
     </symbol>
 
 
-    <symbol id="search" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-        <g id="Outline_Icons_1_">
-            <g id="Outline_Icons">
-                <g>
-                    <circle  stroke-linejoin="round" stroke-miterlimit="10" cx="8.5" cy="8.5" r="8"/>
+<symbol id="back-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="21" viewBox="0 0 13 21">
+    <defs>
+        <path id="a" d="M1.003 10.4l10.062-8.9a.398.398 0 0 0 .034-.565.397.397 0 0 0-.565-.034l-10.4 9.2a.401.401 0 0 0 .001.598l10.4 9.2a.4.4 0 0 0 .53-.598L1.004 10.4z"/>
+    </defs>
+    <g fill="none" fill-rule="nonzero" transform="translate(1)">
+        <use fill="#FFF" fill-rule="evenodd" xlink:href="#a"/>
+        <path stroke="#FFF" stroke-width=".75" d="M1.57 10.4l9.744 8.62a.774.774 0 1 1-1.027 1.16l-10.4-9.2a.774.774 0 0 1-.001-1.16L10.284.622a.772.772 0 0 1 1.095.064c.286.32.255.81-.066 1.094L1.57 10.4z"/>
+    </g>
+</symbol>
 
-                        <line stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="14.156" y1="14.156" x2="23.5" y2="23.5"/>
+<symbol id="cog" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <path fill="#FFF" fill-rule="nonzero" d="M19.583 8.333h-2.379c-.166-.658-.378-1.389-.648-1.943l1.693-1.693a.417.417 0 0 0 0-.59l-2.357-2.355a.415.415 0 0 0-.59 0l-1.694 1.692c-.554-.27-1.284-.482-1.941-.647V.417A.417.417 0 0 0 11.25 0h-2.5a.417.417 0 0 0-.417.417v2.38c-.658.165-1.389.377-1.942.647L4.697 1.752a.415.415 0 0 0-.59 0L1.75 4.108a.417.417 0 0 0 0 .589L3.444 6.39c-.269.552-.482 1.283-.648 1.942H.416A.417.417 0 0 0 0 8.75v2.5c0 .23.187.417.417.417h2.379c.167.659.38 1.39.649 1.942L1.75 15.304a.417.417 0 0 0 0 .59l2.357 2.356a.428.428 0 0 0 .59 0l1.694-1.694c.552.269 1.283.482 1.943.649v2.378c0 .23.187.417.417.417h2.5c.23 0 .417-.187.417-.417v-2.378c.658-.167 1.39-.38 1.942-.648l1.695 1.693a.417.417 0 0 0 .59 0l2.356-2.357a.417.417 0 0 0 0-.589l-1.694-1.694c.27-.553.482-1.283.649-1.942h2.377c.23 0 .417-.187.417-.417v-2.5a.417.417 0 0 0-.417-.418zm-9.583 5A3.337 3.337 0 0 1 6.667 10 3.337 3.337 0 0 1 10 6.667 3.337 3.337 0 0 1 13.333 10 3.337 3.337 0 0 1 10 13.333z"/>
+</symbol>
+
+
+
+
+
+
+  <symbol id="search"  width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>search-icon@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M7.12507365,14.2501473 C8.81213276,14.2501473 10.3622321,13.6571828 11.5845781,12.673131 L17.6472241,18.7666523 C17.9551856,19.0769889 18.4555241,19.0777805 18.7666523,18.7690273 C19.0769889,18.4602742 19.0777805,17.959144 18.769819,17.6495991 L12.6992563,11.5489527 C13.6674746,10.3329401 14.2501473,8.79629926 14.2501473,7.12507365 C14.2501473,3.19599137 11.0541559,0 7.12507365,0 C3.19599137,0 0,3.19599137 0,7.12507365 C0,11.0533643 3.19599137,14.2501473 7.12507365,14.2501473 Z M7.12507365,1.5833497 C10.1801469,1.5833497 12.6667976,4.06920873 12.6667976,7.12507365 C12.6667976,10.1801469 10.1801469,12.6667976 7.12507365,12.6667976 C4.06920873,12.6667976 1.5833497,10.1801469 1.5833497,7.12507365 C1.5833497,4.06920873 4.06920873,1.5833497 7.12507365,1.5833497 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Near-me" transform="translate(-343.000000, -36.000000)" fill-rule="nonzero">
+            <g id="search-icon" transform="translate(344.000000, 37.000000)">
+                <g id="Shape">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <path stroke="#FFFFFF" stroke-width="0.45" d="M12.9982025,11.5303929 L18.9293255,17.4909085 C19.3251362,17.8887543 19.3235642,18.5323442 18.9251406,18.9287348 C18.5258483,19.3249791 17.8830481,19.3237224 17.4877215,18.9253467 L11.5659713,12.9734388 C10.2956826,13.9405858 8.74933555,14.4751473 7.12507365,14.4751473 C3.07199668,14.4751473 -0.225,11.1778977 -0.225,7.12507365 C-0.225,3.0717273 3.0717273,-0.225 7.12507365,-0.225 C11.17842,-0.225 14.4751473,3.0717273 14.4751473,7.12507365 C14.4751473,8.73423301 13.9498262,10.267066 12.9982025,11.5303929 Z M7.12507365,1.8083497 C4.1934728,1.8083497 1.8083497,4.1934728 1.8083497,7.12507365 C1.8083497,10.0561611 4.193751,12.4417976 7.12507365,12.4417976 C10.0558828,12.4417976 12.4417976,10.0558828 12.4417976,7.12507365 C12.4417976,4.193751 10.0561611,1.8083497 7.12507365,1.8083497 Z"></path>
                 </g>
             </g>
-            <g id="New_icons_1_">
-            </g>
         </g>
-        <g id="Frames-24px">
-            <rect />
-        </g>
+    </g>
+
     </symbol>
 
 
     <symbol id="search-two" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-    <path fill="none"/>
-</symbol>
+        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+        <path fill="none" />
+    </symbol>
 
-</svg>
+    </svg>
 
 
     <div class="header">
@@ -372,7 +425,7 @@
                             </a>-->
                             <a ng-show="$root.pageVisits.length > 1" class="pull-left back-div" ng-click="c.gotoPreviousPage()">
                                 <svg class="back-icon">
-                                <use xlink:href='#icon-down'></use>
+                                <use xlink:href='#back-icon'></use>
                             </svg>
                             </a>
                         </div>
@@ -388,12 +441,14 @@
                             <a href="/guide?id=city_guide_search" class="search-anchor">
 
                                 <svg class="search-icon">
-                                <use xlink:href='#search-two'></use>
+                                <use xlink:href='#search'></use>
                             </svg>
                             </a>
                             <button type="button" class="navbar-toggle" ng-click="$root.showDropOptions = !$root.showDropOptions">
 
-                           <img src="cog.png"/>
+                            <svg class="search-icon">
+                                <use xlink:href='#cog'></use>
+                            </svg>
                     </button>
                         </div>
                     </div>

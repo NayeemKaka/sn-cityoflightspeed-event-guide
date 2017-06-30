@@ -42,13 +42,7 @@
         })
     }
 
-    $rootScope.$on('addToFavourite', function(event, data) {
-        console.log(data);
-        c.server.get({ action: 'saveFavorite', eventSysid: data[0].sys_id.display_value, siteSysid: data[0].site.value }).then(function(response) {
-            data[0].favourite = true;
-            $rootScope.$broadcast('popAlert', 'Added to favorites');
-        })
-    });
+
 }]]></client_script>
         <controller_as>c</controller_as>
         <css>.list-page {
@@ -168,7 +162,7 @@
             gr.addQuery('event', input.eventSysid);
             gr.query();
             if (gr.next()) {
-
+                gr.deleteRecord();
             } else {
                 gr.initialize();
                 gr.event = input.eventSysid;
@@ -194,7 +188,7 @@
         <sys_created_on>2017-05-25 10:02:04</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>5e7bc040db07f600c3beffa31d9619b6</sys_id>
-        <sys_mod_count>46</sys_mod_count>
+        <sys_mod_count>52</sys_mod_count>
         <sys_name>City Guide Event Detail</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -202,14 +196,15 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sp_widget_5e7bc040db07f600c3beffa31d9619b6</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-06-03 00:36:44</sys_updated_on>
+        <sys_updated_on>2017-06-29 16:58:14</sys_updated_on>
         <template><![CDATA[<div class="list-page row">
     <!-- your widget template -->
 
 
     <div class="featured-events">
         <div class="each-weekend-event">
-            <img ng-src={{c.data.event.photo_url.display_value}}>
+            <img ng-if="!c.data.event.photo.display_value" ng-src={{c.data.event.photo_url.display_value}}>
+            <img ng-if="c.data.event.photo.display_value" ng-src={{c.data.event.photo.display_value}}>
             <div class="description ">
 
                 <p class="each-name ">{{c.data.event.name.display_value}}</p>

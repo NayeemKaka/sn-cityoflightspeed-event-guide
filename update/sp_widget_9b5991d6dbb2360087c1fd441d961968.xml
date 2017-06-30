@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
-        <client_script><![CDATA[function mapPageCtrl(appManager, $rootScope, $location) {
+        <client_script><![CDATA[function mapPageCtrl(appManager, $scope, $rootScope, $location, $timeout, leafletData) {
     /* widget controller */
     var c = this;
 
     c.$onInit = function() {
+        //debugger;
         c.searchObject = $location.search();
         c.loading = true;
         appManager.trackPages('guide_map_page');
         appManager.setTitle("Near By");
+        //$scope.tile = "";
     };
 
+    $scope.$watch("c.loading", function(value) {
+        if (value === false) {
+            leafletData.getMap().then(function(map) {
+                $timeout(function() {
+                    map.invalidateSize();
+                }, 300);
+            });
+        }
+    });
+
+    /*Code to render Openstreetmaps overlay */
     //var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     /*var mapTiles = new L.TileLayer(osmUrl, {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
@@ -25,24 +38,30 @@
     //     accessToken: 'pk.eyJ1Ijoic3VzaC1jaGFuZHJhc2hla2FyIiwiYSI6ImNqMnFwcnplZTAwMDEycWt6cm1yNDF0bzEifQ.krI_R9WCDI_GBKrfY6bf1g'
     // }).addTo(mymap);
     //mymap.addLayer(mapTiles);
-    var mapbox = {
-        mapbox_wheat: {
+
+
+
+    c.mapbox = {
+        mapbox_layer: {
             name: 'Mapbox',
+            // url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token={apikey}',
             url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token={apikey}',
             type: 'xyz',
             options: {
-                apikey: 'pk.eyJ1Ijoic3VzaC1jaGFuZHJhc2hla2FyIiwiYSI6ImNqMnFwcnplZTAwMDEycWt6cm1yNDF0bzEifQ.krI_R9WCDI_GBKrfY6bf1g',
+                apikey: c.data.apiKey,
                 mapid: 'testing'
             }
         }
     };
-
-
+    c.tile = c.mapbox.mapbox_layer;
     c.markers = [];
-    c.tile = mapbox.mapbox_wheat;
     var lat = 40.6453531;
     var lng = -74.0150371;
-
+    c.currentLocation = {
+        lat: lat,
+        lng: lng,
+        zoom: 12
+    };
     checkCordinates(lat, lng);
 
     function displayLocation(position) {
@@ -57,11 +76,7 @@
         // var lat = 40.6453531;
         // var lng = -74.0150371;
 
-        c.currentLocation = {
-            lat: lat,
-            lng: lng,
-            zoom: 12
-        };
+
         getNearByEvents(lat, lng);
     }
 
@@ -76,11 +91,6 @@
     }
 
     function getNearByEvents(lat, lng) {
-        c.currentLocation = {
-            lat: lat,
-            lng: lng,
-            zoom: 12
-        };
 
         c.awesomeMarkerIcon = {
             type: 'awesomeMarker',
@@ -97,9 +107,12 @@
                 lng: lng,
                 icon: c.awesomeMarkerIcon
             }
-            c.markers = JSON.parse(response.data.events);
-            c.markers.splice(0, 0, currentlocation);
-            console.log(c.markers);
+            if (response.data.events.status == 'success') {
+                c.markers = JSON.parse(response.data.events.allevents);
+                c.markers.splice(0, 0, currentlocation);
+            } else if (response.data.events.status == 'error') {
+                spUtil.addErrorMessage("Please install Google Maps Place Utility Application");
+            }
 
         });
     }
@@ -108,7 +121,7 @@
 
 
     // var marker = L.marker([33.033577, -117.080582]).addTo(mymap);
-    // marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+
 
 }]]></client_script>
         <controller_as>c</controller_as>
@@ -196,26 +209,30 @@
         <internal>false</internal>
         <link/>
         <name>City Guide Map</name>
-        <option_schema/>
+        <option_schema>[{"name":"mapbox_apikey","default_value":"pk.eyJ1Ijoic3VzaC1jaGFuZHJhc2hla2FyIiwiYSI6ImNqMnFwcnplZTAwMDEycWt6cm1yNDF0bzEifQ.krI_R9WCDI_GBKrfY6bf1g","label":"Mapbox ApiKey","type":"string"}]</option_schema>
         <public>true</public>
         <roles/>
         <script><![CDATA[(function() {
     /* populate the 'data' object */
     /* e.g., data.table = $sp.getValue('table'); */
     data.events = {};
+    data.events.status = "";
+    data.events.allevents = {};
+    data.apiKey = gs.getProperty('x_snc_guide.mapbox.apikey');
     if (input) {
-        //console.log(input);
         if (input.action == 'getNearByEvents' && input.lat) {
-            console.log(JSON.stringify(input));
-            console.log("hey");
-            var maps = new x_snc_googlemaps_p.MapScriptInclude();
-            //40.8516387,-73.9111453
-
-            data.events = maps.getNearbyEvents(input.lat, input.lng, 'restaurant', 3000);
+            try {
+                var maps = new x_snc_googlemaps_p.MapScriptInclude();
+            } catch (err) {
+                data.events.status = 'error';
+                return;
+            }
+            data.events.status = 'success';
+            data.events.allevents = maps.getNearbyEvents(input.lat, input.lng, 'food', 3000);
+            //console.log(data.events.allevents);
         }
+
     }
-
-
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
@@ -223,7 +240,7 @@
         <sys_created_on>2017-05-20 05:12:43</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>9b5991d6dbb2360087c1fd441d961968</sys_id>
-        <sys_mod_count>276</sys_mod_count>
+        <sys_mod_count>358</sys_mod_count>
         <sys_name>City Guide Map</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -231,7 +248,7 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sp_widget_9b5991d6dbb2360087c1fd441d961968</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-06-05 20:43:12</sys_updated_on>
+        <sys_updated_on>2017-06-09 17:29:26</sys_updated_on>
         <template><![CDATA[<div class="row near-by">
     <!--<div id="mapid"></div>-->
     <leaflet ng-show="!c.loading" lf-center="c.currentLocation" markers="c.markers | filter: c.filterType" tiles="c.tile" defaults="defaults"></leaflet>

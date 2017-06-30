@@ -61,12 +61,20 @@
         })
     }
 
-    $rootScope.$on('addToFavourite', function(event, data) {
-        c.server.get({ action: 'saveFavorite', eventSysid: data[0].sys_id.display_value, siteSysid: data[0].site.value }).then(function(response) {
-            data[0].favourite = true;
-            $rootScope.$broadcast('popAlert', 'Added to favorites');
-        })
-    });
+    // $rootScope.$on('addToFavourite', function(event, data) {
+    //     debugger;
+    //     c.server.get({ action: 'saveFavorite', eventSysid: data[0].sys_id.display_value, siteSysid: data[0].site.value, currentVal: data[0].favourite }).then(function(response) {
+    //         //data[0].favourite = !data[0].favourite;
+    //         if (data[0].favourite) {
+    //             data[0].favourite = false;
+    //             $rootScope.$broadcast('popAlert', 'Removed from favorites');
+    //         } else if (!data[0].favourite) {
+    //             data[0].favourite = true;
+    //             $rootScope.$broadcast('popAlert', 'Added to favorites');
+    //         }
+
+    //     })
+    // });
 
 }]]></client_script>
         <controller_as>c</controller_as>
@@ -227,12 +235,13 @@
             var todayQuery = "start_dateONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)";
             var gr = new GlideRecord('x_snc_guide_event');
             gr.addActiveQuery();
-            gr.orderByDesc('sys_updated_on');
             gr.addQuery('state', 'Active');
             gr.addQuery('featured', true);
+            gr.orderByDesc('sys_updated_on');
             gr.addEncodedQuery(todayQuery);
-            gr.setLimit(15);
+            //gr.setLimit(15);
             gr.query();
+            console.log(gr.getRowCount());
             while (gr.next()) {
                 var obj = {};
                 obj.types = [];
@@ -271,7 +280,7 @@
             var gr = new GlideRecord('x_snc_guide_event');
             gr.addActiveQuery();
             gr.orderByDesc('sys_updated_on');
-            gr.setLimit(14);
+            // gr.setLimit(14);
             gr.addEncodedQuery(thisWeekendQuery);
             gr.addQuery('state', 'Active');
             gr.addQuery('featured', true);
@@ -312,7 +321,7 @@
             gr.addQuery('state', 'Active');
             gr.addQuery('featured', true);
             gr.addEncodedQuery(thisMonthQuery);
-            gr.setLimit(15);
+            //gr.setLimit(15);
             gr.query();
             while (gr.next()) {
                 var obj = {};
@@ -352,7 +361,7 @@
             gr.addQuery('event', input.eventSysid);
             gr.query();
             if (gr.next()) {
-
+                gr.deleteRecord();
             } else {
                 gr.initialize();
                 gr.event = input.eventSysid;
@@ -407,7 +416,7 @@
         <sys_created_on>2017-05-23 01:40:11</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>da85c4d3db7e760087c1fd441d961916</sys_id>
-        <sys_mod_count>177</sys_mod_count>
+        <sys_mod_count>194</sys_mod_count>
         <sys_name>City Guide Featured Events</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -415,7 +424,7 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sp_widget_da85c4d3db7e760087c1fd441d961916</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-06-03 00:36:19</sys_updated_on>
+        <sys_updated_on>2017-06-13 17:45:19</sys_updated_on>
         <template><![CDATA[<div class="list-page row">
     <!-- your widget template -->
     <!--<div class="tabs" hide-element hide-offset="60">-->
@@ -435,23 +444,23 @@
             <h4 class="text-center" ng-show="c.data.events.length == 0" aria-hidden="false">No Events Found</h4>
             <div class="each-weekend-event" ng-repeat="event in c.data.events">
                 <!--<img ng-src={{event.photo_url.display_value}} ng-click="c.gotoDetail(event)" />-->
-                <div class="event-image" ng-style="{'background-image':'url({{event.photo_url.display_value}})'}" ng-click="c.gotoDetail(event)"></div>
+                <div ng-if="event.photo_url.display_value" class="event-image" ng-style="{'background-image':'url({{event.photo_url.display_value}})'}" ng-click="c.gotoDetail(event)"></div>
+                <div ng-if="!event.photo_url.display_value" class="event-image" ng-style="{'background-image':'url(events-placeholder.png)'}"></div>
                 <div class="description ">
-
                     <p class="each-name ">{{event.name.display_value}}</p>
                     <p class="each-description ">{{c.truncateChars(event.description.display_value, 90)}}</p>
-
                     <div class="exp" ng-click="c.addToFavourite(event)" ng-class="{'fav-back':event.favourite}">
                         <!--<i class="fa fa-star " aria-hidden="true "></i>-->
                         <img src="star.svg" />
                     </div>
                     <div class="exp" ng-repeat="type in event.types">
-
                         <img ng-if="type == 'Music'" src="music.svg" />
                         <img ng-if="type == 'Food'" src="food.svg" />
                         <img ng-if="type == 'Sports'" src="sports.svg" />
                         <img ng-if="type == 'Nature'" src="nature.svg" />
                         <img ng-if="type == 'Drama'" src="drama.svg" />
+                        <img ng-if="type == 'Arts'" src="arts.svg" />
+                        <img ng-if="type == 'Shopping'" src="shopping.svg" />
                     </div>
                 </div>
             </div>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element label="Event" max_length="40" name="x_snc_guide_event" type="collection">
+    <element label="Event" max_length="40" name="x_snc_guide_event" text_index="true" type="collection">
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Cost" max_length="20" name="cost" type="currency"/>
-        <element label="Description" max_length="2500" name="description" type="string"/>
+        <element attributes="ts_weight=10" label="Description" max_length="2500" name="description" type="string"/>
         <element default="0" label="Dislike" max_length="40" name="dislike" type="integer"/>
         <element label="Eb category id" max_length="40" name="eb_category_id" read_only="true" type="string"/>
         <element label="Eb event id" max_length="40" name="eb_event_id" read_only="true" type="string"/>

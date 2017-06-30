@@ -33,25 +33,6 @@
     c.minDate = (new Date(c.currentTime.getTime() - (1000 * 60 * 60 * 24 * days))).toISOString();
     // c.maxDate = (new Date(c.currentTime.getTime() + (1000 * 60 * 60 * 24 * days))).toISOString();
 
-
-    // c.addSite = function(val) {
-    //     console.log(val);
-    // }
-
-    // c.getSites = function(val) {
-    //     return $http.get('/api/now/table/x_snc_guide_site?sysparm_query=nameSTARTSWITH' + val + '%5Eactive%3Dtrue&sysparm_fields=&sysparm_limit=5', {
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json',
-    //             'X-UserToken': window.g_ck
-    //         }
-    //     }).then(function(response) {
-
-    //         return response.data.result;
-    //     });
-    // };
-
-
     $scope.$watch('event', function(newVal, oldVal) {
 
         if (newVal.name && newVal.type && newVal.description && newVal.startdate && newVal.enddate && newVal.fileUploaded) {
@@ -64,17 +45,19 @@
 
 
     c.submitEvent = function(event) {
-        event.startdate = moment(event.startdate).format('DD-MM-YYYY');
-        event.enddate = moment(event.enddate).format('DD-MM-YYYY');
-
+        c.loading = true;
+        c.message = "Creating event";
+        event.startdate = moment(event.startdate).format('YYYY-MM-DD');
+        var dateTime = moment(event.startdate + ' ' + event.startTime, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
+        event.startdate = dateTime;
+        event.enddate = moment(event.enddate).format('YYYY-MM-DD');
+        dateTime = moment(event.enddate + ' ' + event.endTime, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
+        event.enddate = dateTime;
         c.server.get({ action: 'set', event: event, types: c.data.typesWithsysid }).then(function(response) {
-            // debugger;
+            c.message = "Uploading Poster";
             c.data.resEventSys = response.data.response.eventsys;
-            scope.event.type = c.data.types[0];
-
+            $scope.event.type = c.data.types[0];
             var file = $scope.myFile;
-            console.log('file is ');
-            console.dir(file);
             var uploadUrl = "/api/now/attachment/upload";
             uploadFileToUrl(file, uploadUrl, c.data.resEventSys);
 
@@ -108,6 +91,15 @@
             .success(function(response) {
                 $scope.event = {};
                 $scope.myFile = {};
+                $scope.event.type = c.data.types[0];
+                c.loading = false;
+                angular.forEach(
+                    angular.element("input[type='file']"),
+                    function(inputElem) {
+                        angular.element(inputElem).val(null);
+                        angular.element('.file-path').val('Choose a poster');
+                    });
+
                 c.data.eventCreated = true;
                 $timeout(function() {
                     c.data.eventCreated = false;
@@ -170,26 +162,30 @@ $switcher-bg:#d9534f;
         .add-event-btn {
             border-radius: 0px;
             background: #6bbdc6;
-            position: fixed;
+            // position: absolute;
+            color: #fff;
             width: 100%;
-            bottom: -100px;
-            height: 0px;
+            //top: 100px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             box-shadow: -1px 2px 3px #333;
             transition: all 0.5s;
-            &amp;.pop-it-up {
-                position: fixed;
-                width: 100%;
-                bottom: 59px;
-                height: 56px;
-                overflow: auto;
-                p {
-                    color: #fff;
-                }
+            p {
+                color: #fff;
             }
+            // &amp;.pop-it-up {
+            //     position: absolute;
+            //     width: 100%;
+            //     top: 0px;
+            //     height: 56px;
+            //     overflow: auto;
+            //     p {
+            //         color: #fff;
+            //     }
+            // }
         }
     }
     p {
@@ -785,7 +781,7 @@ textarea.materialize-textarea {
 }
 
 .hiddendiv {
-    display: none;
+    display: none !important;
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -2619,6 +2615,417 @@ $DEFAULT-TIME-PICKER
     cursor: pointer;
     opacity: 0;
     filter: alpha(opacity=0);
+}
+
+
+/*clock picker*/
+
+.clockpicker-display {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    clear: both;
+    position: relative;
+}
+
+@media only screen and (min-width: 601px) {
+    .clockpicker-display {
+        top: 32%;
+    }
+    .clockpicker-span-am-pm {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        text-align: center;
+        margin-top: 1.2rem;
+    }
+}
+
+.text-primary {
+    color: white;
+}
+
+.clockpicker-span-hours {
+    margin-right: 3px;
+}
+
+.clockpicker-span-minutes {
+    margin-left: 3px;
+}
+
+.clockpicker-span-hours,
+.clockpicker-span-minutes,
+.clockpicker-span-am-pm div {
+    cursor: pointer;
+}
+
+.clockpicker-moving {
+    cursor: move;
+}
+
+.clockpicker-plate {
+    background-color: #eee;
+    border-radius: 50%;
+    width: 270px;
+    height: 270px;
+    overflow: visible;
+    position: relative;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.clockpicker-canvas,
+.clockpicker-dial {
+    width: 270px;
+    height: 270px;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+}
+
+.clockpicker-minutes {
+    visibility: hidden;
+}
+
+.clockpicker-tick {
+    border-radius: 50%;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.clockpicker-tick.active,
+.clockpicker-tick:hover {
+    background-color: rgba(38, 166, 154, 0.25);
+}
+
+.clockpicker-dial {
+    -webkit-transition: -webkit-transform 350ms, opacity 350ms;
+    -webkit-transition: opacity 350ms, -webkit-transform 350ms;
+    transition: opacity 350ms, -webkit-transform 350ms;
+    transition: transform 350ms, opacity 350ms;
+    transition: transform 350ms, opacity 350ms, -webkit-transform 350ms;
+}
+
+.clockpicker-dial-out {
+    opacity: 0;
+}
+
+.clockpicker-hours.clockpicker-dial-out {
+    -webkit-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+}
+
+.clockpicker-minutes.clockpicker-dial-out {
+    -webkit-transform: scale(0.8, 0.8);
+    transform: scale(0.8, 0.8);
+}
+
+.clockpicker-canvas {
+    -webkit-transition: opacity 175ms;
+    transition: opacity 175ms;
+}
+
+.clockpicker-canvas-out {
+    opacity: 0.25;
+}
+
+.clockpicker-canvas-bearing {
+    stroke: none;
+    fill: $brand-primary;
+}
+
+.clockpicker-canvas-bg {
+    stroke: none;
+    fill: $brand-primary;
+}
+
+.clockpicker-canvas-bg-trans {
+    fill: $brand-primary;
+}
+
+.clockpicker-canvas line {
+    stroke: $brand-primary;
+    stroke-width: 4;
+    stroke-linecap: round;
+    /*shape-rendering: crispEdges;*/
+}
+
+.clockpicker-display {
+    vertical-align: middle;
+    display: inline-block;
+    margin: auto;
+    height: 85px;
+    font-size: 70px;
+    padding: 10px;
+    padding-bottom: 0px;
+    color: #fff;
+}
+
+.clockpicker-display-column {
+    float: left;
+}
+
+.clockpicker-span-hours.text-primary,
+.clockpicker-span-minutes.text-primary,
+#click-am.text-primary,
+#click-pm.text-primary {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    color: white;
+}
+
+.clockpicker-span-hours,
+.clockpicker-span-minutes {
+    -webkit-animation-duration: 500ms;
+    animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-transition: color 500ms;
+    -moz-transition: color 500ms;
+    -ms-transition: color 500ms;
+    -o-transition: color 500ms;
+    transition: color 500ms;
+    cursor: pointer;
+}
+
+.clockpicker-display-am-pm {
+    padding-left: 5px;
+    vertical-align: bottom;
+    height: 85px;
+    color: #fff;
+}
+
+.clockpicker-display-column {
+    float: left;
+}
+
+.clockpicker-span-am-pm {
+    display: inline-block;
+    font-size: 23px;
+    line-height: 25px;
+    color: #fff;
+}
+
+.clockpicker-plate {
+    background-color: #eeeeee;
+    border-radius: 50%;
+    width: 270px;
+    height: 270px;
+    overflow: visible;
+    position: relative;
+    margin: auto;
+    margin-top: 20px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.clockpicker-canvas {
+    -webkit-transition: opacity 300ms;
+    -moz-transition: opacity 300ms;
+    -ms-transition: opacity 300ms;
+    -o-transition: opacity 300ms;
+    transition: opacity 300ms;
+}
+
+.clockpicker-canvas,
+.clockpicker-dial {
+    width: 270px;
+    height: 270px;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+}
+
+.clockpicker-hours.clockpicker-dial-out {
+    -webkit-transform: scale(1.2, 1.2);
+    -moz-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    -o-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+}
+
+.clockpicker-dial-out {
+    opacity: 0;
+}
+
+.clockpicker-dial {
+    -webkit-transition: -webkit-transform 350ms, opacity 350ms;
+    -moz-transition: -moz-transform 350ms, opacity 350ms;
+    -ms-transition: -ms-transform 350ms, opacity 350ms;
+    -o-transition: -o-transform 350ms, opacity 350ms;
+    transition: transform 350ms, opacity 350ms;
+}
+
+.clockpicker-tick {
+    border-radius: 50%;
+    color: #666;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    -webkit-transition: background-color 300ms;
+    -moz-transition: background-color 300ms;
+    -ms-transition: background-color 300ms;
+    -o-transition: background-color 300ms;
+    transition: background-color 300ms;
+    background-color: rgba(0, 150, 136, 0);
+}
+
+.picker__footer {
+    text-align: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.picker__footer {
+    //text-align: right;
+    padding: 5px 10px;
+}
+
+.picker__footer .clockpicker-button {
+    margin: auto;
+    margin-top: 15px;
+}
+
+am-pm div {
+    cursor: pointer;
+}
+
+.clockpicker-am-pm-block {
+    //margin-top: -10px;
+    width: 100%;
+    height: 50px;
+}
+
+.clockpicker-button {
+    margin-bottom: 15px !important;
+}
+
+///*****************************loading animation***********************************/
+.loading-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        color: #333;
+    }
+}
+
+.sk-cube-grid {
+    width: 30px;
+    height: 30px;
+    margin: 15px;
+    /*
+   * Spinner positions
+   * 1 2 3
+   * 4 5 6
+   * 7 8 9
+   */
+}
+
+.sk-cube-grid .sk-cube {
+    width: 33.33%;
+    height: 33.33%;
+    background-color: $brand-primary;
+    float: left;
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+    animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+
+.sk-cube-grid .sk-cube1 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.sk-cube-grid .sk-cube2 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.sk-cube-grid .sk-cube3 {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.sk-cube-grid .sk-cube4 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.sk-cube-grid .sk-cube5 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.sk-cube-grid .sk-cube6 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.sk-cube-grid .sk-cube7 {
+    -webkit-animation-delay: 0.0s;
+    animation-delay: 0.0s;
+}
+
+.sk-cube-grid .sk-cube8 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.sk-cube-grid .sk-cube9 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+    0%,
+    70%,
+    100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+    0%,
+    70%,
+    100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -2657,11 +3064,11 @@ $DEFAULT-TIME-PICKER
             gr.end_date = input.event.enddate;
             gr.description = input.event.description;
             gr.featured = input.event.featured;
-            //gr.site = input.sites[input.event.site];
+            gr.setValue('state', "Draft");
+            // gr.state = 'Draft';
             gr.type_list = input.types[input.event.type];
             var sysID = gr.insert();
             data.response = {};
-            // data.response.typesys = typesys;
             data.response.eventsys = sysID;
 
         }
@@ -2674,7 +3081,7 @@ $DEFAULT-TIME-PICKER
         <sys_created_on>2017-05-30 19:51:59</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>99a28cb5db07ba00c3beffa31d9619c8</sys_id>
-        <sys_mod_count>300</sys_mod_count>
+        <sys_mod_count>419</sys_mod_count>
         <sys_name>City Guide Add Event Material Ng</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -2682,7 +3089,7 @@ $DEFAULT-TIME-PICKER
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sp_widget_99a28cb5db07ba00c3beffa31d9619c8</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-06-06 01:34:45</sys_updated_on>
+        <sys_updated_on>2017-06-29 19:46:47</sys_updated_on>
         <template><![CDATA[<div class="material-form row">
     <form class="col-xs-12">
         <div input-field>
@@ -2699,18 +3106,28 @@ $DEFAULT-TIME-PICKER
         </div>
     </form>-->
 
-    <div class="col-xs-12">
+    <div class="col-xs-6">
         <!--<label for="inputCreated">Start date</label>-->
         <input input-date type="text" name="created" id="startdate" ng-model="event.startdate " container="" format="mm/dd/yyyy" months-full="{{ c.month }}" months-short="{{ c.monthShort }}" weekdays-full="{{ c.weekdaysFull }}" weekdays-short="{{ c.weekdaysShort }}"
             placeholder="Start date" weekdays-letter="{{ c.weekdaysLetter }}" disable="disable" min="{{ c.minDate }}" max="{{ c.maxDate }}" today="c.today" first-day="1" clear="c.clear" close="c.close" select-years="15" on-start="" on-render="" on-open=""
             on-close="" on-set="" on-stop="" />
     </div>
+    <div class="col-xs-6">
 
-    <div class="col-xs-12 reduce-input-margin">
+        <input placeholder="Start Time" id="input_starttime" ng-model="event.startTime" input-clock data-twelvehour="false" type="text">
+    </div>
+
+
+
+    <div class="col-xs-6 reduce-input-margin">
         <!--<label for="inputCreated">End date</label>-->
         <input input-date type="text" name="created" id="enddate" ng-model="event.enddate" container="" format="mm/dd/yyyy" months-full="{{ c.month }}" months-short="{{ c.monthShort }}" weekdays-full="{{ c.weekdaysFull }}" weekdays-short="{{ c.weekdaysShort }}"
             placeholder="End date" weekdays-letter="{{ c.weekdaysLetter }}" disable="disable" min="{{ c.minDate }}" max="{{ c.maxDate }}" today="c.today" first-day="1" clear="c.clear" close="c.close" select-years="15" on-start="" on-render="" on-open="" on-close=""
             on-set="" on-stop="" />
+    </div>
+    <div class="col-xs-6">
+
+        <input placeholder="End Time" id="input_endtime" ng-model="event.endTime" input-clock data-twelvehour="false" type="text">
     </div>
 
     <div class="col-xs-12 ">
@@ -2733,16 +3150,16 @@ $DEFAULT-TIME-PICKER
         </div>
     </div>
 
-    <div class="">
-        <form class="col-xs-12 ">
-            <div class="">
-                <div input-field>
-                    <textarea ng-model="event.description" class="materialize-textarea"></textarea>
-                    <label>Description</label>
-                </div>
-            </div>
-        </form>
+
+    <div class="col-xs-12 ">
+
+        <div input-field>
+            <textarea ng-model="event.description" class="materialize-textarea"></textarea>
+            <label>Description</label>
+        </div>
+
     </div>
+
 
 
     <div class="file-field input-field">
@@ -2759,13 +3176,29 @@ $DEFAULT-TIME-PICKER
     </div>
 
     <div class="bottom-div text-center">
-        <div class="btn-div">
-            <div ng-click="c.submitEvent(event)" class="add-event-btn text-center" ng-class="{'pop-it-up':c.showSubmit}">
+        <div class="btn-div" ng-show="c.showSubmit && !c.loading">
+            <div ng-click="c.submitEvent(event)" class="add-event-btn text-center">
                 <p>Submit</p>
             </div>
         </div>
+        <div class="loading-div" ng-show="c.loading">
+            <div class="sk-cube-grid">
+                <div class="sk-cube sk-cube1"></div>
+                <div class="sk-cube sk-cube2"></div>
+                <div class="sk-cube sk-cube3"></div>
+                <div class="sk-cube sk-cube4"></div>
+                <div class="sk-cube sk-cube5"></div>
+                <div class="sk-cube sk-cube6"></div>
+                <div class="sk-cube sk-cube7"></div>
+                <div class="sk-cube sk-cube8"></div>
+                <div class="sk-cube sk-cube9"></div>
+            </div>
+
+            <p>{{c.message}}</p>
+        </div>
         <p class="success-msg" ng-show="c.data.eventCreated"> Event submitted successfully</p>
     </div>
+
 
     <div>
 
