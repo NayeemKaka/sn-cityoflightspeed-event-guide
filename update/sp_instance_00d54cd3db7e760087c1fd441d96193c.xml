@@ -15,7 +15,7 @@
         <sys_class_name>sp_instance</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-23 01:41:01</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>00d54cd3db7e760087c1fd441d96193c</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name/>

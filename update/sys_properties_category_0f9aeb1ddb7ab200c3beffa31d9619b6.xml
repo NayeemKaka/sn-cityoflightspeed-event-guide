@@ -5,7 +5,7 @@
         <sys_class_name>sys_properties_category</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-17 13:12:58</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>0f9aeb1ddb7ab200c3beffa31d9619b6</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>City Guide</sys_name>

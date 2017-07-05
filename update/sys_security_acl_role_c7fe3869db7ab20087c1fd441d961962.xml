@@ -4,7 +4,7 @@
         <sys_class_name>sys_security_acl_role</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-17 19:21:26</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>c7fe3869db7ab20087c1fd441d961962</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_snc_guide_site.dislike.nobody</sys_name>

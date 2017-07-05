@@ -55,7 +55,7 @@
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-16 17:23:50</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>920ad7c9db32b200c3beffa31d96199c</sys_id>

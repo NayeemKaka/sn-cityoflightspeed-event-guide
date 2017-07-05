@@ -12,7 +12,7 @@
         <sys_class_name>sys_security_acl</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-19 22:14:57</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>d4e9f38edbfef20087c1fd441d961932</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_snc_guide_event_type</sys_name>

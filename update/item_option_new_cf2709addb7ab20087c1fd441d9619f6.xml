@@ -58,7 +58,7 @@
         <sys_class_name>item_option_new</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-17 19:58:20</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>cf2709addb7ab20087c1fd441d9619f6</sys_id>
         <sys_mod_count>13</sys_mod_count>
         <sys_name>Choose a venue for your event</sys_name>

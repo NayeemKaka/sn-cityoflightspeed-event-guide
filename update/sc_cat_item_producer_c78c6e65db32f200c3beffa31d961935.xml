@@ -115,7 +115,7 @@ gs.info('RP done. producer.site=' + producer.site + ' current.site=' + current.s
         <sys_class_name>sc_cat_item_producer</sys_class_name>
         <sys_created_by>dave.knight</sys_created_by>
         <sys_created_on>2017-05-18 03:23:14</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>c78c6e65db32f200c3beffa31d961935</sys_id>
         <sys_mod_count>22</sys_mod_count>
         <sys_name>Site Registration</sys_name>

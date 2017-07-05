@@ -10,7 +10,7 @@
         <sys_class_name>sp_page</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-16 23:39:38</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>0330b45ddbf2b200c3beffa31d961935</sys_id>
         <sys_mod_count>4</sys_mod_count>
         <sys_name>city_guide_category_list</sys_name>

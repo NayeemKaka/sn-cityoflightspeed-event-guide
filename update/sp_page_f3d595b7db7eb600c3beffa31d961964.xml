@@ -10,7 +10,7 @@
         <sys_class_name>sp_page</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-24 20:48:31</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>f3d595b7db7eb600c3beffa31d961964</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>city_guide_create_event</sys_name>

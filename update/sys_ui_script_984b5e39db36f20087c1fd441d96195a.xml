@@ -159,7 +159,7 @@ index = scope.$index;
         <sys_class_name>sys_ui_script</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-18 20:43:16</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>984b5e39db36f20087c1fd441d96195a</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_snc_guide.Angular Masonary</sys_name>

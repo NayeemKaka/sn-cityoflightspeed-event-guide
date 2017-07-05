@@ -66,7 +66,7 @@ function _getDateDiff(sortOrder) {
         <sys_class_name>sysauto_script</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-06-01 21:58:45</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>8842325adb0bfa00c3beffa31d96193c</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Update Event Dates</sys_name>

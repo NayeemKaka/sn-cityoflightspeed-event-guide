@@ -4,77 +4,122 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>name</element>
-            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">1059fae9db32f200c3beffa31d961966</list_id>
+            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">39831c15dbb3b600c3beffa31d961907</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
-            <sys_created_by>dave.knight</sys_created_by>
-            <sys_created_on>2017-05-18 04:15:54</sys_created_on>
-            <sys_id>9459fae9db32f200c3beffa31d961966</sys_id>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-07-05 14:35:53</sys_created_on>
+            <sys_id>bd831c15dbb3b600c3beffa31d961907</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>dave.knight</sys_updated_by>
-            <sys_updated_on>2017-05-18 04:15:54</sys_updated_on>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-07-05 14:35:53</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>location</element>
-            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">1059fae9db32f200c3beffa31d961966</list_id>
+            <element>active</element>
+            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">39831c15dbb3b600c3beffa31d961907</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
-            <sys_created_by>dave.knight</sys_created_by>
-            <sys_created_on>2017-05-18 04:15:54</sys_created_on>
-            <sys_id>1859fae9db32f200c3beffa31d961966</sys_id>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-07-05 14:35:53</sys_created_on>
+            <sys_id>02831c15dbb3b600c3beffa31d961908</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>dave.knight</sys_updated_by>
-            <sys_updated_on>2017-05-18 04:15:54</sys_updated_on>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-07-05 14:35:53</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>state</element>
-            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">1059fae9db32f200c3beffa31d961966</list_id>
+            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">39831c15dbb3b600c3beffa31d961907</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
             <sum>false</sum>
-            <sys_created_by>dave.knight</sys_created_by>
-            <sys_created_on>2017-05-18 04:15:54</sys_created_on>
-            <sys_id>9859fae9db32f200c3beffa31d961966</sys_id>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-07-05 14:35:53</sys_created_on>
+            <sys_id>82831c15dbb3b600c3beffa31d961908</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>dave.knight</sys_updated_by>
-            <sys_updated_on>2017-05-18 04:15:54</sys_updated_on>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-07-05 14:35:53</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>owner</element>
-            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">1059fae9db32f200c3beffa31d961966</list_id>
+            <element>cost</element>
+            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">39831c15dbb3b600c3beffa31d961907</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
             <sum>false</sum>
-            <sys_created_by>dave.knight</sys_created_by>
-            <sys_created_on>2017-05-18 04:15:54</sys_created_on>
-            <sys_id>1c59fae9db32f200c3beffa31d961966</sys_id>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-07-05 14:35:53</sys_created_on>
+            <sys_id>06831c15dbb3b600c3beffa31d961908</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>dave.knight</sys_updated_by>
-            <sys_updated_on>2017-05-18 04:15:54</sys_updated_on>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-07-05 14:35:53</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>rating_ratio</element>
-            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">1059fae9db32f200c3beffa31d961966</list_id>
+            <element>description</element>
+            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">39831c15dbb3b600c3beffa31d961907</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>4</position>
             <sum>false</sum>
-            <sys_created_by>dave.knight</sys_created_by>
-            <sys_created_on>2017-05-18 04:15:54</sys_created_on>
-            <sys_id>9c59fae9db32f200c3beffa31d961966</sys_id>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-07-05 14:35:53</sys_created_on>
+            <sys_id>86831c15dbb3b600c3beffa31d961908</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>dave.knight</sys_updated_by>
-            <sys_updated_on>2017-05-18 04:15:54</sys_updated_on>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-07-05 14:35:53</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>owner</element>
+            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">39831c15dbb3b600c3beffa31d961907</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-07-05 14:35:53</sys_created_on>
+            <sys_id>0a831c15dbb3b600c3beffa31d961908</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-07-05 14:35:53</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>location</element>
+            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">39831c15dbb3b600c3beffa31d961907</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-07-05 14:35:53</sys_created_on>
+            <sys_id>8a831c15dbb3b600c3beffa31d961908</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-07-05 14:35:53</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>type</element>
+            <list_id display_value="x_snc_guide_site" element="NULL" name="x_snc_guide_site" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">39831c15dbb3b600c3beffa31d961907</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-07-05 14:35:53</sys_created_on>
+            <sys_id>0e831c15dbb3b600c3beffa31d961908</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-07-05 14:35:53</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -88,11 +133,11 @@
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-05-18 12:36:54</sys_created_on>
+            <sys_created_on>2017-07-05 14:35:53</sys_created_on>
             <sys_customer_update>true</sys_customer_update>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>d3fba471db36f200c3beffa31d961980</sys_id>
+            <sys_id>39831c15dbb3b600c3beffa31d961907</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_snc_guide_site</sys_name>
             <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
@@ -101,8 +146,8 @@
             <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
             <sys_update_name>sys_ui_list_x_snc_guide_site_null</sys_update_name>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-05-18 12:36:54</sys_updated_on>
-            <sys_user display_value="Chuck Tomasi">37f2d3c4db76320087c1fd441d961976</sys_user>
+            <sys_updated_on>2017-07-05 14:35:53</sys_updated_on>
+            <sys_user/>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_list>

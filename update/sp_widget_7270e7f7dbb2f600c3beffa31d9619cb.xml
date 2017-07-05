@@ -202,7 +202,7 @@
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-25 07:06:21</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>7270e7f7dbb2f600c3beffa31d9619cb</sys_id>
         <sys_mod_count>71</sys_mod_count>
         <sys_name>City Guide My Favorites</sys_name>

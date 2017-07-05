@@ -148,7 +148,7 @@ LocationManager.prototype = {
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-15 21:32:29</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>09d8cb70db7a7200c3beffa31d961914</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>LocationManager</sys_name>

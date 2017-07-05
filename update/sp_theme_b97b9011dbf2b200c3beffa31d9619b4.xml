@@ -132,7 +132,7 @@ section.page {
         <sys_class_name>sp_theme</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-16 22:08:06</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>b97b9011dbf2b200c3beffa31d9619b4</sys_id>
         <sys_mod_count>69</sys_mod_count>
         <sys_name>City Guide</sys_name>

@@ -234,7 +234,7 @@ function getRandomArrayIndex(list) {
         <sys_class_name>sysauto_script</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-16 22:14:05</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>bf5c9811dbf2b200c3beffa31d96190f</sys_id>
         <sys_mod_count>3</sys_mod_count>
         <sys_name>Create sample likes and favorites</sys_name>

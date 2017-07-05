@@ -21,7 +21,7 @@
         <sys_class_name>sys_db_object</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-17 21:32:31</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>60bc91e5dbfab20087c1fd441d9619dd</sys_id>
         <sys_mod_count>3</sys_mod_count>
         <sys_name>Event type</sys_name>

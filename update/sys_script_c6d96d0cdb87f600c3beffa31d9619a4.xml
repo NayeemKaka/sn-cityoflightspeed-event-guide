@@ -40,7 +40,7 @@
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>dave.knight</sys_created_by>
         <sys_created_on>2017-05-25 16:53:30</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>c6d96d0cdb87f600c3beffa31d9619a4</sys_id>

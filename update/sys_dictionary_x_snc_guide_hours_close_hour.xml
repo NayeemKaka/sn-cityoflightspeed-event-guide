@@ -52,17 +52,17 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-15 15:50:50</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
-        <sys_id>6c7b3978dbb67200c3beffa31d961910</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f4cd3befdb6bf200c3beffa31d9619e9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Close hour</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sys_dictionary_x_snc_guide_hours_close_hour</sys_update_name>
-        <sys_updated_by>chuck.tomasi</sys_updated_by>
-        <sys_updated_on>2017-05-15 16:59:49</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2017-06-30 21:10:25</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

@@ -58,7 +58,7 @@
         <sys_class_name>item_option_new</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-24 17:46:13</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>3e2c68b3dbbeb60087c1fd441d96192e</sys_id>
         <sys_mod_count>2</sys_mod_count>
         <sys_name>Would you like this event listed on the Featured Events list?</sys_name>

@@ -7,7 +7,7 @@
         <sys_class_name>sys_scope_privilege</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-22 20:40:55</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>8c21c7c3dbba760087c1fd441d961900</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>MapScriptInclude</sys_name>

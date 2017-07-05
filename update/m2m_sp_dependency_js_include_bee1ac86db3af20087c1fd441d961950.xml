@@ -7,7 +7,7 @@
         <sys_class_name>m2m_sp_dependency_js_include</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-19 06:31:25</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>bee1ac86db3af20087c1fd441d961950</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>kle masonry.ImagesLoaded</sys_name>

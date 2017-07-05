@@ -11,7 +11,7 @@
         <sys_class_name>db_image</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-25 20:12:12</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>04475e84db0bf600c3beffa31d9619a1</sys_id>
         <sys_mod_count>2</sys_mod_count>
         <sys_name>events-placeholder.png</sys_name>

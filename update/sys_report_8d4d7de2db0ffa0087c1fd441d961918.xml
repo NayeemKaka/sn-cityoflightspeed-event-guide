@@ -88,7 +88,7 @@
         <sys_class_name>sys_report</sys_class_name>
         <sys_created_by>tom.cullen</sys_created_by>
         <sys_created_on>2017-06-02 12:43:10</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>8d4d7de2db0ffa0087c1fd441d961918</sys_id>
         <sys_mod_count>3</sys_mod_count>
         <sys_name>Coming Events (7d)</sys_name>

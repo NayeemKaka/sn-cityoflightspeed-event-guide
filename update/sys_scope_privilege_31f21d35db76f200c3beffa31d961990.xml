@@ -7,7 +7,7 @@
         <sys_class_name>sys_scope_privilege</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-18 15:27:12</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>31f21d35db76f200c3beffa31d961990</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>sys_user_grmember</sys_name>

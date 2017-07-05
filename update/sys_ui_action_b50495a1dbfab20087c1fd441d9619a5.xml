@@ -37,7 +37,7 @@ function showWorkflowContext() {
         <sys_class_name>sys_ui_action</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-17 20:53:22</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>b50495a1dbfab20087c1fd441d9619a5</sys_id>

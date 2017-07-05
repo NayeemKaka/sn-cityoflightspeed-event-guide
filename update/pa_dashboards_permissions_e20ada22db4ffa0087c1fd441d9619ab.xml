@@ -10,7 +10,7 @@
         <sys_class_name>pa_dashboards_permissions</sys_class_name>
         <sys_created_by>tom.cullen</sys_created_by>
         <sys_created_on>2017-06-02 14:48:52</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>e20ada22db4ffa0087c1fd441d9619ab</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>pa_viewer</sys_name>

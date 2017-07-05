@@ -4,7 +4,7 @@
         <sys_class_name>sys_security_acl_role</sys_class_name>
         <sys_created_by>tom.cullen</sys_created_by>
         <sys_created_on>2017-05-21 19:13:24</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>1083a9f2db32760087c1fd441d9619cc</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_snc_guide_event.x_snc_guide.user</sys_name>

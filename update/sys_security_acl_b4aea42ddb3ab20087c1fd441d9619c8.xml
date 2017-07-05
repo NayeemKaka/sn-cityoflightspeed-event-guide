@@ -13,7 +13,7 @@
         <sys_class_name>sys_security_acl</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-17 18:10:01</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>b4aea42ddb3ab20087c1fd441d9619c8</sys_id>
         <sys_mod_count>3</sys_mod_count>
         <sys_name>x_snc_guide_hours.open_hour</sys_name>

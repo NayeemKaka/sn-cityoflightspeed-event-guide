@@ -11,7 +11,7 @@
         <sys_class_name>db_image</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-06-18 05:10:05</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>1efeee23db173600c3beffa31d961993</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>front4.jpg</sys_name>

@@ -43,7 +43,7 @@
         <sys_class_name>sys_ui_page</sys_class_name>
         <sys_created_by>dave.knight</sys_created_by>
         <sys_created_on>2017-05-18 19:03:35</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>029382fddbb6f200c3beffa31d96197a</sys_id>
         <sys_mod_count>6</sys_mod_count>
         <sys_name>stock_city_guide</sys_name>

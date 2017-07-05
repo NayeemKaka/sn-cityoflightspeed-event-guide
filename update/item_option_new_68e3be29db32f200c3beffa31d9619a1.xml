@@ -58,7 +58,7 @@
         <sys_class_name>item_option_new</sys_class_name>
         <sys_created_by>dave.knight</sys_created_by>
         <sys_created_on>2017-05-18 03:52:10</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>68e3be29db32f200c3beffa31d9619a1</sys_id>
         <sys_mod_count>10</sys_mod_count>
         <sys_name>Zip code</sys_name>

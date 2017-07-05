@@ -10,7 +10,7 @@
         <sys_class_name>sys_home</sys_class_name>
         <sys_created_by>dave.knight</sys_created_by>
         <sys_created_on>2017-05-24 13:57:44</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>3ed73babdbbab600c3beffa31d961991</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Oauth</sys_name>

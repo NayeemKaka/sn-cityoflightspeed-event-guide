@@ -3079,7 +3079,7 @@ am-pm div {
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-30 19:51:59</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>99a28cb5db07ba00c3beffa31d9619c8</sys_id>
         <sys_mod_count>419</sys_mod_count>
         <sys_name>City Guide Add Event Material Ng</sys_name>

@@ -58,7 +58,7 @@
         <sys_class_name>item_option_new</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-22 23:06:17</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>3ee1abcbdbfa760087c1fd441d9619d6</sys_id>
         <sys_mod_count>4</sys_mod_count>
         <sys_name>Choose the event type(s)</sys_name>

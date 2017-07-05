@@ -6,7 +6,7 @@
         <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-26 08:03:49</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>f83afc1cdb4ff600c3beffa31d96190d</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>mdb styles.City Guide Add Event Material</sys_name>

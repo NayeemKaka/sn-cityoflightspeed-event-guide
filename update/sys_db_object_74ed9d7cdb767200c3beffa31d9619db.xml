@@ -21,7 +21,7 @@
         <sys_class_name>sys_db_object</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-15 15:23:26</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>74ed9d7cdb767200c3beffa31d9619db</sys_id>
         <sys_mod_count>17</sys_mod_count>
         <sys_name>Site</sys_name>

@@ -10,7 +10,7 @@
         <sys_class_name>sys_ui_macro</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-16 20:54:03</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>aa5a4095dbb2b200c3beffa31d961924</sys_id>
         <sys_mod_count>3</sys_mod_count>
         <sys_name>button_colors</sys_name>

@@ -17,7 +17,7 @@
         <sys_class_name>sys_transform_map</sys_class_name>
         <sys_created_by>tom.cullen</sys_created_by>
         <sys_created_on>2017-06-02 11:35:46</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>35dda9eadbcbfa0087c1fd441d96199f</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_snc_guide_ii_tmpl_eb_category2_xform</sys_name>

@@ -6,7 +6,7 @@
         <sys_class_name>sys_public</sys_class_name>
         <sys_created_by>dave.knight</sys_created_by>
         <sys_created_on>2017-05-18 19:21:04</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>6e780a71dbf6f200c3beffa31d96194a</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_snc_guide_event_list</sys_name>

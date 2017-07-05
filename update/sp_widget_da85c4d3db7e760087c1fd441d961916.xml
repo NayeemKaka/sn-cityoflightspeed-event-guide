@@ -414,7 +414,7 @@
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-23 01:40:11</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>da85c4d3db7e760087c1fd441d961916</sys_id>
         <sys_mod_count>194</sys_mod_count>
         <sys_name>City Guide Featured Events</sys_name>

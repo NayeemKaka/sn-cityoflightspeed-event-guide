@@ -6,7 +6,7 @@
         <sys_class_name>sp_js_include</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-18 20:42:59</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>8e0bda39db36f20087c1fd441d961929</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>Angular masonary</sys_name>

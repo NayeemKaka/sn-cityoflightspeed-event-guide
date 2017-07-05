@@ -455,7 +455,7 @@
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-17 20:42:47</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>408111eddbbab20087c1fd441d9619b1</sys_id>
         <sys_mod_count>506</sys_mod_count>
         <sys_name>City Guide List</sys_name>

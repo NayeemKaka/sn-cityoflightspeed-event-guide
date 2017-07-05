@@ -52,8 +52,8 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>tom.cullen</sys_created_by>
         <sys_created_on>2017-05-23 19:32:34</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
-        <sys_id>c7cafbd7db76b60087c1fd441d961926</sys_id>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>35cd7befdb6bf200c3beffa31d9619c5</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Photo URL</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
@@ -61,8 +61,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sys_dictionary_x_snc_guide_event_photo_url</sys_update_name>
-        <sys_updated_by>tom.cullen</sys_updated_by>
-        <sys_updated_on>2017-05-23 19:32:34</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2017-06-30 21:10:19</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

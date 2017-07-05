@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element label="Event" max_length="40" name="x_snc_guide_event" text_index="true" type="collection">
+    <element attributes="calendar_elements=start_date;name;" label="Event" max_length="40" name="x_snc_guide_event" text_index="true" type="collection">
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Cost" max_length="20" name="cost" type="currency"/>
         <element attributes="ts_weight=10" label="Description" max_length="2500" name="description" type="string"/>
@@ -14,7 +14,7 @@
         <element display="true" label="Name" mandatory="true" max_length="80" name="name" type="string"/>
         <element label="Photo" max_length="40" name="photo" type="user_image"/>
         <element label="Photo URL" max_length="1024" name="photo_url" type="url"/>
-        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;var answer = new LikeManager().calculateRatio(current.getValue('like'), current.getValue('dislike'));&#13;&#10;&#9;&#13;&#10;&#9;return answer;  // return the calculated value&#13;&#10;&#13;&#10;})(current);" default="0" label="Rating ratio" max_length="40" name="rating_ratio" read_only="true" type="float" virtual="true"/>
+        <element calculation="(function calculatedFieldValue(current) {&#10;&#10;&#9;var answer = new LikeManager().calculateRatio(current.getValue('like'), current.getValue('dislike'));&#10;&#9;&#10;&#9;return answer;  // return the calculated value&#10;&#10;})(current);" default="0" label="Rating ratio" max_length="40" name="rating_ratio" read_only="true" type="float" virtual="true"/>
         <element label="Site" mandatory="true" max_length="32" name="site" reference="x_snc_guide_site" reference_cascade_rule="cascade" type="reference"/>
         <element label="Start date" mandatory="true" max_length="40" name="start_date" type="glide_date_time"/>
         <element choice="3" default="Draft" label="State" max_length="40" name="state" type="choice">

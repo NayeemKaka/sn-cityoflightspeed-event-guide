@@ -8,7 +8,7 @@
         <sys_class_name>question_choice</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-15 20:48:15</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>c99f3e7cdb3a7200c3beffa31d96190a</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Boston, MA</sys_name>
