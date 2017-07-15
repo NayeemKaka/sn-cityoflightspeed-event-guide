@@ -4,32 +4,32 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>group</element>
-            <list_id display_value="sys_user_grmember" element="NULL" name="sys_user_grmember" parent="sys_user" relationship="NULL" sys_domain="global" view="Default view">1bb25415dbb3b600c3beffa31d961952</list_id>
+            <list_id display_value="sys_user_grmember" element="NULL" name="sys_user_grmember" parent="sys_user" relationship="NULL" sys_domain="global" view="Default view">1344a23adb337a00c3beffa31d961996</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-07-05 14:32:25</sys_created_on>
-            <sys_id>9fb25415dbb3b600c3beffa31d961952</sys_id>
+            <sys_created_on>2017-07-10 16:59:17</sys_created_on>
+            <sys_id>9744a23adb337a00c3beffa31d961996</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-07-05 14:32:25</sys_updated_on>
+            <sys_updated_on>2017-07-10 16:59:17</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>user</element>
-            <list_id display_value="sys_user_grmember" element="NULL" name="sys_user_grmember" parent="sys_user" relationship="NULL" sys_domain="global" view="Default view">1bb25415dbb3b600c3beffa31d961952</list_id>
+            <list_id display_value="sys_user_grmember" element="NULL" name="sys_user_grmember" parent="sys_user" relationship="NULL" sys_domain="global" view="Default view">1344a23adb337a00c3beffa31d961996</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-07-05 14:32:25</sys_created_on>
-            <sys_id>13b25415dbb3b600c3beffa31d961953</sys_id>
+            <sys_created_on>2017-07-10 16:59:17</sys_created_on>
+            <sys_id>1b44a23adb337a00c3beffa31d961996</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-07-05 14:32:25</sys_updated_on>
+            <sys_updated_on>2017-07-10 16:59:17</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>

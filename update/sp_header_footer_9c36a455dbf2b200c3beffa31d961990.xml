@@ -332,9 +332,9 @@
         <sys_class_name>sp_header_footer</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-16 22:54:45</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
+        <sys_customer_update>true</sys_customer_update>
         <sys_id>9c36a455dbf2b200c3beffa31d961990</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>City Guide Header</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -342,7 +342,7 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sp_header_footer_9c36a455dbf2b200c3beffa31d961990</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-06-13 21:51:11</sys_updated_on>
+        <sys_updated_on>2017-07-05 17:04:45</sys_updated_on>
         <template><![CDATA[<div ng-show="$root.title != 'home'" class="header-div">
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol viewBox="0 0 48 48" id="icon-down">
@@ -484,9 +484,9 @@
                             <li class="visible-xs-block">
                                 <a ng-click="c.addEvent()"></span>Add an event</a>
                             </li>
-                            <li class="visible-xs-block">
-                                <a ng-href="">${Profile}</a>
-                            </li>
+                           <!--  <li class="visible-xs-block">
+                                 <a ng-href="?id=user_profile&sys_id={{::user.sys_id}}">${Profile}</a>
+                            </li> -->
 
 
                             <li ng-if="user.logged_in" class="visible-xs-block"><a href="/logout.do?sysparm_goto_url=/guide?id=city_guide_featured_events">${Logout}</a></li>

@@ -414,9 +414,9 @@
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-23 01:40:11</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
+        <sys_customer_update>true</sys_customer_update>
         <sys_id>da85c4d3db7e760087c1fd441d961916</sys_id>
-        <sys_mod_count>194</sys_mod_count>
+        <sys_mod_count>195</sys_mod_count>
         <sys_name>City Guide Featured Events</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -424,7 +424,7 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sp_widget_da85c4d3db7e760087c1fd441d961916</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-06-13 17:45:19</sys_updated_on>
+        <sys_updated_on>2017-07-05 20:14:33</sys_updated_on>
         <template><![CDATA[<div class="list-page row">
     <!-- your widget template -->
     <!--<div class="tabs" hide-element hide-offset="60">-->
@@ -444,9 +444,10 @@
             <h4 class="text-center" ng-show="c.data.events.length == 0" aria-hidden="false">No Events Found</h4>
             <div class="each-weekend-event" ng-repeat="event in c.data.events">
                 <!--<img ng-src={{event.photo_url.display_value}} ng-click="c.gotoDetail(event)" />-->
-                <div ng-if="event.photo_url.display_value" class="event-image" ng-style="{'background-image':'url({{event.photo_url.display_value}})'}" ng-click="c.gotoDetail(event)"></div>
-                <div ng-if="!event.photo_url.display_value" class="event-image" ng-style="{'background-image':'url(events-placeholder.png)'}"></div>
-                <div class="description ">
+                <div ng-if="!event.photo.display_value && event.photo_url.display_value" class="event-image" ng-style="{'background-image':'url({{event.photo_url.display_value}})'}" ng-click="c.gotoDetail(event)"></div>
+                <div ng-if="!event.photo_url.display_value && !event.photo.display_value" class="event-image" ng-style="{'background-image':'url(events-placeholder.png)'}" ng-click="c.gotoDetail(event)"></div>
+              <div ng-if="event.photo.display_value" class="event-image" ng-style="{'background-image':'url({{event.photo.display_value}})'}" ng-click="c.gotoDetail(event)"></div>  
+              <div class="description ">
                     <p class="each-name ">{{event.name.display_value}}</p>
                     <p class="each-description ">{{c.truncateChars(event.description.display_value, 90)}}</p>
                     <div class="exp" ng-click="c.addToFavourite(event)" ng-class="{'fav-back':event.favourite}">

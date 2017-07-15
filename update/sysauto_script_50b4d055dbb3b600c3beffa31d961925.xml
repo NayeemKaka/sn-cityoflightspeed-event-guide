@@ -34,7 +34,8 @@ createSiteEvent(
 'Food',
 '110',
 '53b1e1a9dbfab20087c1fd441d961947',
-'https://cdn.evbuc.com/images/31746148/18589607695/1/original.jpg?rect=0%2C974%2C2668%2C1334&s=758173ed45ef0a13d70570eb96b0598c'
+'https://cdn.evbuc.com/images/31746148/18589607695/1/original.jpg?rect=0%2C974%2C2668%2C1334&s=758173ed45ef0a13d70570eb96b0598c',
+'true'
 );
 createSiteEvent(
 '28 Liberty',
@@ -50,7 +51,8 @@ createSiteEvent(
 'Food',
 '110',
 '53b1e1a9dbfab20087c1fd441d961947',
-'https://cdn.evbuc.com/images/29886902/110950509785/1/original.jpg?rect=31%2C241%2C528%2C264&s=416d7fa739288c786bfb0161d5561123'
+'https://cdn.evbuc.com/images/29886902/110950509785/1/original.jpg?rect=31%2C241%2C528%2C264&s=416d7fa739288c786bfb0161d5561123',
+'false'
 );
 //2 - Music
 createSiteEvent(
@@ -67,7 +69,8 @@ createSiteEvent(
 'Music',
 '103',
 '3e506969dbfab20087c1fd441d9619ac',
-'https://cdn.evbuc.com/images/31159008/211368237615/1/original.jpg?rect=0%2C87%2C512%2C256&s=72b9dbb23399349d102c2e99f50ec903'
+'https://cdn.evbuc.com/images/31159008/211368237615/1/original.jpg?rect=0%2C87%2C512%2C256&s=72b9dbb23399349d102c2e99f50ec903',
+'false'
 );
 createSiteEvent(
 'Milk River',
@@ -83,7 +86,8 @@ createSiteEvent(
 'Music',
 '103',
 '3e506969dbfab20087c1fd441d9619ac',
-'https://cdn.evbuc.com/images/31362784/148956914248/1/original.jpg?rect=0%2C14%2C300%2C150&s=1ad8f20aa89f1428db670a8afdcda62d'
+'https://cdn.evbuc.com/images/31362784/148956914248/1/original.jpg?rect=0%2C14%2C300%2C150&s=1ad8f20aa89f1428db670a8afdcda62d',
+'false'
 );
 //3 - Drama
 createSiteEvent(
@@ -100,7 +104,8 @@ createSiteEvent(
 'Drama',
 '105',
 'eb106969dbfab20087c1fd441d96196d',
-'https://cdn.evbuc.com/images/31993730/209866863049/1/original.jpg?rect=0%2C117%2C2048%2C1024&s=8ddc50ef66a800cab14d378517c8fe47'
+'https://cdn.evbuc.com/images/31993730/209866863049/1/original.jpg?rect=0%2C117%2C2048%2C1024&s=8ddc50ef66a800cab14d378517c8fe47',
+'false'
 );
 createSiteEvent(
 'Gelsey Kirkland',
@@ -116,7 +121,8 @@ createSiteEvent(
 'Drama',
 '105',
 'eb106969dbfab20087c1fd441d96196d',
-'https://cdn.evbuc.com/images/29698100/48101024606/1/original.jpg?rect=0%2C12%2C560%2C280&s=64e4144ad4025cedb8070c5a7665060f'
+'https://cdn.evbuc.com/images/29698100/48101024606/1/original.jpg?rect=0%2C12%2C560%2C280&s=64e4144ad4025cedb8070c5a7665060f',
+'false'
 );
 //4 - Sports
 createSiteEvent(
@@ -133,7 +139,8 @@ createSiteEvent(
 'Sports',
 '108',
 '50de1929dbfab20087c1fd441d96198f',
-'https://cdn.evbuc.com/images/31740981/113980723835/1/original.jpg?rect=0%2C428%2C2500%2C1250&s=e63c184a198e41cf36ce6e5eed5a226f'
+'https://cdn.evbuc.com/images/31740981/113980723835/1/original.jpg?rect=0%2C428%2C2500%2C1250&s=e63c184a198e41cf36ce6e5eed5a226f',
+'false'
 );
 //5 - Nature
 createSiteEvent(
@@ -150,14 +157,15 @@ createSiteEvent(
 'Nature',
 '109',
 'dc1161a9dbfab20087c1fd441d96199a',
-'https://cdn.evbuc.com/images/31258177/177717432406/1/original.jpg?rect=0%2C742%2C4000%2C2000&s=a4992384512cdbc7dcfd18a27854c964'
+'https://cdn.evbuc.com/images/31258177/177717432406/1/original.jpg?rect=0%2C742%2C4000%2C2000&s=a4992384512cdbc7dcfd18a27854c964',
+'false'
 );
 
 //////////////////////////////////////////////////////////////////////////////
 
 function createSiteEvent(s_name, s_placeId, s_location, s_url, s_vinicity,
 e_name, e_cost, e_description, e_url, eb_eventId,
-e_type, e_category, e_typelist, e_photoUrl) {
+e_type, e_category, e_typelist, e_photoUrl, e_featured) {
 	var gr = new GlideRecord('x_snc_guide_site');
 	gr.initialize();
 	gr.description = 'Created by: Run_me_first scheduled job';
@@ -175,6 +183,7 @@ e_type, e_category, e_typelist, e_photoUrl) {
 	ev.initialize();
 	ev.site = gr.sys_id;
 	ev.active = true;
+	ev.featured = e_featured;
 	ev.state = 'Draft';
 	var daysB = getRandomInt(0, 6);
 	ev.start_date = gs.daysAgo(-daysB);
@@ -192,19 +201,19 @@ e_type, e_category, e_typelist, e_photoUrl) {
 	ev.photo_url = e_photoUrl;
 	ev.insert();
 }
-
 //
 // Returns a random integer between min (included) and max (included)
 //
 function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
-}]]></script>
+}
+]]></script>
         <sys_class_name>sysauto_script</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-07-05 14:41:25</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>50b4d055dbb3b600c3beffa31d961925</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>RUN ME FIRST - City Guide Site/Event load</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -212,7 +221,7 @@ function getRandomInt(min, max) {
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sysauto_script_50b4d055dbb3b600c3beffa31d961925</sys_update_name>
         <sys_updated_by>tom.cullen</sys_updated_by>
-        <sys_updated_on>2017-07-05 16:00:46</sys_updated_on>
+        <sys_updated_on>2017-07-05 17:00:25</sys_updated_on>
         <upgrade_safe>false</upgrade_safe>
     </sysauto_script>
 </record_update>

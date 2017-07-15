@@ -110,6 +110,7 @@
             if (response.data.events.status == 'success') {
                 c.markers = JSON.parse(response.data.events.allevents);
                 c.markers.splice(0, 0, currentlocation);
+				console.log(c.markers);
             } else if (response.data.events.status == 'error') {
                 spUtil.addErrorMessage("Please install Google Maps Place Utility Application");
             }
@@ -229,7 +230,7 @@
             }
             data.events.status = 'success';
             data.events.allevents = maps.getNearbyEvents(input.lat, input.lng, 'food', 3000);
-            //console.log(data.events.allevents);
+            console.log(data.events.allevents);
         }
 
     }
@@ -238,9 +239,9 @@
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>sush.chandrashekar</sys_created_by>
         <sys_created_on>2017-05-20 05:12:43</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
+        <sys_customer_update>true</sys_customer_update>
         <sys_id>9b5991d6dbb2360087c1fd441d961968</sys_id>
-        <sys_mod_count>358</sys_mod_count>
+        <sys_mod_count>360</sys_mod_count>
         <sys_name>City Guide Map</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -248,7 +249,7 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sp_widget_9b5991d6dbb2360087c1fd441d961968</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-06-09 17:29:26</sys_updated_on>
+        <sys_updated_on>2017-07-05 17:13:17</sys_updated_on>
         <template><![CDATA[<div class="row near-by">
     <!--<div id="mapid"></div>-->
     <leaflet ng-show="!c.loading" lf-center="c.currentLocation" markers="c.markers | filter: c.filterType" tiles="c.tile" defaults="defaults"></leaflet>
