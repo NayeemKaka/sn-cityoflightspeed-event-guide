@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<record_update node_type="sys_grid_canvas" unload_date="2017-07-15 13:00:29">
+<record_update node_type="sys_grid_canvas" unload_date="2017-08-10 22:53:05">
     <sys_grid_canvas action="INSERT_OR_UPDATE">
         <legacy_page display_value="PA New Tab">184a1a62db4ffa0087c1fd441d96194e</legacy_page>
         <name>PA New Tab</name>
@@ -20,25 +20,131 @@
         <related_items_node>
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
-                <height>4</height>
-                <portal_widget display_value="Created 2017-06-08 11:21:50">6454cee8db53b20087c1fd441d9619e0</portal_widget>
-                <posx>0</posx>
-                <posy>4</posy>
+                <height>5</height>
+                <portal_widget display_value="Created 2017-07-19 06:27:14">8d1a8435db808300d6afffb41d961980</portal_widget>
+                <posx>8</posx>
+                <posy>0</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
-                <sys_created_by>chuck.tomasi</sys_created_by>
-                <sys_created_on>2017-06-08 18:21:50</sys_created_on>
+                <sys_created_by>tom.cullen</sys_created_by>
+                <sys_created_on>2017-07-19 13:27:14</sys_created_on>
                 <sys_customer_update>true</sys_customer_update>
-                <sys_id>2854022cdb53b20087c1fd441d96195f</sys_id>
-                <sys_mod_count>19</sys_mod_count>
+                <sys_id>051a4835db808300d6afffb41d9619eb</sys_id>
+                <sys_mod_count>20</sys_mod_count>
                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                 <sys_policy/>
                 <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
-                <sys_update_name>sys_grid_canvas_pane_2854022cdb53b20087c1fd441d96195f</sys_update_name>
+                <sys_update_name>sys_grid_canvas_pane_051a4835db808300d6afffb41d9619eb</sys_update_name>
                 <sys_updated_by>tom.cullen</sys_updated_by>
-                <sys_updated_on>2017-07-05 16:37:13</sys_updated_on>
-                <width>6</width>
+                <sys_updated_on>2017-07-20 10:31:27</sys_updated_on>
+                <width>4</width>
+                <related_items_node>
+                    <sys_portal action="INSERT_OR_UPDATE">
+                        <dropzone/>
+                        <offset/>
+                        <page display_value="PA New Tab">184a1a62db4ffa0087c1fd441d96194e</page>
+                        <summary>GoogleMaps Discovery Activity Daily Events Created</summary>
+                        <sys_created_by>tom.cullen</sys_created_by>
+                        <sys_created_on>2017-07-19 13:27:14</sys_created_on>
+                        <sys_id>8d1a8435db808300d6afffb41d961980</sys_id>
+                        <sys_mod_count>1</sys_mod_count>
+                        <sys_updated_by>tom.cullen</sys_updated_by>
+                        <sys_updated_on>2017-07-19 13:27:14</sys_updated_on>
+                        <related_items_node>
+                            <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
+                                <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
+                                <height>5</height>
+                                <portal_widget display_value="Created 2017-07-19 06:27:14">8d1a8435db808300d6afffb41d961980</portal_widget>
+                                <posx>8</posx>
+                                <posy>0</posy>
+                                <sys_class_name>sys_grid_canvas_pane</sys_class_name>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-19 13:27:14</sys_created_on>
+                                <sys_customer_update>true</sys_customer_update>
+                                <sys_id>051a4835db808300d6afffb41d9619eb</sys_id>
+                                <sys_mod_count>20</sys_mod_count>
+                                <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
+                                <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+                                <sys_policy/>
+                                <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+                                <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+                                <sys_update_name>sys_grid_canvas_pane_051a4835db808300d6afffb41d9619eb</sys_update_name>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-20 10:31:27</sys_updated_on>
+                                <width>4</width>
+                            </sys_grid_canvas_pane>
+                        </related_items_node>
+                        <related_items_node>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>renderer</name>
+                                <portal_section display_value="Created 2017-07-19 06:27:14">8d1a8435db808300d6afffb41d961980</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-19 13:27:14</sys_created_on>
+                                <sys_id>051a8435db808300d6afffb41d961982</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-19 13:27:14</sys_updated_on>
+                                <value>com.glide.ui.portal.RenderReport</value>
+                            </sys_portal_preferences>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>can_subscribe</name>
+                                <portal_section display_value="Created 2017-07-19 06:27:14">8d1a8435db808300d6afffb41d961980</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-19 13:27:14</sys_created_on>
+                                <sys_id>091a4835db808300d6afffb41d9619e9</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-19 13:27:14</sys_updated_on>
+                                <value>true</value>
+                            </sys_portal_preferences>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>sys_id</name>
+                                <portal_section display_value="Created 2017-07-19 06:27:14">8d1a8435db808300d6afffb41d961980</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-19 13:27:14</sys_created_on>
+                                <sys_id>091a8435db808300d6afffb41d961981</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-19 13:27:14</sys_updated_on>
+                                <value>5aa94435db808300d6afffb41d9619bd</value>
+                            </sys_portal_preferences>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>help_text_window</name>
+                                <portal_section display_value="Created 2017-07-19 06:27:14">8d1a8435db808300d6afffb41d961980</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-19 13:27:14</sys_created_on>
+                                <sys_id>491a8435db808300d6afffb41d961982</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-19 13:27:14</sys_updated_on>
+                                <value>report_widget_description</value>
+                            </sys_portal_preferences>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>report_type</name>
+                                <portal_section display_value="Created 2017-07-19 06:27:14">8d1a8435db808300d6afffb41d961980</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-19 13:27:14</sys_created_on>
+                                <sys_id>4d1a4835db808300d6afffb41d9619e9</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-19 13:27:14</sys_updated_on>
+                                <value>single_score</value>
+                            </sys_portal_preferences>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>title</name>
+                                <portal_section display_value="Created 2017-07-19 06:27:14">8d1a8435db808300d6afffb41d961980</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-19 13:27:14</sys_created_on>
+                                <sys_id>811a4835db808300d6afffb41d9619ea</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-19 13:27:14</sys_updated_on>
+                                <value>GoogleMaps Discovery Activity Daily Events Created</value>
+                            </sys_portal_preferences>
+                        </related_items_node>
+                    </sys_portal>
+                </related_items_node>
                 <related_items_node>
                     <sys_portal action="INSERT_OR_UPDATE">
                         <dropzone/>
@@ -54,16 +160,16 @@
                         <related_items_node>
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
-                                <height>4</height>
+                                <height>5</height>
                                 <portal_widget display_value="Created 2017-06-08 11:21:50">6454cee8db53b20087c1fd441d9619e0</portal_widget>
-                                <posx>0</posx>
-                                <posy>4</posy>
+                                <posx>8</posx>
+                                <posy>5</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
                                 <sys_created_by>chuck.tomasi</sys_created_by>
                                 <sys_created_on>2017-06-08 18:21:50</sys_created_on>
                                 <sys_customer_update>true</sys_customer_update>
                                 <sys_id>2854022cdb53b20087c1fd441d96195f</sys_id>
-                                <sys_mod_count>19</sys_mod_count>
+                                <sys_mod_count>38</sys_mod_count>
                                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                                 <sys_policy/>
@@ -71,8 +177,8 @@
                                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                                 <sys_update_name>sys_grid_canvas_pane_2854022cdb53b20087c1fd441d96195f</sys_update_name>
                                 <sys_updated_by>tom.cullen</sys_updated_by>
-                                <sys_updated_on>2017-07-05 16:37:13</sys_updated_on>
-                                <width>6</width>
+                                <sys_updated_on>2017-07-20 10:31:35</sys_updated_on>
+                                <width>4</width>
                             </sys_grid_canvas_pane>
                         </related_items_node>
                         <related_items_node>
@@ -160,16 +266,16 @@
                         <related_items_node>
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
-                                <height>10</height>
+                                <height>14</height>
                                 <portal_widget display_value="Created 2017-07-05 09:37:02">a44fe0d1dbf3b600c3beffa31d9619be</portal_widget>
                                 <posx>0</posx>
-                                <posy>17</posy>
+                                <posy>20</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
                                 <sys_created_by>tom.cullen</sys_created_by>
                                 <sys_created_on>2017-07-05 16:37:02</sys_created_on>
                                 <sys_customer_update>true</sys_customer_update>
                                 <sys_id>344fe0d1dbf3b600c3beffa31d9619c2</sys_id>
-                                <sys_mod_count>2</sys_mod_count>
+                                <sys_mod_count>29</sys_mod_count>
                                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                                 <sys_policy/>
@@ -177,7 +283,7 @@
                                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                                 <sys_update_name>sys_grid_canvas_pane_344fe0d1dbf3b600c3beffa31d9619c2</sys_update_name>
                                 <sys_updated_by>tom.cullen</sys_updated_by>
-                                <sys_updated_on>2017-07-05 16:37:21</sys_updated_on>
+                                <sys_updated_on>2017-07-20 10:31:54</sys_updated_on>
                                 <width>12</width>
                             </sys_grid_canvas_pane>
                         </related_items_node>
@@ -266,16 +372,16 @@
                         <related_items_node>
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
-                                <height>4</height>
+                                <height>5</height>
                                 <portal_widget display_value="Created 2017-06-08 11:21:40">d244cee8db53b20087c1fd441d96199c</portal_widget>
-                                <posx>6</posx>
-                                <posy>4</posy>
+                                <posx>0</posx>
+                                <posy>5</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
                                 <sys_created_by>chuck.tomasi</sys_created_by>
                                 <sys_created_on>2017-06-08 18:21:41</sys_created_on>
                                 <sys_customer_update>true</sys_customer_update>
                                 <sys_id>5644cee8db53b20087c1fd441d9619a0</sys_id>
-                                <sys_mod_count>17</sys_mod_count>
+                                <sys_mod_count>31</sys_mod_count>
                                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                                 <sys_policy/>
@@ -283,8 +389,8 @@
                                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                                 <sys_update_name>sys_grid_canvas_pane_5644cee8db53b20087c1fd441d9619a0</sys_update_name>
                                 <sys_updated_by>tom.cullen</sys_updated_by>
-                                <sys_updated_on>2017-07-05 16:37:13</sys_updated_on>
-                                <width>6</width>
+                                <sys_updated_on>2017-07-20 10:31:31</sys_updated_on>
+                                <width>4</width>
                             </sys_grid_canvas_pane>
                         </related_items_node>
                         <related_items_node>
@@ -372,16 +478,16 @@
                         <related_items_node>
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
-                                <height>4</height>
+                                <height>10</height>
                                 <portal_widget display_value="Created 2017-06-08 13:48:42">7be5eaa4db5bfe00c3beffa31d9619fe</portal_widget>
-                                <posx>6</posx>
+                                <posx>4</posx>
                                 <posy>0</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
                                 <sys_created_by>tom.cullen</sys_created_by>
                                 <sys_created_on>2017-06-08 20:48:42</sys_created_on>
                                 <sys_customer_update>true</sys_customer_update>
                                 <sys_id>73e52ea4db5bfe00c3beffa31d961902</sys_id>
-                                <sys_mod_count>8</sys_mod_count>
+                                <sys_mod_count>26</sys_mod_count>
                                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                                 <sys_policy/>
@@ -389,8 +495,8 @@
                                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                                 <sys_update_name>sys_grid_canvas_pane_73e52ea4db5bfe00c3beffa31d961902</sys_update_name>
                                 <sys_updated_by>tom.cullen</sys_updated_by>
-                                <sys_updated_on>2017-07-05 16:37:13</sys_updated_on>
-                                <width>6</width>
+                                <sys_updated_on>2017-07-20 10:31:27</sys_updated_on>
+                                <width>4</width>
                             </sys_grid_canvas_pane>
                         </related_items_node>
                         <related_items_node>
@@ -481,13 +587,13 @@
                                 <height>9</height>
                                 <portal_widget display_value="Created 2017-06-02 07:55:19">3c8b92a2db4ffa0087c1fd441d96196e</portal_widget>
                                 <posx>0</posx>
-                                <posy>8</posy>
+                                <posy>10</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
                                 <sys_created_by>tom.cullen</sys_created_by>
                                 <sys_created_on>2017-06-02 14:55:19</sys_created_on>
                                 <sys_customer_update>true</sys_customer_update>
                                 <sys_id>788b92a2db4ffa0087c1fd441d961971</sys_id>
-                                <sys_mod_count>37</sys_mod_count>
+                                <sys_mod_count>58</sys_mod_count>
                                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                                 <sys_policy/>
@@ -495,8 +601,8 @@
                                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                                 <sys_update_name>sys_grid_canvas_pane_788b92a2db4ffa0087c1fd441d961971</sys_update_name>
                                 <sys_updated_by>tom.cullen</sys_updated_by>
-                                <sys_updated_on>2017-07-05 16:37:21</sys_updated_on>
-                                <width>6</width>
+                                <sys_updated_on>2017-07-20 10:31:31</sys_updated_on>
+                                <width>4</width>
                             </sys_grid_canvas_pane>
                         </related_items_node>
                         <related_items_node>
@@ -574,6 +680,112 @@
                         <dropzone/>
                         <offset/>
                         <page display_value="PA New Tab">184a1a62db4ffa0087c1fd441d96194e</page>
+                        <summary>Events in Progress by Type</summary>
+                        <sys_created_by>tom.cullen</sys_created_by>
+                        <sys_created_on>2017-07-20 10:31:20</sys_created_on>
+                        <sys_id>826be006db8c8300d6afffb41d96196a</sys_id>
+                        <sys_mod_count>1</sys_mod_count>
+                        <sys_updated_by>tom.cullen</sys_updated_by>
+                        <sys_updated_on>2017-07-20 10:31:20</sys_updated_on>
+                        <related_items_node>
+                            <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
+                                <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
+                                <height>10</height>
+                                <portal_widget display_value="Created 2017-07-20 03:31:20">826be006db8c8300d6afffb41d96196a</portal_widget>
+                                <posx>4</posx>
+                                <posy>10</posy>
+                                <sys_class_name>sys_grid_canvas_pane</sys_class_name>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-20 10:31:20</sys_created_on>
+                                <sys_customer_update>true</sys_customer_update>
+                                <sys_id>826be406db8c8300d6afffb41d96196a</sys_id>
+                                <sys_mod_count>5</sys_mod_count>
+                                <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
+                                <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+                                <sys_policy/>
+                                <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+                                <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+                                <sys_update_name>sys_grid_canvas_pane_826be406db8c8300d6afffb41d96196a</sys_update_name>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-20 10:31:54</sys_updated_on>
+                                <width>4</width>
+                            </sys_grid_canvas_pane>
+                        </related_items_node>
+                        <related_items_node>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>title</name>
+                                <portal_section display_value="Created 2017-07-20 03:31:20">826be006db8c8300d6afffb41d96196a</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-20 10:31:20</sys_created_on>
+                                <sys_id>026be406db8c8300d6afffb41d961969</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-20 10:31:20</sys_updated_on>
+                                <value>Events in Progress by Type</value>
+                            </sys_portal_preferences>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>renderer</name>
+                                <portal_section display_value="Created 2017-07-20 03:31:20">826be006db8c8300d6afffb41d96196a</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-20 10:31:20</sys_created_on>
+                                <sys_id>0e6be406db8c8300d6afffb41d961967</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-20 10:31:20</sys_updated_on>
+                                <value>com.glide.ui.portal.RenderReport</value>
+                            </sys_portal_preferences>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>help_text_window</name>
+                                <portal_section display_value="Created 2017-07-20 03:31:20">826be006db8c8300d6afffb41d96196a</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-20 10:31:20</sys_created_on>
+                                <sys_id>426be406db8c8300d6afffb41d961968</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-20 10:31:20</sys_updated_on>
+                                <value>report_widget_description</value>
+                            </sys_portal_preferences>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>can_subscribe</name>
+                                <portal_section display_value="Created 2017-07-20 03:31:20">826be006db8c8300d6afffb41d96196a</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-20 10:31:20</sys_created_on>
+                                <sys_id>866be406db8c8300d6afffb41d961968</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-20 10:31:20</sys_updated_on>
+                                <value>true</value>
+                            </sys_portal_preferences>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>sys_id</name>
+                                <portal_section display_value="Created 2017-07-20 03:31:20">826be006db8c8300d6afffb41d96196a</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-20 10:31:20</sys_created_on>
+                                <sys_id>8e6be406db8c8300d6afffb41d961966</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-20 10:31:20</sys_updated_on>
+                                <value>22baacc2db8c8300d6afffb41d961948</value>
+                            </sys_portal_preferences>
+                            <sys_portal_preferences action="INSERT_OR_UPDATE">
+                                <name>report_type</name>
+                                <portal_section display_value="Created 2017-07-20 03:31:20">826be006db8c8300d6afffb41d96196a</portal_section>
+                                <sys_created_by>tom.cullen</sys_created_by>
+                                <sys_created_on>2017-07-20 10:31:20</sys_created_on>
+                                <sys_id>ca6be406db8c8300d6afffb41d961968</sys_id>
+                                <sys_mod_count>0</sys_mod_count>
+                                <sys_updated_by>tom.cullen</sys_updated_by>
+                                <sys_updated_on>2017-07-20 10:31:20</sys_updated_on>
+                                <value>bar</value>
+                            </sys_portal_preferences>
+                        </related_items_node>
+                    </sys_portal>
+                </related_items_node>
+                <related_items_node>
+                    <sys_portal action="INSERT_OR_UPDATE">
+                        <dropzone/>
+                        <offset/>
+                        <page display_value="PA New Tab">184a1a62db4ffa0087c1fd441d96194e</page>
                         <summary>All Active Events</summary>
                         <sys_created_by>tom.cullen</sys_created_by>
                         <sys_created_on>2017-06-08 20:41:55</sys_created_on>
@@ -584,7 +796,7 @@
                         <related_items_node>
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
-                                <height>4</height>
+                                <height>5</height>
                                 <portal_widget display_value="Created 2017-06-08 13:41:55">7c646a64db5bfe00c3beffa31d9619cc</portal_widget>
                                 <posx>0</posx>
                                 <posy>0</posy>
@@ -593,7 +805,7 @@
                                 <sys_created_on>2017-06-08 20:41:55</sys_created_on>
                                 <sys_customer_update>true</sys_customer_update>
                                 <sys_id>bc646a64db5bfe00c3beffa31d9619d0</sys_id>
-                                <sys_mod_count>10</sys_mod_count>
+                                <sys_mod_count>22</sys_mod_count>
                                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                                 <sys_policy/>
@@ -601,8 +813,8 @@
                                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                                 <sys_update_name>sys_grid_canvas_pane_bc646a64db5bfe00c3beffa31d9619d0</sys_update_name>
                                 <sys_updated_by>tom.cullen</sys_updated_by>
-                                <sys_updated_on>2017-07-05 16:37:13</sys_updated_on>
-                                <width>6</width>
+                                <sys_updated_on>2017-07-20 10:31:31</sys_updated_on>
+                                <width>4</width>
                             </sys_grid_canvas_pane>
                         </related_items_node>
                         <related_items_node>
@@ -769,14 +981,14 @@
                                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
                                 <height>9</height>
                                 <portal_widget display_value="Created 2017-06-19 12:47:47">32710300db27760087c1fd441d9619d1</portal_widget>
-                                <posx>6</posx>
-                                <posy>8</posy>
+                                <posx>8</posx>
+                                <posy>10</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
                                 <sys_created_by>chuck.tomasi</sys_created_by>
                                 <sys_created_on>2017-06-19 19:47:47</sys_created_on>
                                 <sys_customer_update>true</sys_customer_update>
                                 <sys_id>f2718300db27760087c1fd441d961918</sys_id>
-                                <sys_mod_count>5</sys_mod_count>
+                                <sys_mod_count>33</sys_mod_count>
                                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                                 <sys_policy/>
@@ -784,8 +996,8 @@
                                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                                 <sys_update_name>sys_grid_canvas_pane_f2718300db27760087c1fd441d961918</sys_update_name>
                                 <sys_updated_by>tom.cullen</sys_updated_by>
-                                <sys_updated_on>2017-07-05 16:37:21</sys_updated_on>
-                                <width>6</width>
+                                <sys_updated_on>2017-07-20 10:31:50</sys_updated_on>
+                                <width>4</width>
                             </sys_grid_canvas_pane>
                         </related_items_node>
                         <related_items_node>
@@ -861,16 +1073,38 @@
             </sys_grid_canvas_pane>
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
-                <height>10</height>
+                <height>5</height>
+                <portal_widget display_value="Created 2017-06-08 11:21:50">6454cee8db53b20087c1fd441d9619e0</portal_widget>
+                <posx>8</posx>
+                <posy>5</posy>
+                <sys_class_name>sys_grid_canvas_pane</sys_class_name>
+                <sys_created_by>chuck.tomasi</sys_created_by>
+                <sys_created_on>2017-06-08 18:21:50</sys_created_on>
+                <sys_customer_update>true</sys_customer_update>
+                <sys_id>2854022cdb53b20087c1fd441d96195f</sys_id>
+                <sys_mod_count>38</sys_mod_count>
+                <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
+                <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+                <sys_policy/>
+                <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+                <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+                <sys_update_name>sys_grid_canvas_pane_2854022cdb53b20087c1fd441d96195f</sys_update_name>
+                <sys_updated_by>tom.cullen</sys_updated_by>
+                <sys_updated_on>2017-07-20 10:31:35</sys_updated_on>
+                <width>4</width>
+            </sys_grid_canvas_pane>
+            <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
+                <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
+                <height>14</height>
                 <portal_widget display_value="Created 2017-07-05 09:37:02">a44fe0d1dbf3b600c3beffa31d9619be</portal_widget>
                 <posx>0</posx>
-                <posy>17</posy>
+                <posy>20</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
                 <sys_created_by>tom.cullen</sys_created_by>
                 <sys_created_on>2017-07-05 16:37:02</sys_created_on>
                 <sys_customer_update>true</sys_customer_update>
                 <sys_id>344fe0d1dbf3b600c3beffa31d9619c2</sys_id>
-                <sys_mod_count>2</sys_mod_count>
+                <sys_mod_count>29</sys_mod_count>
                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                 <sys_policy/>
@@ -878,21 +1112,21 @@
                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                 <sys_update_name>sys_grid_canvas_pane_344fe0d1dbf3b600c3beffa31d9619c2</sys_update_name>
                 <sys_updated_by>tom.cullen</sys_updated_by>
-                <sys_updated_on>2017-07-05 16:37:21</sys_updated_on>
+                <sys_updated_on>2017-07-20 10:31:54</sys_updated_on>
                 <width>12</width>
             </sys_grid_canvas_pane>
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
-                <height>4</height>
+                <height>5</height>
                 <portal_widget display_value="Created 2017-06-08 11:21:40">d244cee8db53b20087c1fd441d96199c</portal_widget>
-                <posx>6</posx>
-                <posy>4</posy>
+                <posx>0</posx>
+                <posy>5</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
                 <sys_created_by>chuck.tomasi</sys_created_by>
                 <sys_created_on>2017-06-08 18:21:41</sys_created_on>
                 <sys_customer_update>true</sys_customer_update>
                 <sys_id>5644cee8db53b20087c1fd441d9619a0</sys_id>
-                <sys_mod_count>17</sys_mod_count>
+                <sys_mod_count>31</sys_mod_count>
                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                 <sys_policy/>
@@ -900,21 +1134,21 @@
                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                 <sys_update_name>sys_grid_canvas_pane_5644cee8db53b20087c1fd441d9619a0</sys_update_name>
                 <sys_updated_by>tom.cullen</sys_updated_by>
-                <sys_updated_on>2017-07-05 16:37:13</sys_updated_on>
-                <width>6</width>
+                <sys_updated_on>2017-07-20 10:31:31</sys_updated_on>
+                <width>4</width>
             </sys_grid_canvas_pane>
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
-                <height>4</height>
+                <height>10</height>
                 <portal_widget display_value="Created 2017-06-08 13:48:42">7be5eaa4db5bfe00c3beffa31d9619fe</portal_widget>
-                <posx>6</posx>
+                <posx>4</posx>
                 <posy>0</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
                 <sys_created_by>tom.cullen</sys_created_by>
                 <sys_created_on>2017-06-08 20:48:42</sys_created_on>
                 <sys_customer_update>true</sys_customer_update>
                 <sys_id>73e52ea4db5bfe00c3beffa31d961902</sys_id>
-                <sys_mod_count>8</sys_mod_count>
+                <sys_mod_count>26</sys_mod_count>
                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                 <sys_policy/>
@@ -922,21 +1156,21 @@
                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                 <sys_update_name>sys_grid_canvas_pane_73e52ea4db5bfe00c3beffa31d961902</sys_update_name>
                 <sys_updated_by>tom.cullen</sys_updated_by>
-                <sys_updated_on>2017-07-05 16:37:13</sys_updated_on>
-                <width>6</width>
+                <sys_updated_on>2017-07-20 10:31:27</sys_updated_on>
+                <width>4</width>
             </sys_grid_canvas_pane>
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
                 <height>9</height>
                 <portal_widget display_value="Created 2017-06-02 07:55:19">3c8b92a2db4ffa0087c1fd441d96196e</portal_widget>
                 <posx>0</posx>
-                <posy>8</posy>
+                <posy>10</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
                 <sys_created_by>tom.cullen</sys_created_by>
                 <sys_created_on>2017-06-02 14:55:19</sys_created_on>
                 <sys_customer_update>true</sys_customer_update>
                 <sys_id>788b92a2db4ffa0087c1fd441d961971</sys_id>
-                <sys_mod_count>37</sys_mod_count>
+                <sys_mod_count>58</sys_mod_count>
                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                 <sys_policy/>
@@ -944,12 +1178,34 @@
                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                 <sys_update_name>sys_grid_canvas_pane_788b92a2db4ffa0087c1fd441d961971</sys_update_name>
                 <sys_updated_by>tom.cullen</sys_updated_by>
-                <sys_updated_on>2017-07-05 16:37:21</sys_updated_on>
-                <width>6</width>
+                <sys_updated_on>2017-07-20 10:31:31</sys_updated_on>
+                <width>4</width>
             </sys_grid_canvas_pane>
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
-                <height>4</height>
+                <height>10</height>
+                <portal_widget display_value="Created 2017-07-20 03:31:20">826be006db8c8300d6afffb41d96196a</portal_widget>
+                <posx>4</posx>
+                <posy>10</posy>
+                <sys_class_name>sys_grid_canvas_pane</sys_class_name>
+                <sys_created_by>tom.cullen</sys_created_by>
+                <sys_created_on>2017-07-20 10:31:20</sys_created_on>
+                <sys_customer_update>true</sys_customer_update>
+                <sys_id>826be406db8c8300d6afffb41d96196a</sys_id>
+                <sys_mod_count>5</sys_mod_count>
+                <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
+                <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
+                <sys_policy/>
+                <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+                <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
+                <sys_update_name>sys_grid_canvas_pane_826be406db8c8300d6afffb41d96196a</sys_update_name>
+                <sys_updated_by>tom.cullen</sys_updated_by>
+                <sys_updated_on>2017-07-20 10:31:54</sys_updated_on>
+                <width>4</width>
+            </sys_grid_canvas_pane>
+            <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
+                <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
+                <height>5</height>
                 <portal_widget display_value="Created 2017-06-08 13:41:55">7c646a64db5bfe00c3beffa31d9619cc</portal_widget>
                 <posx>0</posx>
                 <posy>0</posy>
@@ -958,7 +1214,7 @@
                 <sys_created_on>2017-06-08 20:41:55</sys_created_on>
                 <sys_customer_update>true</sys_customer_update>
                 <sys_id>bc646a64db5bfe00c3beffa31d9619d0</sys_id>
-                <sys_mod_count>10</sys_mod_count>
+                <sys_mod_count>22</sys_mod_count>
                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                 <sys_policy/>
@@ -966,21 +1222,21 @@
                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                 <sys_update_name>sys_grid_canvas_pane_bc646a64db5bfe00c3beffa31d9619d0</sys_update_name>
                 <sys_updated_by>tom.cullen</sys_updated_by>
-                <sys_updated_on>2017-07-05 16:37:13</sys_updated_on>
-                <width>6</width>
+                <sys_updated_on>2017-07-20 10:31:31</sys_updated_on>
+                <width>4</width>
             </sys_grid_canvas_pane>
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
                 <height>9</height>
                 <portal_widget display_value="Created 2017-06-19 12:47:47">32710300db27760087c1fd441d9619d1</portal_widget>
-                <posx>6</posx>
-                <posy>8</posy>
+                <posx>8</posx>
+                <posy>10</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
                 <sys_created_by>chuck.tomasi</sys_created_by>
                 <sys_created_on>2017-06-19 19:47:47</sys_created_on>
                 <sys_customer_update>true</sys_customer_update>
                 <sys_id>f2718300db27760087c1fd441d961918</sys_id>
-                <sys_mod_count>5</sys_mod_count>
+                <sys_mod_count>33</sys_mod_count>
                 <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
                 <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
                 <sys_policy/>
@@ -988,8 +1244,8 @@
                 <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
                 <sys_update_name>sys_grid_canvas_pane_f2718300db27760087c1fd441d961918</sys_update_name>
                 <sys_updated_by>tom.cullen</sys_updated_by>
-                <sys_updated_on>2017-07-05 16:37:21</sys_updated_on>
-                <width>6</width>
+                <sys_updated_on>2017-07-20 10:31:50</sys_updated_on>
+                <width>4</width>
             </sys_grid_canvas_pane>
         </related_items_node>
     </sys_grid_canvas>

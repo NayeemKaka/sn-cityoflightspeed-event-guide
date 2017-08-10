@@ -211,7 +211,7 @@ function getRandomInt(min, max) {
         <sys_class_name>sysauto_script</sys_class_name>
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-07-05 14:41:25</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>50b4d055dbb3b600c3beffa31d961925</sys_id>
         <sys_mod_count>5</sys_mod_count>
         <sys_name>RUN ME FIRST - City Guide Site/Event load</sys_name>

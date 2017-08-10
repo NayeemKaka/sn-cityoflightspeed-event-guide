@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element label="Hours" max_length="40" name="x_snc_guide_hours" type="collection">
+    <element label="Hours" max_length="40" name="x_snc_guide_hours" sizeclass="5523" type="collection">
         <element calculation="(function calculatedFieldValue(current) {&#10;&#10;&#9;var timeStr = current.close_hour + ':' + current.close_minute + ':00';&#10;&#9;&#10;&#9;return timeStr;  // return the calculated value&#10;&#10;})(current);" label="Close" max_length="40" name="close" read_only="true" type="glide_time" virtual="true"/>
         <element choice="3" choice_field="open_hour" choice_table="x_snc_guide_hours" default="17" label="Close hour" max_length="40" name="close_hour" type="integer">
             <choice>

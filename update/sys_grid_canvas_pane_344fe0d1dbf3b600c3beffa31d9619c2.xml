@@ -2,16 +2,16 @@
 <record_update table="sys_grid_canvas_pane">
     <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
         <grid_canvas display_value="PA New Tab">544a1a62db4ffa0087c1fd441d96194f</grid_canvas>
-        <height>10</height>
+        <height>14</height>
         <portal_widget display_value="Created 2017-07-05 09:37:02">a44fe0d1dbf3b600c3beffa31d9619be</portal_widget>
         <posx>0</posx>
-        <posy>17</posy>
+        <posy>20</posy>
         <sys_class_name>sys_grid_canvas_pane</sys_class_name>
         <sys_created_by>tom.cullen</sys_created_by>
         <sys_created_on>2017-07-05 16:37:02</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>344fe0d1dbf3b600c3beffa31d9619c2</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>544a1a62db4ffa0087c1fd441d96194f</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -19,7 +19,7 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sys_grid_canvas_pane_344fe0d1dbf3b600c3beffa31d9619c2</sys_update_name>
         <sys_updated_by>tom.cullen</sys_updated_by>
-        <sys_updated_on>2017-07-05 16:37:21</sys_updated_on>
+        <sys_updated_on>2017-07-20 10:31:54</sys_updated_on>
         <width>12</width>
     </sys_grid_canvas_pane>
 </record_update>

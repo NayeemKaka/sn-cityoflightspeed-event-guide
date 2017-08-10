@@ -53,7 +53,7 @@
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2017-05-15 15:50:50</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>70cd7befdb6bf200c3beffa31d961902</sys_id>
+        <sys_id>2330bbd0db0ccb0087c1fd441d961928</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Open minute</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
@@ -62,7 +62,7 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sys_dictionary_x_snc_guide_hours_open_minute</sys_update_name>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2017-06-30 21:10:27</sys_updated_on>
+        <sys_updated_on>2017-07-15 14:22:25</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

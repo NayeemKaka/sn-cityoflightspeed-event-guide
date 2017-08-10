@@ -188,8 +188,8 @@
         line-height: 1;&#13;
     }&#13;
     .search-icon {&#13;
-        width: 29px;&#13;
-        height: 29px;&#13;
+        width: 24px;&#13;
+        height: 24px;&#13;
         fill: #fff;&#13;
         stroke: #fff;&#13;
     }&#13;
@@ -252,7 +252,7 @@
 &#13;
 .navbar-brand {&#13;
     font-weight: 600;&#13;
-  font-size:24px;&#13;
+  font-size:22px;&#13;
 }&#13;
 &#13;
 .user-block {&#13;
@@ -334,7 +334,7 @@
         <sys_created_on>2017-05-16 22:54:45</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>9c36a455dbf2b200c3beffa31d961990</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>City Guide Header</sys_name>
         <sys_package display_value="Guide" source="x_snc_guide">e95995f8db767200c3beffa31d9619fc</sys_package>
         <sys_policy/>
@@ -342,7 +342,7 @@
         <sys_scope display_value="Guide">e95995f8db767200c3beffa31d9619fc</sys_scope>
         <sys_update_name>sp_header_footer_9c36a455dbf2b200c3beffa31d961990</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-07-05 17:04:45</sys_updated_on>
+        <sys_updated_on>2017-08-10 21:22:51</sys_updated_on>
         <template><![CDATA[<div ng-show="$root.title != 'home'" class="header-div">
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol viewBox="0 0 48 48" id="icon-down">
